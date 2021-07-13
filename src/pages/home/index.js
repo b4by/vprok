@@ -6,11 +6,8 @@ import { Text, PlayButon, DachaText, } from './styled'
 
 function useScreenOrientation() {
   const [orientation, setOrientation] = useState(window.screen.orientation.type);
- console.log('@@@', orientation)
 
-  useLayoutEffect(() => {
-    console.log('window.screen.orientation.type', window.screen.orientation.type)
-    
+  useLayoutEffect(() => {    
     const handleOrientationChange= () => setOrientation(window.screen.orientation.type);
     window.addEventListener('orientationchange', handleOrientationChange);
     return () => window.removeEventListener('orientationchange', handleOrientationChange);
