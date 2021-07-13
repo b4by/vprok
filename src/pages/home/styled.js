@@ -33,7 +33,7 @@ export const Content = styled.div`
     height: 563px;
     background-image: url(${contentBg});
     margin: auto;
-    padding-top: 202px;
+    padding-top: 51px;
 `;
 
 export const Text = styled.div`
@@ -42,6 +42,7 @@ export const Text = styled.div`
     margin: 0 auto;
     z-index: 2;
     white-space: pre-line;
+    margin-bottom: 17px;
     
     font-family: Roboto;
     font-style: normal;
@@ -56,5 +57,18 @@ export const Text = styled.div`
 `;
 
 export const PlayButon = styled.div`
-    
+    margin: 0 auto;
+    width: 138px;
+    height: 140px;
+    background-image: url(${play});
+
+    &:active, &:hover {
+        background-image: url(${playActive});
+    }
+`;
+
+export const DachaText = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
 `;
