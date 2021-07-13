@@ -23,7 +23,22 @@ export const HomeContainer = styled.div`
 `;
 
 export const LogoContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
     margin-left: 32px;
+`;
+
+export const StoreIcon = styled.div`
+    width: 21px;
+    height: 21px;
+`;
+
+export const StoreIcons = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 21px);  
+    grid-column-gap: 3px;
+    grid-row-gap: 21px;
+    margin-right: 32px;
 `;
 
 export const Content = styled.div`
