@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import bgMobile from 'img/start-bg-mobile.png'
-import contentBg from 'img/content-bg.svg'
 
 export const HomeContainer = styled.div`
     display: flex;
@@ -43,6 +42,7 @@ export const Content = styled.div`
     box-sizing: border-box;
     width: 318px;
     height: 563px;
-    background-image: url(${contentBg});
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 166.5px;
     margin: auto;
 `;
