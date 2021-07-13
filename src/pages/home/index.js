@@ -1,29 +1,30 @@
-import React from 'react'
-import { ReactComponent as Logo } from 'img/logo.svg'
+import React, { useState, useLayoutEffect } from 'react'
+import StartScreen from 'components/StartScreen'
+import PortraitScreen from 'components/PortraitScreen'
 import { ReactComponent as Dacha } from 'img/dacha-text.svg'
-import { ReactComponent as Huawei } from 'img/huawei-store.svg'
-import { ReactComponent as Apple } from 'img/apple-store.svg'
-import { ReactComponent as Google } from 'img/google-play.svg'
-import { HomeContainer, LogoContainer, Content, Text, PlayButon, DachaText, StoreIcons, StoreIcon } from './styled'
+import { Text, PlayButon, DachaText, } from './styled'
+
+function useScreenOrientation() {
+  const [orientation, setOrientation] = useState(window.screen.orientation.type);
+ console.log('@@@', orientation)
+
+  useLayoutEffect(() => {
+    console.log('window.screen.orientation.type', window.screen.orientation.type)
+    
+    const handleOrientationChange= () => setOrientation(window.screen.orientation.type);
+    window.addEventListener('orientationchange', handleOrientationChange);
+    return () => window.removeEventListener('orientationchange', handleOrientationChange);
+  }, []);
+
+  return orientation;
+};
 
 export default function Home() {
+  const orientation = useScreenOrientation();
   return (
-    <HomeContainer>
-      <LogoContainer>
-        <Logo />
-        <StoreIcons>
-          <StoreIcon>
-            <Huawei />
-          </StoreIcon>
-          <StoreIcon>
-            <Apple />
-          </StoreIcon>
-          <StoreIcon>
-            <Google />
-          </StoreIcon>
-        </StoreIcons>
-      </LogoContainer>
-      <Content>
+    <>
+      { (orientation === 'portrait-secondary' || orientation === 'portrait-primary' )&& <PortraitScreen />}
+      <StartScreen>
         <DachaText>
           <Dacha />
         </DachaText>
@@ -35,7 +36,7 @@ export default function Home() {
           промокоды!`}}>
         </Text>
         <PlayButon />
-      </Content>
-    </HomeContainer>
+      </StartScreen>
+    </>
   )
 }

@@ -3,10 +3,11 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
-import Home from './pages/home'
+import Home from './pages/Home'
 
 function App() {
  return (
+   <>
     <Router>
         <Switch>
           <Route path="/about">
@@ -20,6 +21,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
+    </>
  );
 }
 
