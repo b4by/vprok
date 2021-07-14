@@ -1,38 +1,47 @@
-import React, { useState, useLayoutEffect } from 'react'
-import StartScreen from 'components/StartScreen'
-import PortraitScreen from 'components/PortraitScreen'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import StartScreen from 'components/start-screen'
 import { ReactComponent as Dacha } from 'img/dacha-text.svg'
-import { Text, PlayButon, DachaText, } from './styled'
-
-function useScreenOrientation() {
-  const [orientation, setOrientation] = useState(window.screen.orientation.type);
-
-  useLayoutEffect(() => {    
-    const handleOrientationChange= () => setOrientation(window.screen.orientation.type);
-    window.addEventListener('orientationchange', handleOrientationChange);
-    return () => window.removeEventListener('orientationchange', handleOrientationChange);
-  }, []);
-
-  return orientation;
-};
+import { ReactComponent as DachaDesk } from 'img/dacha-text-desk.svg'
+import { ReactComponent as DachaTablet } from 'img/dacha-text-tablet.svg'
+import { TextMobile, PlayButon, DachaText, TextTablet, DachaTextTablet, DachaTextDesk, TextDesktop} from './styled'
 
 export default function Home() {
-  const orientation = useScreenOrientation();
   return (
     <>
-      { (orientation === 'portrait-secondary' || orientation === 'portrait-primary' )&& <PortraitScreen />}
       <StartScreen>
         <DachaText>
           <Dacha />
         </DachaText>
-        <Text dangerouslySetInnerHTML={{__html:`Вся семья отдыхает на даче. Помогите домочадцам найти потерянные предметы и получите скидку на заказ 
+        <DachaTextTablet>
+          <DachaTablet />
+        </DachaTextTablet>
+        <DachaTextDesk>
+          <DachaDesk />
+        </DachaTextDesk>
+        <TextMobile dangerouslySetInnerHTML={{__html:`Вся семья отдыхает на даче. Помогите домочадцам найти потерянные предметы и получите скидку на заказ 
           <strong>в Перекрёстке Впрок.</strong>
           
           Самым быстрым и ловким — товары 
           за один рубль и дополнительные 
           промокоды!`}}>
-        </Text>
-        <PlayButon />
+        </TextMobile>
+        <TextTablet dangerouslySetInnerHTML={{__html:`Вся семья отдыхает на даче. Помогите домочадцам найти 
+          потерянные предметы и получите скидку на заказ 
+          в приложении <strong>Перекрёсток Впрок</strong>. 
+
+          Самым быстрым и ловким — товары 
+          за один рубль и дополнительные промокоды!
+          `}}>
+        </TextTablet>
+        <TextDesktop dangerouslySetInnerHTML={{__html:`Вся семья отдыхает на даче. Помогите домочадцам найти потерянные предметы и получите скидку на заказ в приложении Перекрёсток Впрок. 
+
+        Самым быстрым и ловким — товары 
+        за один рубль и дополнительные промокоды!
+        `}} />
+        <Link replace to="/game">
+          <PlayButon />
+        </Link>
       </StartScreen>
     </>
   )

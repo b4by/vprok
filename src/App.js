@@ -3,18 +3,16 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
-import Home from './pages/Home'
+import Home from './pages/home'
+import Game from './pages/game'
 
 function App() {
  return (
    <>
     <Router>
         <Switch>
-          <Route path="/about">
-            <div />
-          </Route>
-          <Route path="/users">
-            <div />
+          <Route path="/game">
+            <Game />
           </Route>
           <Route path="/">
             <Home />

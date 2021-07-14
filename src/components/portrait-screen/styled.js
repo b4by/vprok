@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { breakpoints } from 'helpers/breakpoints'
 
 const fadeIn = keyframes`
   0% {
@@ -21,6 +22,11 @@ export const Content = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
+    background-color: #FDFDDB;
+
+    ${breakpoints.desktop} {
+        display: none;
+    }
 `;
 
 export const IconsPhone = styled.div`
@@ -30,7 +36,7 @@ export const IconsPhone = styled.div`
     & svg {
         animation-name: ${fadeIn};
         animation-duration: 2s;
-        animation-fill-mode: forwards;
+        animation-fill-mode: forwards;;
     }
 `;
 

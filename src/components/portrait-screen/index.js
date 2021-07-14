@@ -1,5 +1,5 @@
 import React from 'react'
-import StartScreen from 'components/StartScreen'
+import StartScreen from 'components/start-screen'
 import {ReactComponent as Phone}  from 'img/change-orientation.svg'
 import { Content, Text, IconsPhone } from './styled'
 
