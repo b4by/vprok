@@ -6,7 +6,7 @@ import { ReactComponent as DachaDesk } from 'img/dacha-text-desk.svg'
 import { ReactComponent as DachaTablet } from 'img/dacha-text-tablet.svg'
 import { TextMobile, PlayButon, DachaText, TextTablet, DachaTextTablet, DachaTextDesk, TextDesktop} from './styled'
 
-export default function Home({ audioRef }) {
+export default function Home() {
   return (
     <>
       <StartScreen>
@@ -40,9 +40,7 @@ export default function Home({ audioRef }) {
         за один рубль и дополнительные промокоды!
         `}} />
         <Link replace to="/game">
-          <PlayButon onClick={() => { 
-            audioRef.current.play();
-          }}/>
+          <PlayButon />
         </Link>
       </StartScreen>
     </>

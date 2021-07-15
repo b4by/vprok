@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,18 +8,22 @@ import Home from './pages/home'
 import Game from './pages/game'
 
 function App() {
- const audioRef = useRef(null);
+//  const audioRef = useRef(null);
+
+//   useEffect(() => {
+//       audioRef.current.play();
+//   }, []);
 
  return (
    <>
-    <audio src="audio/intro.mp3" ref={audioRef} controls autoPlay allow="autoplay" loop style={{ display: 'none'}}></audio>
+    {/* <audio src="audio/intro.mp3" ref={audioRef} controls autoPlay allow="autoplay" loop style={{ display: 'none'}}></audio> */}
     <Router>
         <Switch>
           <Route path="/game">
             <Game />
           </Route>
           <Route path="/">
-            <Home audioRef={audioRef} />
+            <Home />
           </Route>
         </Switch>
     </Router>
