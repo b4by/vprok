@@ -8,6 +8,7 @@ export default function useMaxWidthRatio() {
     window.addEventListener('resize', handleHeightChange);
     return () => window.removeEventListener('resize', handleHeightChange);
   }, []);
-
+  // https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/
+  
   return maxWidth;
 };
