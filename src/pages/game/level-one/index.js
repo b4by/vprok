@@ -1,6 +1,7 @@
 import React from 'react'
 import useMaxWidthRatio from 'hooks/useMaxWidthRatio'
-import { Wrapper, Scene, Background, Item1, Item2, Item3, Timer } from './styled'
+import { Wrapper, Scene, Background, Item1, Item2, Item3, Timer, Hints, Answers, Answer } from './styled'
+import Hint from './hint'
 
 export default function LevelOne() {
     const ratio = useMaxWidthRatio();
@@ -15,6 +16,16 @@ export default function LevelOne() {
                     <Timer ratio={ratio}>
                         1:30
                     </Timer>
+                    <Hints>
+                        <Hint from='perek' />
+                        <Hint from='father' />
+                        <Hint from='mom' />
+                    </Hints>
+                    <Answers>
+                        <Answer>Уголь</Answer>
+                        <Answer>Решётка</Answer>
+                        <Answer>Шампуры</Answer>
+                    </Answers>
                 </Scene>
             </Wrapper>
         </Background>

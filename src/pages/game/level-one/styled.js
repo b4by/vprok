@@ -23,27 +23,51 @@ export const Wrapper = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     transform: ${(props) => props.ratio ? `translate(-50%, -50%) scale(${props.ratio})` : 'none'};
-    width: 1920px;
-    height: 1080px;
+    width: 640px;
+    height: 360px;
     overflow: hidden;
     border-radius: 24px;
 
     background-size: cover;
     background-image: url(${levelOne});
 
+    ${breakpoints.tablet} {
+        width: 1024px;
+        height: 768px;
+        background-position: center right;
+    }
+
+    ${breakpoints.desktop} {
+        width: 1920px;
+        height: 1080px;
+        background-position: unset;
+    }
+
     &:after {
         content: '';
         position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 640px;
+        height: 360px;
+        transform: ${(props) => props.ratio ? `translate(-50%, -50%) scale(${props.ratio})` : 'none'};
         z-index: 10;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
         background: url(${upperLayer});
         background-size: cover;
         background-repeat: no-repeat;
+
+        ${breakpoints.tablet} {
+            width: 1024px;
+            height: 768px;
+            background-position: center right;
+        }
+
+        ${breakpoints.desktop} {
+            width: 1920px;
+            height: 1080px;
+            background-position: unset;
+        }
     }
 `;
 
@@ -82,12 +106,15 @@ export const Item3 = styled(Item)`
 
 export const Timer = styled.div`
     position: absolute;
-    right: 116px;
-    top: 92px;
+    right: 30px;
+    top: 24px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 120px;
+    height: 28px;
+
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid #AAE600;
     box-sizing: border-box;
@@ -110,11 +137,59 @@ export const Timer = styled.div`
     &:after {
         content: '';
         position: absolute;
-        right: 247px;
-        bottom: -75px;
-        width: 236px;
-        height: 237px;
+        right: 74px;
+        bottom: -21px;
+        width: 81px;
+        height: 81px;
         background: url(${timer});
         background-size: cover;
+
+
+        ${breakpoints.desktop} {
+            right: 247px;
+            bottom: -75px;
+            width: 236px;
+            height: 237px;
+        }
     }
+`;
+
+export const Hints = styled.div`
+    position: absolute;
+    top: 2px;
+    left: 19px;
+
+    display: flex;
+    flex-direction: column;
+`;
+
+export const Answers = styled.div`
+    position: absolute;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    gap: 11px;
+`;
+
+export const Answer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 189px;
+    height: 28px;
+
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid #AAE600;
+    box-sizing: border-box;
+    border-radius: 100px;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 112.63%;
+    color: #C5FF76;
 `;
