@@ -125,6 +125,17 @@ export const Timer = styled.div`
     text-align: center;
     color: #C5FF76;
 
+    ${breakpoints.tablet} {
+        width: 150px;
+        height: 32px;
+        font-style: normal;
+        font-weight: 550;
+        font-size: 20px;
+        line-height: 112.63%;
+        right: 35px;
+        top: 92px;
+    }
+
     ${breakpoints.desktop} {
         width: 365px;
         height: 78px;
@@ -144,6 +155,12 @@ export const Timer = styled.div`
         background: url(${timer});
         background-size: cover;
 
+        ${breakpoints.tablet} {
+            right: 100px;
+            bottom: -30px;
+            width: 97px;
+            height: 98px;
+        }
 
         ${breakpoints.desktop} {
             right: 247px;
@@ -161,18 +178,38 @@ export const Hints = styled.div`
 
     display: flex;
     flex-direction: column;
+
+    ${breakpoints.tablet} {
+        top: 56px;
+        left: 0;
+    }
+
+    ${breakpoints.desktop} {
+        top: 36px;
+        left: 60px;
+    }
 `;
 
 export const Answers = styled.div`
     position: absolute;
     z-index: 11;
     display: flex;
-    justify-content: center;
     align-items: center;
     bottom: 16px;
-    left: 0;
-    right: 0;
+    left: 22px;
     gap: 11px;
+
+    ${breakpoints.tablet} {
+        left: 30px;
+        bottom: 35px;
+        gap: 35px;
+    }
+
+    ${breakpoints.desktop} {
+        left: 115px;
+        bottom: 60px;
+        gap: 60px;
+    }
 `;
 
 export const Answer = styled.div`
@@ -192,4 +229,17 @@ export const Answer = styled.div`
     font-size: 16px;
     line-height: 112.63%;
     color: #C5FF76;
+
+    ${breakpoints.tablet} {
+        width: 297px;
+        height: 45px;
+        font-size: 20px;
+    }
+
+    ${breakpoints.desktop} {
+        width: 523px;
+        height: 78px;
+        font-size: 40px;
+    }
 `;
+

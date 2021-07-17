@@ -2,6 +2,7 @@ import React from 'react'
 import useMaxWidthRatio from 'hooks/useMaxWidthRatio'
 import { Wrapper, Scene, Background, Item1, Item2, Item3, Timer, Hints, Answers, Answer } from './styled'
 import Hint from './hint'
+import Messages from './messages'
 
 export default function LevelOne() {
     const ratio = useMaxWidthRatio();
@@ -26,6 +27,7 @@ export default function LevelOne() {
                         <Answer>Решётка</Answer>
                         <Answer>Шампуры</Answer>
                     </Answers>
+                    <Messages />
                 </Scene>
             </Wrapper>
         </Background>

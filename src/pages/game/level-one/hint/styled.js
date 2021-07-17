@@ -9,6 +9,18 @@ const Hint = styled.div`
     width: 105px;
     height: 105px;
     background-size: contain;
+
+    ${breakpoints.tablet} {
+        width: 165px;
+        height: 165px;
+        margin-bottom: 54px;
+    }
+
+    ${breakpoints.desktop} {
+        width: 279px;
+        height: 279px;
+        margin-bottom: 0;
+    }
 `;
 
 export const HintPerek = styled(Hint)`
