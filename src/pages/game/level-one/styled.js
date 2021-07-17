@@ -20,7 +20,7 @@ export const Background = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: ${(props) => props.ratio ? `translate(-50%, -50%) scale(${props.ratio})` : 'none'};
@@ -47,11 +47,10 @@ export const Wrapper = styled.div`
     &:after {
         content: '';
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 0;
+        right: 0;
         width: 640px;
         height: 360px;
-        transform: ${(props) => props.ratio ? `translate(-50%, -50%) scale(${props.ratio})` : 'none'};
         z-index: 10;
         background: url(${upperLayer});
         background-size: cover;

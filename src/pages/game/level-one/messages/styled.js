@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     width: 481px;
     min-height: 78px;
-    padding: 7px 26px;
+    padding: 7px 26px 0;
 
     z-index: 11;
     background: rgba(0, 0, 0, 0.7);
@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
         min-height: 124px;
         top: 513px;
         left: 224px;    
-        padding: 7px 26px;
+        padding: 7px 26px 0;
         font-size: 20px;
     }
 
@@ -44,6 +44,7 @@ export const Wrapper = styled.div`
         width: 1436px;
         min-height: 234px;
         font-size: 40px;
+        padding: 7px 90px 0;
     }
 `;
 
@@ -57,9 +58,30 @@ export const Next = styled.div`
     height: 12px;
     margin: 5px auto 10px;
 
+    & svg {
+        width: 12px;
+        height: 12px;
+
+        ${breakpoints.tablet} {
+            width: 25.12px;
+            height: 23.57px;
+        }
+
+        ${breakpoints.desktop} {
+            width: 44px;
+            height: 44px;
+        }
+    }
+
     ${breakpoints.tablet} {
         width: 25.12px;
         height: 23.57px;
         margin-bottom: 16px;
+    }
+
+    ${breakpoints.desktop} {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 32px;
     }
 `;
