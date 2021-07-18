@@ -25,6 +25,7 @@ class Game {
 
     constructor(rootStore) {
         makeAutoObservable(this)
+        // TODO: удалить перед релизом
         // makePersistable(this, { name: 'Game', properties: ['level', 'trainingIsOver', 'isStarted', 'isCompleted'], storage: window.localStorage });
         this.rootStore = rootStore
     }
@@ -64,6 +65,7 @@ class Timer {
 
     constructor(rootStore) {
         makeAutoObservable(this)
+        // TODO: удалить перед релизом
         // makePersistable(this, { name: 'Timer', properties: ['timePassed', 'isFinish', 'isStarted'], storage: window.localStorage });
         this.rootStore = rootStore
     }
