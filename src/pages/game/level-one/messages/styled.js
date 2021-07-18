@@ -50,6 +50,13 @@ export const Wrapper = styled.div`
 
 export const Text = styled.div`
     margin: auto;
+    white-space: pre-line;
+
+    & span {
+        font-weight: 400;
+        color: #C5FF76;
+        font-style: italic;
+    }
 `;
 
 export const Next = styled.div`

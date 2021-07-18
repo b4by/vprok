@@ -80,6 +80,7 @@ export const PlayButon = styled.div`
     height: 140px;
     background-image: url(${play});
     background-size: cover;
+    cursor: pointer;
 
     &:active, &:hover {
         background-image: url(${playActive});

@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx"
 import { makePersistable, isHydrated } from 'mobx-persist-store';
 import { createContext, useContext } from "react"
+import Training from './training'
 
 const LEVEL_DURATION = 30;
 
@@ -16,7 +17,7 @@ class UserStore {
 }
 
 class Game {
-    level = 3
+    level = 1
     totalLevels = 3
     trainingIsOver = false
     isStarted = false
@@ -47,7 +48,6 @@ class Game {
     }
 
     start() {
-        this.trainingIsOver = true
         this.isStarted = true
     }
 
@@ -87,6 +87,7 @@ class RootStore {
         this.userStore = new UserStore(this)
         this.game = new Game(this)
         this.timer = new Timer(this)
+        this.training = new Training(this)
     }
 }
 

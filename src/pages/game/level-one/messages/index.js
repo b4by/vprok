@@ -1,26 +1,36 @@
 import { useStore } from 'store'
+import { observer } from 'mobx-react'
 import { ReactComponent as NextSVG } from 'img/next.svg'
 import { Wrapper, Next, Text } from './styled'
 
-const Messages = () => {
-    const { game } = useStore()    
+const Messages = observer(() => {
+    const { game, training } = useStore()    
     const submit = () => {
-        game.start()
+        if(training.currentIndexText !== training.trainingText.length - 1) {
+            training.increaseIndex()
+        } else {
+            game.setTrainingIsOver()
+        }
     }
     
     if(game.isOver) {
         console.log('Game Over!')
     }
 
+    const htmlText = training.getText()
+
+    if(game.trainingIsOver) {
+        return null;
+    }
+
     return (
         <Wrapper>
-            <Text>
-Подсказки можно использовать один раз за уровень. В игре три уровня. Пройдите их все, чтобы получить суперприз — скидку до 20% на заказ в приложении Перекрёсток Впрок.            </Text>
+            <Text  dangerouslySetInnerHTML={{__html: htmlText}} />
             <Next onClick={submit}>
                 <NextSVG />
             </Next>
         </Wrapper>
     )
-};
+});
 
 export default Messages

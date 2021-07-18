@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
-import {observer} from 'mobx-react'
+import { observer } from 'mobx-react'
 import useMaxWidthRatio from 'hooks/useMaxWidthRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
+import StartGame from 'components/start-game'
 import { Wrapper, Scene, Background, Item1, Item2, Item3, Timer, Hints, Answers, Answer } from './styled'
 import Hint from './hint'
 import Messages from './messages'
@@ -12,7 +13,7 @@ const LevelOne = observer(()=> {
     const { timer, game } = useStore()
     
     useEffect(() => {
-        if(game.trainingIsOver && (!timer.isStarted ||(game.isHydrated && timer.isStarted))) {
+        if(game.trainingIsOver && game.isStarted && (!timer.isStarted ||(game.isHydrated && timer.isStarted))) {
             timer.start();
 
             const handle = setInterval(() => {
@@ -24,7 +25,7 @@ const LevelOne = observer(()=> {
             }
         }
         
-    }, [timer, game.trainingIsOver,  game.isHydrated])
+    }, [timer, game.trainingIsOver, game.isStarted, game.isHydrated])
 
     const { minutes, seconds} = intervalToDuration({
         start: 0,
@@ -34,6 +35,7 @@ const LevelOne = observer(()=> {
 
     return (
         <Background>
+            { game.level === 1 && game.trainingIsOver && !game.isStarted && <StartGame />}
             <Wrapper ratio={ratio}>
                 <Scene>
                     <Item1 ratio={ratio} />
