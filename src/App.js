@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
+import { StoreProvider } from './store'
 import Home from './pages/home'
 import Game from './pages/game'
 
@@ -15,7 +16,7 @@ function App() {
 //   }, []);
 
  return (
-   <>
+   <StoreProvider>
     {/* <audio src="audio/intro.mp3" ref={audioRef} controls autoPlay allow="autoplay" loop style={{ display: 'none'}}></audio> */}
     <Router>
         <Switch>
@@ -27,7 +28,7 @@ function App() {
           </Route>
         </Switch>
     </Router>
-    </>
+    </StoreProvider>
  );
 }
 

@@ -53,6 +53,7 @@ export const Text = styled.div`
 `;
 
 export const Next = styled.div`
+    cursor: pointer;
     padding: 2px;
     width: 12px;
     height: 12px;
