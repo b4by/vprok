@@ -1,7 +1,7 @@
 import { useState, useLayoutEffect } from 'react'
 import { size } from 'helpers/breakpoints'
 
-export default function useMaxWidthRatio() {
+export default function useRatio() {
   function getRation() {
     let wrapperwidth = 640;
     let wrapperheight = 360;

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { observer } from 'mobx-react'
-import useMaxWidthRatio from 'hooks/useMaxWidthRatio'
+import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
@@ -9,7 +9,7 @@ import Hint from './hint'
 import Messages from './messages'
 
 const LevelOne = observer(()=> {
-    const ratio = useMaxWidthRatio();
+    const ratio = useRatio();
     const { timer, game } = useStore()
     
     useEffect(() => {
@@ -38,10 +38,10 @@ const LevelOne = observer(()=> {
             { game.level === 1 && game.trainingIsOver && !game.isStarted && <StartGame />}
             <Wrapper ratio={ratio}>
                 <Scene>
-                    <Item1 ratio={ratio} />
-                    <Item2 ratio={ratio} />
-                    <Item3 ratio={ratio} />
-                    <Timer ratio={ratio}>
+                    <Item1 />
+                    <Item2 />
+                    <Item3 />
+                    <Timer >
                         {`${minutes}:${formatedSeconds}`}
                     </Timer>
                     <Hints>
