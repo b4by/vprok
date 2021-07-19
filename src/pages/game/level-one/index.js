@@ -4,13 +4,31 @@ import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
-import { Wrapper, Scene, Background, Item1, Item2, Item3, Timer, Hints, Answers, Answer } from './styled'
+import { 
+    Wrapper, 
+    Scene, 
+    Background, 
+    Item1, 
+    Item2, 
+    Item3, 
+    Timer, 
+    Hints, 
+    Answers, 
+    Answer, 
+    Shampur, 
+    VectorShampur, 
+    VectorAnswer, 
+    VectorTimer, 
+    VectorHintMom, 
+    VectorHintDad, 
+    VectorHintPerek 
+} from './styled'
 import Hint from './hint'
 import Messages from './messages'
 
 const LevelOne = observer(()=> {
     const ratio = useRatio();
-    const { timer, game } = useStore()
+    const { timer, game, training } = useStore()
     
     useEffect(() => {
         if(game.trainingIsOver && game.isStarted && (!timer.isStarted ||(game.isHydrated && timer.isStarted))) {
@@ -33,6 +51,11 @@ const LevelOne = observer(()=> {
     })
     const formatedSeconds = `${seconds}`.padStart(2, '0')
 
+    const showShampur = !game.trainingIsOver
+    const showShampurOff = training.currentIndexText !== 0
+    const showAnswer = !game.trainingIsOver && training.currentIndexText === 1
+    const showTimer = !game.trainingIsOver && training.currentIndexText === 2
+
     return (
         <Background>
             { game.level === 1 && game.trainingIsOver && !game.isStarted && <StartGame />}
@@ -41,7 +64,14 @@ const LevelOne = observer(()=> {
                     <Item1 />
                     <Item2 />
                     <Item3 />
-                    <Timer >
+                    <VectorShampur visible={!game.trainingIsOver && training.currentIndexText === 0} />
+                    <VectorAnswer visible={showAnswer} />
+                    <VectorTimer visible={showTimer} />
+                    <VectorHintMom visible={!game.trainingIsOver && training.currentIndexText === 3} />
+                    <VectorHintDad visible={!game.trainingIsOver && training.currentIndexText === 4} />
+                    <VectorHintPerek visible={!game.trainingIsOver && training.currentIndexText === 5} />
+                    {showShampur && <Shampur off={showShampurOff} />}
+                    <Timer showTimer={showTimer}>
                         {`${minutes}:${formatedSeconds}`}
                     </Timer>
                     <Hints>
@@ -52,7 +82,7 @@ const LevelOne = observer(()=> {
                     <Answers>
                         <Answer>Уголь</Answer>
                         <Answer>Решётка</Answer>
-                        <Answer>Шампуры</Answer>
+                        <Answer showAnswer={showAnswer}>Шампуры</Answer>
                     </Answers>
                     <Messages />
                 </Scene>

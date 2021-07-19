@@ -3,8 +3,6 @@ import { makePersistable, isHydrated } from 'mobx-persist-store';
 import { createContext, useContext } from "react"
 import Training from './training'
 
-const LEVEL_DURATION = 30;
-
 class UserStore {
     constructor(rootStore) {
         this.rootStore = rootStore
@@ -75,7 +73,7 @@ class Timer {
     }
 
     get seconds() {
-        return  Math.max(0, LEVEL_DURATION + (90 - (this.rootStore.game.level * LEVEL_DURATION)) - this.timePassed)
+        return  Math.max(0, 90 - this.timePassed)
     }
 
     start() {

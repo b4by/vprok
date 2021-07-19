@@ -7,6 +7,15 @@ import meat from 'img/lvl-1/objects-meat.png'
 import wood from 'img/wood.jpg'
 import { breakpoints } from 'helpers/breakpoints'
 import timer from 'img/timer.png';
+import timerBordered from 'img/timer-bordered.png';
+import shampur from 'img/shampur.png';
+import shampurOff from 'img/shampur-off.png';
+import vectorShampur from 'img/vector-shampur.svg';
+import vectorAnswer from 'img/vector-answer.svg';
+import vectorTimer from 'img/vector-timer.svg';
+import vectorMom from 'img/vector-mom.svg';
+import vectorDad from 'img/vector-dad.svg';
+import vectorPerek from 'img/vector-perek.svg';
 
 export const Background = styled.div`
     position: relative;
@@ -103,6 +112,15 @@ export const Item3 = styled(Item)`
     background-size: cover;
 `;
 
+export const Shampur = styled(Item)`
+    top: 382.5px;
+    left: 1097.5px;
+    width: 21.5px;
+    height: 152.5px;
+    background: ${(props) => props.off ? `url(${shampurOff})` : `url(${shampur})`};
+    background-size: cover;
+`;
+
 export const Timer = styled.div`
     position: absolute;
     right: 30px;
@@ -151,7 +169,7 @@ export const Timer = styled.div`
         bottom: -21px;
         width: 81px;
         height: 81px;
-        background: url(${timer});
+        background: ${(props) => props.showTimer ? `url(${timerBordered})` : `url(${timer})`};
         background-size: cover;
 
         ${breakpoints.tablet} {
@@ -220,7 +238,7 @@ export const Answer = styled.div`
     height: 28px;
 
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #AAE600;
+    border: ${(props) => props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
     box-sizing: border-box;
     border-radius: 100px;
 
@@ -242,3 +260,51 @@ export const Answer = styled.div`
     }
 `;
 
+
+export const VectorShampur = styled.div`
+    position: absolute;
+    width: 258px;
+    height: 183px;
+    left: 1115px;
+    top: 514px;
+    z-index: 12;
+    background: url(${vectorShampur});
+    background-size: cover;
+
+    display: ${(props) => props.visible ? `block` : `none`};
+`;
+export const VectorAnswer = styled(VectorShampur)`
+    width: 230px;
+    height: 180px;
+    left: 1190px;
+    top: 790px;
+    background: url(${vectorAnswer});
+`;
+export const VectorTimer = styled(VectorShampur)`
+    width: 390px;
+    height: 457px;
+    left: 1351px;
+    top: 200px;
+    background: url(${vectorTimer});
+`;
+export const VectorHintMom = styled(VectorShampur)`
+    width: 249px;
+    height: 239px;
+    left: 253px;
+    top: 509px;
+    background: url(${vectorMom});
+`;
+export const VectorHintDad = styled(VectorShampur)`
+    width: 227px;
+    height: 183px;
+    left: 288px;
+    top: 466px;
+    background: url(${vectorDad});
+`;
+export const VectorHintPerek  = styled(VectorShampur)`
+    width: 393px;
+    height: 454px;
+    left: 211px;
+    top: 260px;
+    background: url(${vectorPerek});
+`;
