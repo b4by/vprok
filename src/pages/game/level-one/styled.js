@@ -12,16 +12,23 @@ import shampur from 'img/shampur.png';
 import shampurOff from 'img/shampur-off.png';
 import vectorShampur from 'img/vector-shampur.svg';
 import vectorShampurTablet from 'img/vector-shampur-tablet.svg';
+import vectorShampurMobile from 'img/vector-shampur-mobile.svg';
 import vectorAnswer from 'img/vector-answer.svg';
 import vectorAnswerTablet from 'img/vector-answer-tablet.svg';
+import vectorAnswerMobile from 'img/vector-answer-mobile.svg';
 import vectorTimer from 'img/vector-timer.svg';
 import vectorTimerTablet from 'img/vector-timer-tablet.svg';
+import vectorTimerMobile from 'img/vector-timer-mobile.svg';
 import vectorMom from 'img/vector-mom.svg';
 import vectorMomTablet from 'img/vector-mom-tablet.svg';
+import vectorMomMobile from 'img/vector-mom-mobile.svg';
 import vectorDad from 'img/vector-dad.svg';
 import vectorDadTablet from 'img/vector-dad-tablet.svg';
+import vectorDadMobile from 'img/vector-dad-mobile.svg';
 import vectorPerek from 'img/vector-perek.svg';
 import vectorPerekTablet from 'img/vector-perek-tablet.svg';
+import vectorPerekMobile from 'img/vector-perek-mobile.svg';
+
 
 
 export const Background = styled.div`
@@ -119,10 +126,10 @@ export const Item3 = styled(Item)`
 `;
 
 export const Shampur = styled(Item)`
-    top: 382.5px;
-    left: 1097.5px;
-    width: 21.5px;
-    height: 152.5px;
+    width: calc(21.5px * 0.33);
+    height: calc(152.5px * 0.33);
+    left: 365.33px;
+    top: 127.5px;
     background: ${(props) => props.off ? `url(${shampurOff})` : `url(${shampur})`};
     background-size: cover;
 
@@ -131,6 +138,13 @@ export const Shampur = styled(Item)`
         height: calc(152.5px * 0.53);
         left: 401px;
         top: 272px;
+    }
+
+    ${breakpoints.desktop} {
+        top: 382.5px;
+        left: 1097.5px;
+        width: 21.5px;
+        height: 152.5px;
     }
 `;
 
@@ -251,7 +265,7 @@ export const Answer = styled.div`
     height: 28px;
 
     background: rgba(0, 0, 0, 0.7);
-    border: ${(props) => props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
+    border: ${(props) => props.showAnswer ? `3px solid #ffffff` : `1px solid #AAE600`};
     box-sizing: border-box;
     border-radius: 100px;
 
@@ -270,18 +284,19 @@ export const Answer = styled.div`
         width: 523px;
         height: 78px;
         font-size: 40px;
+        border: ${(props) => props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
     }
 `;
 
 
 export const VectorShampur = styled.div`
     position: absolute;
-    width: 258px;
-    height: 183px;
-    left: 1115px;
-    top: 514px;
+    width: 92.73px;
+    height: 80.79px;
+    left: 362px;
+    top: 153px;
     z-index: 12;
-    background-image: url(${vectorShampur});
+    background-image: url(${vectorShampurMobile});
     background-repeat: no-repeat;
     background-size: contain;
 
@@ -294,15 +309,20 @@ export const VectorShampur = styled.div`
         width: 243px;
         height: 210px; 
     }
-    ${breakpoints.desktop} {
+    ${breakpoints.desktop} {    
+        width: 258px;
+        height: 183px;
+        left: 1115px;
+        top: 514px;
+        background-image: url(${vectorShampur});
     }
 `;
 export const VectorAnswer = styled(VectorShampur)`
-    width: 230px;
-    height: 180px;
-    left: 1190px;
-    top: 790px;
-    background-image: url(${vectorAnswer});
+    width: 103px;
+    height: 92px;
+    left: 376.22px;
+    top: 251.14px;
+    background-image: url(${vectorAnswerMobile});
 
     ${breakpoints.tablet} {
         left: 622px;
@@ -312,14 +332,19 @@ export const VectorAnswer = styled(VectorShampur)`
         background-image: url(${vectorAnswerTablet});
     }
     ${breakpoints.desktop} {
+        width: 230px;
+        height: 180px;
+        left: 1190px;
+        top: 790px;
+        background-image: url(${vectorAnswer});
     }
 `;
 export const VectorTimer = styled(VectorShampur)`
-    width: 390px;
-    height: 457px;
-    left: 1351px;
-    top: 200px;
-    background-image: url(${vectorTimer});    
+    width: 212px;
+    height: 216px;
+    left: 371.77px;
+    top: 35.3px;
+    background-image: url(${vectorTimerMobile});    
     ${breakpoints.tablet} {
         width: 217px;
         height: 405px;
@@ -327,15 +352,20 @@ export const VectorTimer = styled(VectorShampur)`
         top: 126px;
         background-image: url(${vectorTimerTablet});    
     }
-    ${breakpoints.desktop} {
+    ${breakpoints.desktop} {    
+        width: 390px;
+        height: 457px;
+        left: 1351px;
+        top: 200px;
+        background-image: url(${vectorTimer});
     }
 `;
 export const VectorHintMom = styled(VectorShampur)`
-    width: 249px;
-    height: 239px;
-    left: 253px;
-    top: 509px;
-    background-image: url(${vectorMom});    
+    width: 123px;
+    height: 122px;
+    left: 131px;
+    top: 161.9px;
+    background-image: url(${vectorMomMobile});    
     ${breakpoints.tablet} {
         width: 171px;
         height: 163px;
@@ -344,14 +374,19 @@ export const VectorHintMom = styled(VectorShampur)`
         background-image: url(${vectorMomTablet});    
     }
     ${breakpoints.desktop} {
+        width: 249px;
+        height: 239px;
+        left: 253px;
+        top: 509px;
+        background-image: url(${vectorMom});    
     }
 `;
 export const VectorHintDad = styled(VectorShampur)`
-    width: 227px;
-    height: 183px;
-    left: 288px;
-    top: 466px;
-    background-image: url(${vectorDad});    
+    width: 101px;
+    height: 90px;
+    left: 114px;
+    top: 150.25px;
+    background-image: url(${vectorDadMobile});    
     ${breakpoints.tablet} {
         width: 157px;
         height: 133px;
@@ -360,14 +395,21 @@ export const VectorHintDad = styled(VectorShampur)`
         background-image: url(${vectorDadTablet});
     }
     ${breakpoints.desktop} {
+        width: 227px;
+        height: 183px;
+        left: 288px;
+        top: 466px;
+        background-image: url(${vectorDad});    
     }
 `;
 export const VectorHintPerek  = styled(VectorShampur)`
-    width: 393px;
-    height: 454px;
-    left: 211px;
-    top: 260px;
-    background-image: url(${vectorPerek});    
+    width: 147px;
+    height: 191px;
+    left: 93.19px;
+    top: 44px;
+
+    transform: rotate(-5.72deg);
+    background-image: url(${vectorPerekMobile});    
     ${breakpoints.tablet} {
         width: 262px;
         height: 321px;
@@ -376,5 +418,10 @@ export const VectorHintPerek  = styled(VectorShampur)`
         background-image: url(${vectorPerekTablet});
     }
     ${breakpoints.desktop} {
+        width: 393px;
+        height: 454px;
+        left: 211px;
+        top: 260px;
+        background-image: url(${vectorPerek});    
     }
 `;

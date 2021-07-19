@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
     flex-direction: column;
     width: 481px;
     min-height: 78px;
-    padding: 7px 26px 0;
+    padding: 7px 20px 0;
 
     z-index: 11;
     background: rgba(0, 0, 0, 0.7);
