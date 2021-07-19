@@ -11,11 +11,18 @@ import timerBordered from 'img/timer-bordered.png';
 import shampur from 'img/shampur.png';
 import shampurOff from 'img/shampur-off.png';
 import vectorShampur from 'img/vector-shampur.svg';
+import vectorShampurTablet from 'img/vector-shampur-tablet.svg';
 import vectorAnswer from 'img/vector-answer.svg';
+import vectorAnswerTablet from 'img/vector-answer-tablet.svg';
 import vectorTimer from 'img/vector-timer.svg';
+import vectorTimerTablet from 'img/vector-timer-tablet.svg';
 import vectorMom from 'img/vector-mom.svg';
+import vectorMomTablet from 'img/vector-mom-tablet.svg';
 import vectorDad from 'img/vector-dad.svg';
+import vectorDadTablet from 'img/vector-dad-tablet.svg';
 import vectorPerek from 'img/vector-perek.svg';
+import vectorPerekTablet from 'img/vector-perek-tablet.svg';
+
 
 export const Background = styled.div`
     position: relative;
@@ -36,7 +43,6 @@ export const Wrapper = styled.div`
     width: 640px;
     height: 360px;
     overflow: hidden;
-    border-radius: 24px;
 
     background-size: cover;
     background-image: url(${levelOne});
@@ -61,7 +67,7 @@ export const Wrapper = styled.div`
         width: 640px;
         height: 360px;
         z-index: 10;
-        background: url(${upperLayer});
+        background-image: url(${upperLayer});
         background-size: cover;
         background-repeat: no-repeat;
 
@@ -90,7 +96,7 @@ export const Item1 = styled(Item)`
     left: 1248px;
     width: 132px;
     height: 65px;
-    background: url(${meat});
+    background-image: url(${meat});
     background-size: cover;
 `;
 
@@ -99,7 +105,7 @@ export const Item2 = styled(Item)`
     left: 1267px;
     width: 85.5px;
     height: 52px;
-    background: url(${radish});
+    background-image: url(${radish});
     background-size: cover;
 `;
 
@@ -108,7 +114,7 @@ export const Item3 = styled(Item)`
     left: 1134px;
     width: 46px;
     height: 39.5px;
-    background: url(${tomato});
+    background-image: url(${tomato});
     background-size: cover;
 `;
 
@@ -119,6 +125,13 @@ export const Shampur = styled(Item)`
     height: 152.5px;
     background: ${(props) => props.off ? `url(${shampurOff})` : `url(${shampur})`};
     background-size: cover;
+
+    ${breakpoints.tablet} {
+        width: calc(21.5px * 0.53);
+        height: calc(152.5px * 0.53);
+        left: 401px;
+        top: 272px;
+    }
 `;
 
 export const Timer = styled.div`
@@ -268,43 +281,100 @@ export const VectorShampur = styled.div`
     left: 1115px;
     top: 514px;
     z-index: 12;
-    background: url(${vectorShampur});
-    background-size: cover;
+    background-image: url(${vectorShampur});
+    background-repeat: no-repeat;
+    background-size: contain;
 
     display: ${(props) => props.visible ? `block` : `none`};
+
+    ${breakpoints.tablet} {
+        left: 376px;
+        top: 329px;
+        background-image: url(${vectorShampurTablet});
+        width: 243px;
+        height: 210px; 
+    }
+    ${breakpoints.desktop} {
+    }
 `;
 export const VectorAnswer = styled(VectorShampur)`
     width: 230px;
     height: 180px;
     left: 1190px;
     top: 790px;
-    background: url(${vectorAnswer});
+    background-image: url(${vectorAnswer});
+
+    ${breakpoints.tablet} {
+        left: 622px;
+        top: 610px;
+        width: 166px;
+        height: 116px;
+        background-image: url(${vectorAnswerTablet});
+    }
+    ${breakpoints.desktop} {
+    }
 `;
 export const VectorTimer = styled(VectorShampur)`
     width: 390px;
     height: 457px;
     left: 1351px;
     top: 200px;
-    background: url(${vectorTimer});
+    background-image: url(${vectorTimer});    
+    ${breakpoints.tablet} {
+        width: 217px;
+        height: 405px;
+        left: 755.98px;
+        top: 126px;
+        background-image: url(${vectorTimerTablet});    
+    }
+    ${breakpoints.desktop} {
+    }
 `;
 export const VectorHintMom = styled(VectorShampur)`
     width: 249px;
     height: 239px;
     left: 253px;
     top: 509px;
-    background: url(${vectorMom});
+    background-image: url(${vectorMom});    
+    ${breakpoints.tablet} {
+        width: 171px;
+        height: 163px;
+        left: 134.16px;
+        top: 429.16px;
+        background-image: url(${vectorMomTablet});    
+    }
+    ${breakpoints.desktop} {
+    }
 `;
 export const VectorHintDad = styled(VectorShampur)`
     width: 227px;
     height: 183px;
     left: 288px;
     top: 466px;
-    background: url(${vectorDad});
+    background-image: url(${vectorDad});    
+    ${breakpoints.tablet} {
+        width: 157px;
+        height: 133px;
+        left: 150px;
+        top: 378.43px;
+        background-image: url(${vectorDadTablet});
+    }
+    ${breakpoints.desktop} {
+    }
 `;
 export const VectorHintPerek  = styled(VectorShampur)`
     width: 393px;
     height: 454px;
     left: 211px;
     top: 260px;
-    background: url(${vectorPerek});
+    background-image: url(${vectorPerek});    
+    ${breakpoints.tablet} {
+        width: 262px;
+        height: 321px;
+        left: 83.85px;
+        top: 192.43px;
+        background-image: url(${vectorPerekTablet});
+    }
+    ${breakpoints.desktop} {
+    }
 `;
