@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
     z-index: 11;
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #AAE600;
+    border: 1px solid #aae600;
     box-sizing: border-box;
     border-radius: 117px;
 
@@ -27,13 +27,13 @@ export const Wrapper = styled.div`
 
     text-align: center;
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     ${breakpoints.tablet} {
         width: 765px;
         min-height: 124px;
         top: 513px;
-        left: 224px;    
+        left: 224px;
         padding: 7px 26px 0;
         font-size: 20px;
     }
@@ -46,7 +46,7 @@ export const Wrapper = styled.div`
         font-size: 40px;
         padding: 7px 90px 0;
     }
-`;
+`
 
 export const Text = styled.div`
     margin: auto;
@@ -54,10 +54,10 @@ export const Text = styled.div`
 
     & span {
         font-weight: 400;
-        color: #C5FF76;
+        color: #c5ff76;
         font-style: italic;
     }
-`;
+`
 
 export const Next = styled.div`
     cursor: pointer;
@@ -92,4 +92,4 @@ export const Next = styled.div`
         height: 44px;
         margin-bottom: 32px;
     }
-`;
+`

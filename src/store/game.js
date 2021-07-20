@@ -1,5 +1,5 @@
-import { makeAutoObservable } from "mobx"
-import { makePersistable, isHydrated } from 'mobx-persist-store';
+import { makeAutoObservable } from 'mobx'
+import { makePersistable, isHydrated } from 'mobx-persist-store'
 
 export default class Game {
     level = 1
@@ -8,6 +8,13 @@ export default class Game {
     isStarted = false
     isCompleted = false
     rootStore
+    levels = {
+        0: ['Уголь', 'Решетка', 'Шампуры'],
+        1: ['Редис', 'Мясо', 'Помидор'],
+        2: ['Редис', 'Мясо', 'Помидор'],
+        3: ['Редис', 'Мясо', 'Помидор'],
+    }
+    pickedItems = []
 
     constructor(rootStore) {
         makeAutoObservable(this)
@@ -18,10 +25,14 @@ export default class Game {
 
     levelPassed() {
         this.level += 1
-    };
+    }
 
     get isOver() {
-        return  this.rootStore.timer.seconds === 0 && this.isStarted && this.trainingIsOver
+        return (
+            this.rootStore.timer.seconds === 0 &&
+            this.isStarted &&
+            this.trainingIsOver
+        )
     }
 
     setTrainingIsOver() {
@@ -37,7 +48,16 @@ export default class Game {
     }
 
     get isHydrated() {
-        return isHydrated(this);
+        return isHydrated(this)
     }
-    
+
+    pick(item) {
+        if (this.trainingIsOver) {
+            const pickedItem = this.levels[this.level].find(
+                (elem) => elem === item
+            )
+
+            if (pickedItem) this.pickedItems.push(pickedItem)
+        }
+    }
 }

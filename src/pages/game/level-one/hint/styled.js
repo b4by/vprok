@@ -8,11 +8,9 @@ import mom from 'img/hints/mom.png'
 import momActive from 'img/hints/mom-active.png'
 import dialog from 'img/hints/dialog.svg'
 
-
 import { breakpoints } from 'helpers/breakpoints'
 
-export const Wrapper = styled.div`
-`;
+export const Wrapper = styled.div``
 
 const Hint = styled.div`
     position: relative;
@@ -22,7 +20,8 @@ const Hint = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
 
-    ${(props) => props.disabled && !props.active ? `cursor:  not-allowed;` : ``};
+    ${(props) =>
+        props.disabled && !props.active ? `cursor:  not-allowed;` : ``};
 
     ${breakpoints.tablet} {
         width: 165px;
@@ -32,7 +31,7 @@ const Hint = styled.div`
     ${breakpoints.desktop} {
         margin-bottom: 0;
     }
-`;
+`
 
 export const Dialog = styled.div`
     position: absolute;
@@ -40,17 +39,18 @@ export const Dialog = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 190px;
-    height: 64px;
-    left: 20px;
-    top: -20px;
-    padding: 0 0 11px 11px;
+    width: 62.41px;
+    height: 21px;
+    left: 52px;
+    top: -8px;
+    padding: 0 0 4px 8px;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(${dialog});
 
     font-family: Gilroy;
     font-style: normal;
+    font-size: 4px;
     font-weight: 600;
     line-height: 112.63%;
 
@@ -74,12 +74,15 @@ export const Dialog = styled.div`
         top: -21px;
         padding: 0 0 5px 10px;
     }
-
-`;
+`
 
 export const HintPerek = styled(Hint)`
-    background-image: ${(props) => props.active ? `url(${perekActive})` : `url(${perek})`};
-    ${(props) => props.disabled ? `background-image: url(${perekDisabled})` : ``};
+    background-image: ${(props) =>
+        props.active ? `url(${perekActive})` : `url(${perek})`};
+    ${(props) =>
+        props.disabled && !props.active
+            ? `background-image: url(${perekDisabled})`
+            : ``};
     width: 68.3px;
     height: 74.71px;
 
@@ -92,10 +95,11 @@ export const HintPerek = styled(Hint)`
         width: 182.79px;
         height: 199.93px;
     }
-`;
+`
 
 export const HintFather = styled(Hint)`
-    background-image: ${(props) => props.active ? `url(${dadActive})` : `url(${dad})`};
+    background-image: ${(props) =>
+        props.active ? `url(${dadActive})` : `url(${dad})`};
     width: 68.3px;
     height: 75.6px;
 
@@ -108,10 +112,11 @@ export const HintFather = styled(Hint)`
         width: 181.49px;
         height: 200.88px;
     }
-`;
+`
 
 export const HintMom = styled(Hint)`
-    background-image: ${(props) => props.active ? `url(${momActive})` : `url(${mom})`};
+    background-image: ${(props) =>
+        props.active ? `url(${momActive})` : `url(${mom})`};
     width: 79.85px;
     height: 75.97px;
 
@@ -124,4 +129,4 @@ export const HintMom = styled(Hint)`
         width: 214.46px;
         height: 204.03px;
     }
-`;
+`

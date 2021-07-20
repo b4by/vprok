@@ -46,5 +46,11 @@
     "babel-plugin-styled-components": "^1.13.2",
     "customize-cra": "^1.0.0",
     "react-app-rewired": "^2.1.8"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
   }
 }

@@ -6,30 +6,28 @@ import radish from 'img/lvl-1/objects-radish.png'
 import meat from 'img/lvl-1/objects-meat.png'
 import wood from 'img/wood.jpg'
 import { breakpoints } from 'helpers/breakpoints'
-import timer from 'img/timer.png';
-import timerBordered from 'img/timer-bordered.png';
-import shampur from 'img/shampur.png';
-import shampurOff from 'img/shampur-off.png';
-import vectorShampur from 'img/vector-shampur.svg';
-import vectorShampurTablet from 'img/vector-shampur-tablet.svg';
-import vectorShampurMobile from 'img/vector-shampur-mobile.svg';
-import vectorAnswer from 'img/vector-answer.svg';
-import vectorAnswerTablet from 'img/vector-answer-tablet.svg';
-import vectorAnswerMobile from 'img/vector-answer-mobile.svg';
-import vectorTimer from 'img/vector-timer.svg';
-import vectorTimerTablet from 'img/vector-timer-tablet.svg';
-import vectorTimerMobile from 'img/vector-timer-mobile.svg';
-import vectorMom from 'img/vector-mom.svg';
-import vectorMomTablet from 'img/vector-mom-tablet.svg';
-import vectorMomMobile from 'img/vector-mom-mobile.svg';
-import vectorDad from 'img/vector-dad.svg';
-import vectorDadTablet from 'img/vector-dad-tablet.svg';
-import vectorDadMobile from 'img/vector-dad-mobile.svg';
-import vectorPerek from 'img/vector-perek.svg';
-import vectorPerekTablet from 'img/vector-perek-tablet.svg';
-import vectorPerekMobile from 'img/vector-perek-mobile.svg';
-
-
+import timer from 'img/timer.png'
+import timerBordered from 'img/timer-bordered.png'
+import shampur from 'img/shampur.png'
+import shampurOff from 'img/shampur-off.png'
+import vectorShampur from 'img/vector-shampur.svg'
+import vectorShampurTablet from 'img/vector-shampur-tablet.svg'
+import vectorShampurMobile from 'img/vector-shampur-mobile.svg'
+import vectorAnswer from 'img/vector-answer.svg'
+import vectorAnswerTablet from 'img/vector-answer-tablet.svg'
+import vectorAnswerMobile from 'img/vector-answer-mobile.svg'
+import vectorTimer from 'img/vector-timer.svg'
+import vectorTimerTablet from 'img/vector-timer-tablet.svg'
+import vectorTimerMobile from 'img/vector-timer-mobile.svg'
+import vectorMom from 'img/vector-mom.svg'
+import vectorMomTablet from 'img/vector-mom-tablet.svg'
+import vectorMomMobile from 'img/vector-mom-mobile.svg'
+import vectorDad from 'img/vector-dad.svg'
+import vectorDadTablet from 'img/vector-dad-tablet.svg'
+import vectorDadMobile from 'img/vector-dad-mobile.svg'
+import vectorPerek from 'img/vector-perek.svg'
+import vectorPerekTablet from 'img/vector-perek-tablet.svg'
+import vectorPerekMobile from 'img/vector-perek-mobile.svg'
 
 export const Background = styled.div`
     position: relative;
@@ -38,15 +36,16 @@ export const Background = styled.div`
     height: 100vh;
     width: 100vw;
     background-size: contain;
-    background-color: #FDFDDB;
+    background-color: #fdfddb;
     overflow: hidden;
-`;
+`
 
 export const Wrapper = styled.div`
     position: relative;
     top: 50%;
     left: 50%;
-    transform: ${(props) => props.ratio ? `translate(-50%, -50%) scale(${props.ratio})` : 'none'};
+    transform: ${(props) =>
+        props.ratio ? `translate(-50%, -50%) scale(${props.ratio})` : 'none'};
     width: 640px;
     height: 360px;
     overflow: hidden;
@@ -73,6 +72,7 @@ export const Wrapper = styled.div`
         right: 0;
         width: 640px;
         height: 360px;
+        pointer-events: none;
         z-index: 10;
         background-image: url(${upperLayer});
         background-size: cover;
@@ -90,47 +90,89 @@ export const Wrapper = styled.div`
             background-position: unset;
         }
     }
-`;
+`
 
-export const Scene = styled.div``;
+export const Scene = styled.div``
 
 const Item = styled.div`
     position: absolute;
-`;
+    background-size: cover;
+    visibility: ${(props) => (props.hidden ? `hidden` : `visible`)};
+`
 
 export const Item1 = styled(Item)`
-    top: 864px;
-    left: 1248px;
-    width: 132px;
-    height: 65px;
-    background-image: url(${meat});
-    background-size: cover;
-`;
+    top: 211px;
+    left: 424px;
+    width: calc(85.5px * 0.2769);
+    height: calc(52px * 0.2769);
+    background-image: url(${radish});
+
+    ${breakpoints.tablet} {
+        width: calc(85.5px * 0.5846);
+        height: calc(52px * 0.5846);
+        top: 453.094px;
+        left: 520px;
+    }
+
+    ${breakpoints.desktop} {
+        top: 626px;
+        left: 1267px;
+        width: 85.5px;
+        height: 52px;
+    }
+`
 
 export const Item2 = styled(Item)`
-    top: 626px;
-    left: 1267px;
-    width: 85.5px;
-    height: 52px;
-    background-image: url(${radish});
-    background-size: cover;
-`;
+    top: 292px;
+    left: 414px;
+    width: calc(132px * 0.2769);
+    height: calc(65px * 0.2769);
+    background-image: url(${meat});
+
+    ${breakpoints.tablet} {
+        width: calc(132px * 0.5846);
+        height: calc(65px * 0.5846);
+        top: 623.094px;
+        left: 501px;
+    }
+
+    ${breakpoints.desktop} {
+        top: 864px;
+        left: 1248px;
+        width: 132px;
+        height: 65px;
+    }
+`
 
 export const Item3 = styled(Item)`
-    top: 638px;
-    left: 1134px;
-    width: 46px;
-    height: 39.5px;
+    top: 213px;
+    left: 381px;
+    width: calc(46px * 0.2769);
+    height: calc(39.5px * 0.2769);
     background-image: url(${tomato});
-    background-size: cover;
-`;
+
+    ${breakpoints.tablet} {
+        width: calc(46px * 0.5846);
+        height: calc(39.5px * 0.5846);
+        top: 455.094px;
+        left: 428px;
+    }
+
+    ${breakpoints.desktop} {
+        top: 638px;
+        left: 1134px;
+        width: 46px;
+        height: 39.5px;
+    }
+`
 
 export const Shampur = styled(Item)`
     width: calc(21.5px * 0.33);
     height: calc(152.5px * 0.33);
     left: 365.33px;
     top: 127.5px;
-    background: ${(props) => props.off ? `url(${shampurOff})` : `url(${shampur})`};
+    background: ${(props) =>
+        props.off ? `url(${shampurOff})` : `url(${shampur})`};
     background-size: cover;
 
     ${breakpoints.tablet} {
@@ -146,7 +188,7 @@ export const Shampur = styled(Item)`
         width: 21.5px;
         height: 152.5px;
     }
-`;
+`
 
 export const Timer = styled.div`
     position: absolute;
@@ -160,14 +202,14 @@ export const Timer = styled.div`
     height: 28px;
 
     background: rgba(0, 0, 0, 0.7);
-    border: 1px solid #AAE600;
+    border: 1px solid #aae600;
     box-sizing: border-box;
     border-radius: 100px;
 
     font-style: normal;
     font-weight: 550;
     text-align: center;
-    color: #C5FF76;
+    color: #c5ff76;
 
     ${breakpoints.tablet} {
         width: 150px;
@@ -196,7 +238,8 @@ export const Timer = styled.div`
         bottom: -21px;
         width: 81px;
         height: 81px;
-        background: ${(props) => props.showTimer ? `url(${timerBordered})` : `url(${timer})`};
+        background: ${(props) =>
+            props.showTimer ? `url(${timerBordered})` : `url(${timer})`};
         background-size: cover;
 
         ${breakpoints.tablet} {
@@ -213,7 +256,7 @@ export const Timer = styled.div`
             height: 237px;
         }
     }
-`;
+`
 
 export const Hints = styled.div`
     position: absolute;
@@ -235,7 +278,7 @@ export const Hints = styled.div`
         left: 116px;
         gap: 73px;
     }
-`;
+`
 
 export const Answers = styled.div`
     position: absolute;
@@ -257,25 +300,27 @@ export const Answers = styled.div`
         bottom: 60px;
         gap: 60px;
     }
-`;
+`
 
 export const Answer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    visibility: ${(props) => (props.hidden ? `hidden` : `visible`)};
 
     width: 189px;
     height: 28px;
 
     background: rgba(0, 0, 0, 0.7);
-    border: ${(props) => props.showAnswer ? `3px solid #ffffff` : `1px solid #AAE600`};
+    border: ${(props) =>
+        props.showAnswer ? `3px solid #ffffff` : `1px solid #AAE600`};
     box-sizing: border-box;
     border-radius: 100px;
 
     font-weight: 600;
     font-size: 16px;
     line-height: 112.63%;
-    color: #C5FF76;
+    color: #c5ff76;
 
     ${breakpoints.tablet} {
         width: 297px;
@@ -287,10 +332,10 @@ export const Answer = styled.div`
         width: 523px;
         height: 78px;
         font-size: 40px;
-        border: ${(props) => props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
+        border: ${(props) =>
+            props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
     }
-`;
-
+`
 
 export const VectorShampur = styled.div`
     position: absolute;
@@ -303,23 +348,23 @@ export const VectorShampur = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
 
-    display: ${(props) => props.visible ? `block` : `none`};
+    display: ${(props) => (props.visible ? `block` : `none`)};
 
     ${breakpoints.tablet} {
         left: 376px;
         top: 329px;
         background-image: url(${vectorShampurTablet});
         width: 243px;
-        height: 210px; 
+        height: 210px;
     }
-    ${breakpoints.desktop} {    
+    ${breakpoints.desktop} {
         width: 258px;
         height: 183px;
         left: 1115px;
         top: 514px;
         background-image: url(${vectorShampur});
     }
-`;
+`
 export const VectorAnswer = styled(VectorShampur)`
     width: 103px;
     height: 92px;
@@ -341,55 +386,55 @@ export const VectorAnswer = styled(VectorShampur)`
         top: 790px;
         background-image: url(${vectorAnswer});
     }
-`;
+`
 export const VectorTimer = styled(VectorShampur)`
     width: 212px;
     height: 216px;
     left: 371.77px;
     top: 35.3px;
-    background-image: url(${vectorTimerMobile});    
+    background-image: url(${vectorTimerMobile});
     ${breakpoints.tablet} {
         width: 217px;
         height: 405px;
         left: 755.98px;
         top: 126px;
-        background-image: url(${vectorTimerTablet});    
+        background-image: url(${vectorTimerTablet});
     }
-    ${breakpoints.desktop} {    
+    ${breakpoints.desktop} {
         width: 390px;
         height: 457px;
         left: 1351px;
         top: 200px;
         background-image: url(${vectorTimer});
     }
-`;
+`
 export const VectorHintMom = styled(VectorShampur)`
     width: 123px;
     height: 122px;
-    left: 80px;
+    left: 130px;
     top: 161.9px;
-    background-image: url(${vectorMomMobile});    
+    background-image: url(${vectorMomMobile});
     ${breakpoints.tablet} {
         width: 171px;
         height: 163px;
         left: 204.16px;
         top: 399.16px;
-        background-image: url(${vectorMomTablet});    
+        background-image: url(${vectorMomTablet});
     }
     ${breakpoints.desktop} {
         width: 249px;
         height: 239px;
         left: 393px;
         top: 487px;
-        background-image: url(${vectorMom});    
+        background-image: url(${vectorMom});
     }
-`;
+`
 export const VectorHintDad = styled(VectorShampur)`
     width: 101px;
     height: 90px;
     left: 88px;
     top: 150.25px;
-    background-image: url(${vectorDadMobile});    
+    background-image: url(${vectorDadMobile});
     ${breakpoints.tablet} {
         width: 157px;
         height: 133px;
@@ -402,17 +447,17 @@ export const VectorHintDad = styled(VectorShampur)`
         height: 183px;
         left: 288px;
         top: 466px;
-        background-image: url(${vectorDad});    
+        background-image: url(${vectorDad});
     }
-`;
-export const VectorHintPerek  = styled(VectorShampur)`
+`
+export const VectorHintPerek = styled(VectorShampur)`
     width: 147px;
     height: 191px;
     left: 62.19px;
     top: 44px;
 
     transform: rotate(-5.72deg);
-    background-image: url(${vectorPerekMobile});    
+    background-image: url(${vectorPerekMobile});
     ${breakpoints.tablet} {
         width: 262px;
         height: 321px;
@@ -425,6 +470,6 @@ export const VectorHintPerek  = styled(VectorShampur)`
         height: 454px;
         left: 211px;
         top: 260px;
-        background-image: url(${vectorPerek});    
+        background-image: url(${vectorPerek});
     }
-`;
+`
