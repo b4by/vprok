@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx"
 
-
 export default class Training {
     trainingText = [
         `На картинке спрятаны предметы для дачного отдыха`,

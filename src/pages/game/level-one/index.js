@@ -75,9 +75,9 @@ const LevelOne = observer(()=> {
                         {`${minutes}:${formatedSeconds}`}
                     </Timer>
                     <Hints>
-                        <Hint from='perek' />
-                        <Hint from='father' />
-                        <Hint from='mom' />
+                        <Hint from='perek' active={!game.trainingIsOver && training.currentIndexText === 5} />
+                        <Hint from='father' active={!game.trainingIsOver && training.currentIndexText === 4} />
+                        <Hint from='mom' active={!game.trainingIsOver && training.currentIndexText === 3} />
                     </Hints>
                     <Answers>
                         <Answer>Уголь</Answer>

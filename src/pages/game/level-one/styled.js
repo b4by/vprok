@@ -217,20 +217,23 @@ export const Timer = styled.div`
 
 export const Hints = styled.div`
     position: absolute;
-    top: 2px;
-    left: 19px;
+    top: 22px;
+    left: 22px;
+    gap: 22px;
 
     display: flex;
     flex-direction: column;
 
     ${breakpoints.tablet} {
-        top: 56px;
-        left: 0;
+        top: 105px;
+        left: 36px;
+        gap: 80px;
     }
 
     ${breakpoints.desktop} {
-        top: 36px;
-        left: 60px;
+        top: 102px;
+        left: 116px;
+        gap: 73px;
     }
 `;
 
@@ -363,7 +366,7 @@ export const VectorTimer = styled(VectorShampur)`
 export const VectorHintMom = styled(VectorShampur)`
     width: 123px;
     height: 122px;
-    left: 131px;
+    left: 80px;
     top: 161.9px;
     background-image: url(${vectorMomMobile});    
     ${breakpoints.tablet} {
@@ -384,7 +387,7 @@ export const VectorHintMom = styled(VectorShampur)`
 export const VectorHintDad = styled(VectorShampur)`
     width: 101px;
     height: 90px;
-    left: 114px;
+    left: 88px;
     top: 150.25px;
     background-image: url(${vectorDadMobile});    
     ${breakpoints.tablet} {
@@ -405,7 +408,7 @@ export const VectorHintDad = styled(VectorShampur)`
 export const VectorHintPerek  = styled(VectorShampur)`
     width: 147px;
     height: 191px;
-    left: 93.19px;
+    left: 62.19px;
     top: 44px;
 
     transform: rotate(-5.72deg);
