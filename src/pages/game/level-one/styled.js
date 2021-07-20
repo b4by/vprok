@@ -372,15 +372,15 @@ export const VectorHintMom = styled(VectorShampur)`
     ${breakpoints.tablet} {
         width: 171px;
         height: 163px;
-        left: 134.16px;
-        top: 429.16px;
+        left: 204.16px;
+        top: 399.16px;
         background-image: url(${vectorMomTablet});    
     }
     ${breakpoints.desktop} {
         width: 249px;
         height: 239px;
-        left: 253px;
-        top: 509px;
+        left: 393px;
+        top: 487px;
         background-image: url(${vectorMom});    
     }
 `;

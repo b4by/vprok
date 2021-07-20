@@ -6,6 +6,8 @@ import dad from 'img/hints/dad.png'
 import dadActive from 'img/hints/dad-active.png'
 import mom from 'img/hints/mom.png'
 import momActive from 'img/hints/mom-active.png'
+import dialog from 'img/hints/dialog.svg'
+
 
 import { breakpoints } from 'helpers/breakpoints'
 
@@ -13,11 +15,14 @@ export const Wrapper = styled.div`
 `;
 
 const Hint = styled.div`
+    position: relative;
+    z-index: 100;
     width: 105px;
     height: 105px;
     background-size: contain;
     background-repeat: no-repeat;
-    backdrop-filter: drop-shadow(4px 4px 10px blue); 
+
+    ${(props) => props.disabled && !props.active ? `cursor:  not-allowed;` : ``};
 
     ${breakpoints.tablet} {
         width: 165px;
@@ -27,6 +32,49 @@ const Hint = styled.div`
     ${breakpoints.desktop} {
         margin-bottom: 0;
     }
+`;
+
+export const Dialog = styled.div`
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+    height: 64px;
+    left: 20px;
+    top: -20px;
+    padding: 0 0 11px 11px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(${dialog});
+
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 112.63%;
+
+    text-align: center;
+    white-space: pre-line;
+
+    ${breakpoints.tablet} {
+        left: 90px;
+        top: -10px;
+        width: 110.94px;
+        height: 37.33px;
+        font-size: 8px;
+        padding: 0 0 5px 12px;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 12px;
+        width: 204px;
+        height: 63.85px;
+        left: 150px;
+        top: -21px;
+        padding: 0 0 5px 10px;
+    }
+
 `;
 
 export const HintPerek = styled(Hint)`
