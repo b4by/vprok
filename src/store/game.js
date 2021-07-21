@@ -19,11 +19,24 @@ export default class Game {
     constructor(rootStore) {
         makeAutoObservable(this)
         // TODO: удалить перед релизом
-        // makePersistable(this, { name: 'Game', properties: ['level', 'trainingIsOver', 'isStarted', 'isCompleted'], storage: window.localStorage });
+        makePersistable(this, {
+            name: 'Game',
+            properties: [
+                'level',
+                'trainingIsOver',
+                'isStarted',
+                'isCompleted',
+                'levels',
+                'pickedItems',
+            ],
+            storage: window.localStorage,
+        })
         this.rootStore = rootStore
     }
 
     levelPassed() {
+        this.isStarted = false
+        this.isCompleted = false
         this.level += 1
     }
 
@@ -40,6 +53,8 @@ export default class Game {
     }
 
     completed() {
+        console.log('@@@')
+        this.rootStore.timer.isStarted = false;
         this.isCompleted = true
     }
 
@@ -58,6 +73,7 @@ export default class Game {
             )
 
             if (pickedItem) this.pickedItems.push(pickedItem)
+            if (this.pickedItems.length === 3) this.completed()
         }
     }
 }
