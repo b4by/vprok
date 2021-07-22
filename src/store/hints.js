@@ -3,7 +3,6 @@ import { makePersistable, isHydrated } from 'mobx-persist-store';
 
 export default class Hints {
     
-
     constructor(rootStore) {
         makeAutoObservable(this)
         // TODO: удалить перед релизом

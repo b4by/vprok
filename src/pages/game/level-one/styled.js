@@ -98,6 +98,10 @@ const Item = styled.div`
     position: absolute;
     background-size: cover;
     visibility: ${(props) => (props.hidden ? `hidden` : `visible`)};
+    ${(props) =>
+        props.highlight
+            ? `filter: brightness(200%) saturate(150%) sepia(10%) drop-shadow(0px 0px 11px black);`
+            : ``};
 `
 
 export const Item1 = styled(Item)`

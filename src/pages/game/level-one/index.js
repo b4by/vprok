@@ -4,6 +4,7 @@ import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
 import EndFirstLevel from 'components/end-first-level'
+import GameOver from 'components/game-over'
 import {
     Wrapper,
     Scene,
@@ -63,6 +64,7 @@ const LevelOne = observer(() => {
             {game.level === 1 && game.trainingIsOver && !game.isStarted && (
                 <StartGame />
             )}
+            {game.isOver && <GameOver />}
             {game.level === 1 && game.isCompleted && <EndFirstLevel />}
             <Wrapper ratio={ratio}>
                 <Scene>
@@ -71,6 +73,7 @@ const LevelOne = observer(() => {
                             (item) => item === levels[level][0]
                         )}
                         onClick={handlerAnswer(levels[level][0])}
+                        highlight
                     />
                     <Item2
                         hidden={game.pickedItems.find(
