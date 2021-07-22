@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import perek from 'img/hints/perek.png'
 import perekActive from 'img/hints/perek-active.png'
 import perekDisabled from 'img/hints/perek-disabled.png'
@@ -21,7 +21,9 @@ const Hint = styled.div`
     background-repeat: no-repeat;
 
     ${(props) =>
-        props.disabled && !props.active ? `cursor:  not-allowed;` : ``};
+        props.disabled && !props.active
+            ? `cursor: not-allowed; filter: brightness(0.5);`
+            : ``};
 
     ${breakpoints.tablet} {
         width: 165px;

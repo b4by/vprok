@@ -18,7 +18,6 @@ export default class Game {
 
     constructor(rootStore) {
         makeAutoObservable(this)
-        // TODO: удалить перед релизом
         makePersistable(this, {
             name: 'Game',
             properties: [
@@ -53,8 +52,7 @@ export default class Game {
     }
 
     completed() {
-        console.log('@@@')
-        this.rootStore.timer.isStarted = false;
+        this.rootStore.timer.isStarted = false
         this.isCompleted = true
     }
 
@@ -75,5 +73,36 @@ export default class Game {
             if (pickedItem) this.pickedItems.push(pickedItem)
             if (this.pickedItems.length === 3) this.completed()
         }
+    }
+
+    pickAll() {
+        if (this.trainingIsOver) {
+            this.levels[this.level].map((item) => {
+                return this.pickedItems.push(item)
+            })
+
+            this.completed()
+        }
+    }
+
+    getFiltered() {
+        return this.levels[this.level].filter(
+            (item) => !this.pickedItems.includes(item)
+        )
+    }
+
+    getRandom() {
+        debugger
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max)
+        }
+        const filtered = this.getFiltered()
+
+        const random = getRandomInt(filtered.length - 1)
+        return this.levels[this.level][random]
+    }
+
+    pickRandom() {
+        this.pickedItems.push(this.getRandom())
     }
 }
