@@ -21,7 +21,12 @@ import Timer from 'components/timer'
 
 const LevelTwo = observer(() => {
     const ratio = useRatio()
-    const { timer, game, training } = useStore()
+    const {
+        timer,
+        game,
+        training,
+        hints: { momHintResult },
+    } = useStore()
     const { levels, level: LVL } = game
     const level = game.trainingIsOver ? LVL : 0
     const { minutes, seconds } = intervalToDuration({
@@ -55,19 +60,21 @@ const LevelTwo = observer(() => {
                                 (item) => item === levels[level][0]
                             )}
                             onClick={handlerAnswer(levels[level][0])}
-                            highlight
+                            highlight={momHintResult === levels[level][0]}
                         />
                         <Item2
                             hidden={game.pickedItems.find(
                                 (item) => item === levels[level][2]
                             )}
                             onClick={handlerAnswer(levels[level][2])}
+                            highlight={momHintResult === levels[level][2]}
                         />
                         <Item3
                             hidden={game.pickedItems.find(
                                 (item) => item === levels[level][1]
                             )}
                             onClick={handlerAnswer(levels[level][1])}
+                            highlight={momHintResult === levels[level][1]}
                         />
                         <Timer showTimer={showTimer}>
                             {`${minutes}:${formatedSeconds}`}

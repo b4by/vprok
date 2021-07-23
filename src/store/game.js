@@ -44,6 +44,7 @@ export default class Game {
         this.isCompleted = false
         this.rootStore.timer.restart()
         this.pickedItems = []
+        this.rootStore.hints.momHintResult = ''
     }
 
     get isOver() {

@@ -28,7 +28,12 @@ import Timer from 'components/timer'
 
 const LevelOne = observer(() => {
     const ratio = useRatio()
-    const { timer, game, training } = useStore()
+    const {
+        timer,
+        game,
+        training,
+        hints: { momHintResult },
+    } = useStore()
     const { levels, level: LVL } = game
     const level = game.trainingIsOver ? LVL : 0
     const { minutes, seconds } = intervalToDuration({
@@ -65,19 +70,21 @@ const LevelOne = observer(() => {
                                 (item) => item === levels[level][0]
                             )}
                             onClick={handlerAnswer(levels[level][0])}
-                            highlight
+                            highlight={momHintResult === levels[level][0]}
                         />
                         <Item2
                             hidden={game.pickedItems.find(
                                 (item) => item === levels[level][1]
                             )}
                             onClick={handlerAnswer(levels[level][1])}
+                            highlight={momHintResult === levels[level][1]}
                         />
                         <Item3
                             hidden={game.pickedItems.find(
                                 (item) => item === levels[level][2]
                             )}
                             onClick={handlerAnswer(levels[level][2])}
+                            highlight={momHintResult === levels[level][2]}
                         />
                         <VectorShampur
                             visible={
@@ -137,9 +144,7 @@ const LevelOne = observer(() => {
                     </Scene>
                 </Wrapper>
             </Background>
-            {game.trainingIsOver && !game.isStarted && (
-                <StartGame />
-            )}
+            {game.trainingIsOver && !game.isStarted && <StartGame />}
             {game.isCompleted && <EndFirstLevel />}
         </>
     )

@@ -5,6 +5,7 @@ export default class Hints {
     perekDisabled = false
     dadDisabled = false
     momDisabled = false
+    momHintResult = ''
 
     constructor(rootStore) {
         makeAutoObservable(this)
@@ -16,21 +17,22 @@ export default class Hints {
         this.rootStore = rootStore
     }
     usePerekHint() {
-        if (this.rootStore.game.isStarted) {
+        if (this.rootStore.game.isStarted && !this.perekDisabled) {
             this.perekDisabled = true
             this.rootStore.game.pickAll()
         }
     }
     useDadHint() {
-        if (this.rootStore.game.isStarted) {
+        if (this.rootStore.game.isStarted && !this.dadDisabled) {
             this.dadDisabled = true
             this.rootStore.game.pickRandom()
         }
     }
     useMomHint() {
-        if (this.rootStore.game.isStarted) {
+        if (this.rootStore.game.isStarted && !this.momDisabled) {
             this.momDisabled = true
-            return this.rootStore.game.getRandom()
+            const randomItem = this.rootStore.game.getRandom()
+            this.momHintResult = randomItem
         }
     }
 }
