@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     left: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
     align-items: center;
 `
 
