@@ -18,7 +18,7 @@ export const TimerStyled = styled.div`
     border: 1px solid #aae600;
     box-sizing: border-box;
     border-radius: 100px;
-
+    font-family: 'HelveticaNeueCyr';
     font-style: normal;
     font-weight: 550;
     text-align: center;
