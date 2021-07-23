@@ -1,16 +1,22 @@
 import { HintPerek, HintFather, HintMom, Dialog } from './styled'
+import { observer } from 'mobx-react'
 import { useStore } from 'store'
 
-export default function Hint({ from, active, disabled }) {
+const Hint = observer(({ from, active, disabled }) => {
     const { timer, hints, game } = useStore()
-    console.log('dtimer.seconds', timer.seconds, timer.seconds > 30)
     const perekDisabled =
         (timer.seconds > 30 || hints.perekDisabled) && game.trainingIsOver
 
     return (
         <>
             {from === 'perek' && (
-                <HintPerek active={active} disabled={perekDisabled} onClick={() => { hints.usePerekHint() }}>
+                <HintPerek
+                    active={active}
+                    disabled={perekDisabled}
+                    onClick={() => {
+                        hints.usePerekHint()
+                    }}
+                >
                     {active && (
                         <Dialog
                             dangerouslySetInnerHTML={{
@@ -22,7 +28,13 @@ export default function Hint({ from, active, disabled }) {
                 </HintPerek>
             )}
             {from === 'father' && (
-                <HintFather active={active} disabled={hints.dadDisabled} onClick={() => { hints.useDadHint() }}>
+                <HintFather
+                    active={active}
+                    disabled={hints.dadDisabled}
+                    onClick={() => {
+                        hints.useDadHint()
+                    }}
+                >
                     {active && (
                         <Dialog
                             dangerouslySetInnerHTML={{
@@ -34,7 +46,13 @@ export default function Hint({ from, active, disabled }) {
                 </HintFather>
             )}
             {from === 'mom' && (
-                <HintMom active={active} disabled={hints.momDisabled} onClick={() => { console.log(hints.useMomHint()) }}>
+                <HintMom
+                    active={active}
+                    disabled={hints.momDisabled}
+                    onClick={() => {
+                        console.log(hints.useMomHint())
+                    }}
+                >
                     {active && (
                         <Dialog
                             dangerouslySetInnerHTML={{
@@ -47,4 +65,6 @@ export default function Hint({ from, active, disabled }) {
             )}
         </>
     )
-}
+})
+
+export default Hint

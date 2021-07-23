@@ -3,15 +3,14 @@ import { breakpoints } from 'helpers/breakpoints'
 
 const fadeIn = keyframes`
   0% {
-    opacity: 0;
-    transform: scale(0.8);
+    /* opacity: 0; */
+    transform: scale(0.9);
   }
   50% {
-     transform: scale(1.2);
+     transform: scale(1.1);
   }
-  100% {
-    opacity: 1;
-    transform: scale(1);
+  100%{
+    transform: scale(0.9);
   }
 `
 
@@ -36,7 +35,8 @@ export const IconsPhone = styled.div`
     & svg {
         animation-name: ${fadeIn};
         animation-duration: 2s;
-        animation-fill-mode: forwards;;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
     }
 `;
 

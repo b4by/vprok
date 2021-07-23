@@ -14,19 +14,12 @@ import {
     Hints,
     Answers,
     Answer,
-    Shampur,
-    VectorShampur,
-    VectorAnswer,
-    VectorTimer,
-    VectorHintMom,
-    VectorHintDad,
-    VectorHintPerek,
 } from './styled'
 import Hint from 'components/hint'
 import Messages from 'components/messages'
 import Timer from 'components/timer'
 
-const LevelOne = observer(() => {
+const LevelTwo = observer(() => {
     const ratio = useRatio()
     const { timer, game, training } = useStore()
     const { levels, level: LVL } = game
@@ -36,9 +29,6 @@ const LevelOne = observer(() => {
         end: timer.seconds * 1000,
     })
     const formatedSeconds = `${seconds}`.padStart(2, '0')
-    const showShampur = !game.trainingIsOver
-    const showShampurOff = training.currentIndexText !== 0
-    const showAnswer = !game.trainingIsOver && training.currentIndexText === 1
     const showTimer = !game.trainingIsOver && training.currentIndexText === 2
     const handlerAnswer = (item) => () => {
         game.pick(item)
@@ -79,33 +69,6 @@ const LevelOne = observer(() => {
                             )}
                             onClick={handlerAnswer(levels[level][2])}
                         />
-                        <VectorShampur
-                            visible={
-                                !game.trainingIsOver &&
-                                training.currentIndexText === 0
-                            }
-                        />
-                        <VectorAnswer visible={showAnswer} />
-                        <VectorTimer visible={showTimer} />
-                        <VectorHintMom
-                            visible={
-                                !game.trainingIsOver &&
-                                training.currentIndexText === 3
-                            }
-                        />
-                        <VectorHintDad
-                            visible={
-                                !game.trainingIsOver &&
-                                training.currentIndexText === 4
-                            }
-                        />
-                        <VectorHintPerek
-                            visible={
-                                !game.trainingIsOver &&
-                                training.currentIndexText === 5
-                            }
-                        />
-                        {showShampur && <Shampur off={showShampurOff} />}
                         <Timer showTimer={showTimer}>
                             {`${minutes}:${formatedSeconds}`}
                         </Timer>
@@ -137,12 +100,10 @@ const LevelOne = observer(() => {
                     </Scene>
                 </Wrapper>
             </Background>
-            {game.trainingIsOver && !game.isStarted && (
-                <StartGame />
-            )}
+            {game.trainingIsOver && !game.isStarted && <StartGame />}
             {game.isCompleted && <EndFirstLevel />}
         </>
     )
 })
 
-export default LevelOne
+export default LevelTwo

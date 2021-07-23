@@ -1,5 +1,5 @@
-import { makeAutoObservable } from "mobx"
-import { makePersistable } from 'mobx-persist-store';
+import { makeAutoObservable } from 'mobx'
+import { makePersistable } from 'mobx-persist-store'
 
 export default class Timer {
     timePassed = 0
@@ -10,7 +10,11 @@ export default class Timer {
     constructor(rootStore) {
         makeAutoObservable(this)
         // TODO: удалить перед релизом
-        makePersistable(this, { name: 'Timer', properties: ['timePassed', 'isFinish', 'isStarted'], storage: window.localStorage });
+        makePersistable(this, {
+            name: 'Timer',
+            properties: ['timePassed', 'isFinish', 'isStarted'],
+            storage: window.localStorage,
+        })
         this.rootStore = rootStore
     }
 
@@ -19,10 +23,16 @@ export default class Timer {
     }
 
     get seconds() {
-        return  Math.max(0, 90 - this.timePassed)
+        return Math.max(0, 30 - this.timePassed)
     }
 
     start() {
         this.isStarted = true
+    }
+
+    restart() {
+        this.timePassed = 0
+        this.isFinish = false
+        this.isStarted = false
     }
 }

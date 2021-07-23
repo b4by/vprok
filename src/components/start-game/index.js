@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useStore } from 'store'
+import { observer } from 'mobx-react'
 import { breakpoints } from 'helpers/breakpoints'
 import play from 'img/play.svg'
 import playActive from 'img/play-active.svg'
@@ -47,7 +48,7 @@ export const PlayButon = styled.div`
     }
 `
 
-export default function StartGame() {
+const StartGame = observer(() => {
     const { game } = useStore()
 
     return (
@@ -59,4 +60,6 @@ export default function StartGame() {
             />
         </Wrapper>
     )
-}
+})
+
+export default StartGame

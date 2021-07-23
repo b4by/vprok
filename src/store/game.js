@@ -7,7 +7,6 @@ export default class Game {
     trainingIsOver = false
     isStarted = false
     isCompleted = false
-    rootStore
     levels = {
         0: ['Уголь', 'Решетка', 'Шампуры'],
         1: ['Редис', 'Мясо', 'Помидор'],
@@ -15,6 +14,7 @@ export default class Game {
         3: ['Редис', 'Мясо', 'Помидор'],
     }
     pickedItems = []
+    rootStore
 
     constructor(rootStore) {
         makeAutoObservable(this)
@@ -34,9 +34,15 @@ export default class Game {
     }
 
     levelPassed() {
+        this.levelRestart()
+        this.level += 1
+    }
+
+    levelRestart() {
         this.isStarted = false
         this.isCompleted = false
-        this.level += 1
+        this.rootStore.timer.restart()
+        this.pickedItems = []
     }
 
     get isOver() {
@@ -45,6 +51,10 @@ export default class Game {
             this.isStarted &&
             this.trainingIsOver
         )
+    }
+
+    get currentLevel() {
+        return this.level
     }
 
     setTrainingIsOver() {
@@ -92,14 +102,15 @@ export default class Game {
     }
 
     getRandom() {
-        debugger
         function getRandomInt(max) {
             return Math.floor(Math.random() * max)
         }
         const filtered = this.getFiltered()
 
         const random = getRandomInt(filtered.length - 1)
-        return this.levels[this.level][random]
+        console.log('@@', filtered, random)
+
+        return filtered[random]
     }
 
     pickRandom() {
