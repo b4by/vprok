@@ -5,7 +5,7 @@ import { useStore } from 'store'
 import { observer } from 'mobx-react'
 import Buttons from 'components/buttons'
 
-const EndFirstLevel = observer(() => {
+const EndSecondLevel = observer(() => {
     const { game } = useStore()
 
     const buttons = (
@@ -34,4 +34,4 @@ const EndFirstLevel = observer(() => {
     )
 })
 
-export default EndFirstLevel
+export default EndSecondLevel
