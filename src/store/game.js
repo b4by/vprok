@@ -36,10 +36,12 @@ export default class Game {
     levelPassed() {
         this.level += 1
         this.levelRestart()
-        console.log(this)
     }
 
     levelRestart() {
+        this.rootStore.hints.perekDisabled = false
+        this.rootStore.hints.dadDisabled = false
+        this.rootStore.hints.momDisabled = false
         this.isStarted = false
         this.isCompleted = false
         this.rootStore.timer.restart()
