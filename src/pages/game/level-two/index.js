@@ -3,7 +3,7 @@ import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
-import EndFirstLevel from 'components/end-first-level'
+import EndSecondLevel from 'components/end-second-level'
 import {
     Wrapper,
     Scene,
@@ -101,7 +101,7 @@ const LevelTwo = observer(() => {
                 </Wrapper>
             </Background>
             {game.trainingIsOver && !game.isStarted && <StartGame />}
-            {game.isCompleted && <EndFirstLevel />}
+            {game.isCompleted && <EndSecondLevel />}
         </>
     )
 })

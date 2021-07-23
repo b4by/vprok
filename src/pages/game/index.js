@@ -5,8 +5,7 @@ import GameOver from 'components/game-over'
 import { useStore } from 'store'
 import LevelOne from './level-one'
 import LevelTwo from './level-two'
-// FIXXXXXXXXXXXXXXXXXXX
-import LevelThree from './level-two'
+import LevelThree from './level-three'
 
 
 const Game = observer(() => {

@@ -23,7 +23,7 @@ export default class Timer {
     }
 
     get seconds() {
-        return Math.max(0, 30 - this.timePassed)
+        return Math.max(0, 90 - this.timePassed)
     }
 
     start() {

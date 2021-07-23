@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
-import levelOne from 'img/lvl-1/bg.jpg'
-import upperLayer from 'img/lvl-1/upper-layer.png'
-import tomato from 'img/lvl-1/objects-tomato.png'
-import radish from 'img/lvl-1/objects-radish.png'
-import meat from 'img/lvl-1/objects-meat.png'
+import levelOne from 'img/lvl-2/bg.jpg'
+import upperLayer from 'img/lvl-2/upper-layer.png'
+import cage from 'img/lvl-2/cage.png'
+import coal from 'img/lvl-2/coal.png'
+import watermelon from 'img/lvl-2/watermelon.png'
 import wood from 'img/wood.jpg'
 import { breakpoints } from 'helpers/breakpoints'
 import timer from 'img/timer.png'
@@ -91,68 +91,68 @@ const Item = styled.div`
 `
 
 export const Item1 = styled(Item)`
-    top: 211px;
-    left: 424px;
-    width: calc(85.5px * 0.2769);
-    height: calc(52px * 0.2769);
-    background-image: url(${radish});
+    top: 255px;
+    left: 500px;
+    width: calc(108px * 0.2769);
+    height: calc(105.5px * 0.2769);
+    background-image: url(${coal});
 
     ${breakpoints.tablet} {
-        width: calc(85.5px * 0.5846);
-        height: calc(52px * 0.5846);
-        top: 453.094px;
-        left: 520px;
+        width: calc(108px * 0.5846);
+        height: calc(105.5px * 0.5846);
+        top: 541.094px;
+        left: 682px;
     }
 
     ${breakpoints.desktop} {
-        top: 626px;
-        left: 1267px;
-        width: 85.5px;
-        height: 52px;
+        top: 745px;
+        left: 1495px;
+        width: 108px;
+        height: 105.5px;
     }
 `
 
 export const Item2 = styled(Item)`
-    top: 292px;
-    left: 414px;
-    width: calc(132px * 0.2769);
-    height: calc(65px * 0.2769);
-    background-image: url(${meat});
+    top: 216px;
+    left: 364px;
+    width: calc(151px * 0.2769);
+    height: calc(215px * 0.2769);
+    background-image: url(${cage});
 
     ${breakpoints.tablet} {
-        width: calc(132px * 0.5846);
-        height: calc(65px * 0.5846);
-        top: 623.094px;
-        left: 501px;
+        width: calc(151px * 0.5846);
+        height: calc(215px * 0.5846);
+        top: 473.094px;
+        left: 397px;
     }
 
     ${breakpoints.desktop} {
-        top: 864px;
-        left: 1248px;
-        width: 132px;
-        height: 65px;
+        top: 652px;
+        left: 1075px;
+        width: 151px;
+        height: 215px;
     }
 `
 
 export const Item3 = styled(Item)`
-    top: 213px;
-    left: 381px;
-    width: calc(46px * 0.2769);
-    height: calc(39.5px * 0.2769);
-    background-image: url(${tomato});
+    top: 223px;
+    left: 287px;
+    width: calc(72px * 0.2769);
+    height: calc(86.5px * 0.2769);
+    background-image: url(${watermelon});
 
     ${breakpoints.tablet} {
-        width: calc(46px * 0.5846);
-        height: calc(39.5px * 0.5846);
-        top: 455.094px;
-        left: 428px;
+        width: calc(72px * 0.5846);
+        height: calc(86.5px * 0.5846);
+        top: 471.094px;
+        left: 226px;
     }
 
     ${breakpoints.desktop} {
-        top: 638px;
-        left: 1134px;
-        width: 46px;
-        height: 39.5px;
+        top: 658px;
+        left: 844px;
+        width: 72px;
+        height: 86.5px;
     }
 `
 

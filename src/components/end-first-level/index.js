@@ -16,7 +16,7 @@ const EndFirstLevel = observer(() => {
                     game.levelPassed()
                 }}
             >
-                Уроdвень 2
+                Уровень 2
             </NextBtn>
         </Buttons>
     )

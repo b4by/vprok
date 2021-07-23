@@ -10,8 +10,8 @@ export default class Game {
     levels = {
         0: ['Уголь', 'Решетка', 'Шампуры'],
         1: ['Редис', 'Мясо', 'Помидор'],
-        2: ['Редис', 'Мясо', 'Помидор'],
-        3: ['Редис', 'Мясо', 'Помидор'],
+        2: ['Уголь', 'Решетка', 'Арбуз'],
+        3: ['Уголь', 'Решетка', 'Мяч'],
     }
     pickedItems = []
     rootStore
@@ -34,8 +34,9 @@ export default class Game {
     }
 
     levelPassed() {
-        this.levelRestart()
         this.level += 1
+        this.levelRestart()
+        console.log(this)
     }
 
     levelRestart() {
@@ -105,10 +106,9 @@ export default class Game {
         function getRandomInt(max) {
             return Math.floor(Math.random() * max)
         }
-        const filtered = this.getFiltered()
 
+        const filtered = this.getFiltered()
         const random = getRandomInt(filtered.length - 1)
-        console.log('@@', filtered, random)
 
         return filtered[random]
     }
