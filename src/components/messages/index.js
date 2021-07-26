@@ -12,10 +12,6 @@ const Messages = observer(() => {
             game.setTrainingIsOver()
         }
     }
-    
-    if(game.isOver) {
-        console.log('Game Over!')
-    }
 
     const htmlText = training.getText()
 

@@ -48,7 +48,6 @@ const LevelOne = observer(() => {
     const handlerAnswer = (item) => () => {
         game.pick(item)
     }
-
     const answers = levels[level].map((answer) => {
         let hidden = false
         if (game.pickedItems.find((item) => item === answer)) hidden = true
@@ -59,11 +58,18 @@ const LevelOne = observer(() => {
             </Answer>
         )
     })
+    const submit = () => {
+        if (training.currentIndexText !== training.trainingText.length - 1) {
+            training.increaseIndex()
+        } else {
+            game.setTrainingIsOver()
+        }
+    }
 
     return (
         <>
             <Background blured={game.isOver || game.isCompleted}>
-                <Wrapper ratio={ratio}>
+                <Wrapper ratio={ratio} onClick={submit}>
                     <Scene>
                         <Item1
                             hidden={game.pickedItems.find(
