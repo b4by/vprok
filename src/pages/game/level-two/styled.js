@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components'
-import levelOne from 'img/lvl-2/bg.jpg'
-import upperLayer from 'img/lvl-2/upper-layer.png'
-import cage from 'img/lvl-2/cage.png'
-import coal from 'img/lvl-2/coal.png'
-import watermelon from 'img/lvl-2/watermelon.png'
+import levelTwo from 'img/lvl-2/bg.jpg'
+import upperLayer from 'img/lvl-1/upper-layer.png'
+import tomato from 'img/lvl-1/tomato.png'
+import radish from 'img/lvl-1/radish.png'
+import paprika from 'img/lvl-1/paprika.png'
+import chicken from 'img/lvl-1/chicken.png'
+import cucumber from 'img/lvl-1/cucumber.png'
+import watermelon from 'img/lvl-1/watermelon.png'
 import wood from 'img/wood.jpg'
 import { breakpoints } from 'helpers/breakpoints'
 import timer from 'img/timer.png'
@@ -37,7 +40,7 @@ export const Wrapper = styled.div`
     overflow: hidden;
 
     background-size: cover;
-    background-image: url(${levelOne});
+    background-image: url(${levelTwo});
 
     ${breakpoints.tablet} {
         width: 1024px;
@@ -90,69 +93,132 @@ const Item = styled.div`
             : ``};
 `
 
-export const Item1 = styled(Item)`
-    top: 255px;
-    left: 500px;
-    width: calc(108px * 0.2769);
-    height: calc(105.5px * 0.2769);
-    background-image: url(${coal});
+export const Radish = styled(Item)`
+    top: 211px;
+    left: 424px;
+    width: calc(85.5px * 0.2769);
+    height: calc(52px * 0.2769);
+    background-image: url(${radish});
 
     ${breakpoints.tablet} {
-        width: calc(108px * 0.5846);
-        height: calc(105.5px * 0.5846);
-        top: 541.094px;
-        left: 682px;
+        width: calc(85.5px * 0.5846);
+        height: calc(52px * 0.5846);
+        top: 453.094px;
+        left: 520px;
     }
 
     ${breakpoints.desktop} {
-        top: 745px;
-        left: 1495px;
-        width: 108px;
-        height: 105.5px;
+        top: 626px;
+        left: 1267px;
+        width: 85.5px;
+        height: 52px;
     }
 `
 
-export const Item2 = styled(Item)`
-    top: 216px;
-    left: 364px;
-    width: calc(151px * 0.2769);
-    height: calc(215px * 0.2769);
-    background-image: url(${cage});
+export const Tomato = styled(Item)`
+    top: 213px;
+    left: 381px;
+    width: calc(46px * 0.2769);
+    height: calc(39.5px * 0.2769);
+    background-image: url(${tomato});
 
     ${breakpoints.tablet} {
-        width: calc(151px * 0.5846);
-        height: calc(215px * 0.5846);
-        top: 473.094px;
-        left: 397px;
+        width: calc(46px * 0.5846);
+        height: calc(39.5px * 0.5846);
+        top: 455.094px;
+        left: 428px;
     }
 
     ${breakpoints.desktop} {
-        top: 652px;
-        left: 1075px;
-        width: 151px;
-        height: 215px;
+        top: 638px;
+        left: 1134px;
+        width: 46px;
+        height: 39.5px;
+    }
+`
+export const Paprika = styled(Item)`
+    top: 281px;
+    left: 503px;
+    width: calc(102.5px * 0.2769);
+    height: calc(60px * 0.2769);
+    background-image: url(${paprika});
+
+    ${breakpoints.tablet} {
+        width: calc(102.5px * 0.5846);
+        height: calc(60px * 0.5846);
+        top: 602px;
+        left: 722.3px;
+    }
+
+    ${breakpoints.desktop} {
+        top: 842px;
+        left: 1534px;
+        width: 102.5px;
+        height: 60px;
+    }
+`
+export const Сucumber = styled(Item)`
+    top: 168px;
+    left: 375px;
+    width: calc(42px * 0.2769);
+    height: calc(25px * 0.2769);
+    background-image: url(${cucumber});
+
+    ${breakpoints.tablet} {
+        width: calc(42px * 0.5846);
+        height: calc(25px * 0.5846);
+        top: 361.094px;
+        left: 416px;
+    }
+
+    ${breakpoints.desktop} {
+        top: 504px;
+        left: 1123px;
+        width: 42px;
+        height: 25px;
+    }
+`
+export const Chicken = styled(Item)`
+    top: 252px;
+    left: 319px;
+    width: calc(94px * 0.2769);
+    height: calc(62.5px * 0.2769);
+    background-image: url(${chicken});
+
+    ${breakpoints.tablet} {
+        width: calc(94px * 0.5846);
+        height: calc(62.5px * 0.5846);
+        top: 533.094px;
+        left: 298px;
+    }
+
+    ${breakpoints.desktop} {
+        top: 743px;
+        left: 954px;
+        width: 94px;
+        height: 62.5px;
     }
 `
 
-export const Item3 = styled(Item)`
-    top: 223px;
-    left: 287px;
-    width: calc(72px * 0.2769);
-    height: calc(86.5px * 0.2769);
+export const Watermelon = styled(Item)`
+    top: 265px;
+    left: 591px;
+    width: calc(124.5px * 0.2769);
+    height: calc(148px * 0.2769);
     background-image: url(${watermelon});
 
     ${breakpoints.tablet} {
-        width: calc(72px * 0.5846);
-        height: calc(86.5px * 0.5846);
-        top: 471.094px;
-        left: 226px;
+        width: calc(124.5px * 0.5846);
+        height: calc(148px * 0.5846);
+        top: 575.094px;
+        left: 878px;
     }
 
     ${breakpoints.desktop} {
-        top: 658px;
-        left: 844px;
-        width: 72px;
-        height: 86.5px;
+        top: 798px;
+        left: 1764px;
+        width: 124.5px;
+        height: 148px;
     }
 `
 

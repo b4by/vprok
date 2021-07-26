@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import perek from 'img/hints/perek.png'
 import perekActive from 'img/hints/perek-active.png'
 import perekDisabled from 'img/hints/perek-disabled.png'
@@ -10,31 +10,26 @@ import dialog from 'img/hints/dialog.svg'
 
 import { breakpoints } from 'helpers/breakpoints'
 
-export const Wrapper = styled.div``
-
-const Hint = styled.div`
-    position: relative;
-    z-index: 100;
-    width: 105px;
-    height: 105px;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    ${(props) =>
-        props.disabled && !props.active
-            ? `cursor: not-allowed; filter: brightness(0.5);`
-            : ``};
-
-    ${breakpoints.tablet} {
-        width: 165px;
-        height: 165px;
-    }
-
-    ${breakpoints.desktop} {
-        margin-bottom: 0;
-    }
+const push = keyframes`
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+    filter: brightness(1);
+  }
+  100%{
+    transform: scale(1);
+    animation-timing-function: ease-out;
+    filter: brightness(0.5);
+  }
 `
 
+export const Wrapper = styled.div``
 export const Dialog = styled.div`
     position: absolute;
     box-sizing: border-box;
@@ -76,6 +71,54 @@ export const Dialog = styled.div`
         top: -21px;
         padding: 0 0 5px 10px;
     }
+
+    transform: scale(0.2);
+
+    ${(props) =>
+        props.active
+            ? css`
+                  visibility: visible;
+                  transform: scale(1);
+              `
+            : css`
+                  visibility: hidden;
+              `};
+
+    transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1);
+`
+
+const Hint = styled.div`
+    position: relative;
+    z-index: 100;
+    width: 105px;
+    height: 105px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    ${(props) =>
+        props.disabled && !props.active
+            ? `cursor: not-allowed; filter: brightness(0.5);`
+            : ``};
+
+    &.push {
+        animation-name: ${push};
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+    }
+
+    ${breakpoints.tablet} {
+        width: 165px;
+        height: 165px;
+    }
+
+    ${breakpoints.desktop} {
+        margin-bottom: 0;
+    }
+
+    &:hover ${Dialog} {
+        ${(props) =>
+            !props.disabled ? `transform: scale(1); visibility: visible;` : ``};
+    }
 `
 
 export const HintPerek = styled(Hint)`
@@ -83,7 +126,7 @@ export const HintPerek = styled(Hint)`
         props.active ? `url(${perekActive})` : `url(${perek})`};
     ${(props) =>
         props.disabled && !props.active
-            ? `background-image: url(${perekDisabled})`
+            ? `background-image: url(${perekDisabled});`
             : ``};
     width: 68.3px;
     height: 74.71px;

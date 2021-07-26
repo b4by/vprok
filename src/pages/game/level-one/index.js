@@ -8,10 +8,13 @@ import {
     Wrapper,
     Scene,
     Background,
-    Item1,
-    Item2,
-    Item3,
+    Radish,
+    Tomato,
     Hints,
+    Paprika,
+    Сucumber,
+    Chicken,
+    Watermelon,
     Answers,
     Answer,
     Shampur,
@@ -34,8 +37,6 @@ const LevelOne = observer(() => {
         training,
         hints: { momHintResult },
     } = useStore()
-    const { levels, level: LVL } = game
-    const level = game.trainingIsOver ? LVL : 0
     const { minutes, seconds } = intervalToDuration({
         start: 0,
         end: timer.seconds * 1000,
@@ -48,12 +49,12 @@ const LevelOne = observer(() => {
     const handlerAnswer = (item) => () => {
         game.pick(item)
     }
-    const answers = levels[level].map((answer) => {
+    const answers = game.currentItems.map((answer) => {
         let hidden = false
         if (game.pickedItems.find((item) => item === answer)) hidden = true
 
         return (
-            <Answer key={answer} hidden={hidden}>
+            <Answer style={{ display: hidden ? 'none' : 'flex' }}>
                 {answer}
             </Answer>
         )
@@ -66,32 +67,65 @@ const LevelOne = observer(() => {
         }
     }
 
+    const items = game.getFiltered().map((indexItem) => {
+        if (indexItem === 'редис') {
+            return (
+                <Radish
+                    key={indexItem}
+                    onClick={handlerAnswer('редис')}
+                    highlight={momHintResult === 'редис'}
+                />
+            )
+        }
+        if (indexItem === 'помидор') {
+            return (
+                <Tomato
+                    onClick={handlerAnswer('помидор')}
+                    highlight={momHintResult === 'помидор'}
+                />
+            )
+        }
+        if (indexItem === 'сладкий перец') {
+            return (
+                <Paprika
+                    onClick={handlerAnswer('сладкий перец')}
+                    highlight={momHintResult === 'сладкий перец'}
+                />
+            )
+        }
+        if (indexItem === 'огурец') {
+            return (
+                <Сucumber
+                    onClick={handlerAnswer('огурец')}
+                    highlight={momHintResult === 'огурец'}
+                />
+            )
+        }
+        if (indexItem === 'курица') {
+            return (
+                <Chicken
+                    onClick={handlerAnswer('курица')}
+                    highlight={momHintResult === 'курица'}
+                />
+            )
+        }
+        if (indexItem === 'арбуз') {
+            return (
+                <Watermelon
+                    onClick={handlerAnswer('арбуз')}
+                    highlight={momHintResult === 'арбуз'}
+                />
+            )
+        }
+        return null
+    })
+
     return (
         <>
             <Background blured={game.isOver || game.isCompleted}>
                 <Wrapper ratio={ratio} onClick={submit}>
                     <Scene>
-                        <Item1
-                            hidden={game.pickedItems.find(
-                                (item) => item === levels[level][0]
-                            )}
-                            onClick={handlerAnswer(levels[level][0])}
-                            highlight={momHintResult === levels[level][0]}
-                        />
-                        <Item2
-                            hidden={game.pickedItems.find(
-                                (item) => item === levels[level][1]
-                            )}
-                            onClick={handlerAnswer(levels[level][1])}
-                            highlight={momHintResult === levels[level][1]}
-                        />
-                        <Item3
-                            hidden={game.pickedItems.find(
-                                (item) => item === levels[level][2]
-                            )}
-                            onClick={handlerAnswer(levels[level][2])}
-                            highlight={momHintResult === levels[level][2]}
-                        />
+                        {items}
                         <VectorShampur
                             visible={
                                 !game.trainingIsOver &&

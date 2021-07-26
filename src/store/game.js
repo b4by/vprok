@@ -9,27 +9,27 @@ export default class Game {
     isCompleted = false
     levels = {
         0: ['Уголь', 'Решетка', 'Шампуры'],
-        1: ['Редис', 'Мясо', 'Помидор'],
-        2: ['Уголь', 'Решетка', 'Арбуз'],
-        3: ['Уголь', 'Решетка', 'Мяч'],
+        1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
+        2: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица'],
+        3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
     }
     pickedItems = []
     rootStore
 
     constructor(rootStore) {
         makeAutoObservable(this)
-        makePersistable(this, {
-            name: 'Game',
-            properties: [
-                'level',
-                'trainingIsOver',
-                'isStarted',
-                'isCompleted',
-                'levels',
-                'pickedItems',
-            ],
-            storage: window.localStorage,
-        })
+        // makePersistable(this, {
+        //     name: 'Game',
+        //     properties: [
+        //         'level',
+        //         'trainingIsOver',
+        //         'isStarted',
+        //         'isCompleted',
+        //         'levels',
+        //         'pickedItems',
+        //     ],
+        //     storage: window.localStorage,
+        // })
         this.rootStore = rootStore
     }
 
@@ -61,6 +61,10 @@ export default class Game {
         return this.level
     }
 
+    get currentItems() {
+        return this.getFiltered().filter((_, index) => index <= 2)
+    }
+
     setTrainingIsOver() {
         this.trainingIsOver = true
     }
@@ -85,7 +89,7 @@ export default class Game {
             )
 
             if (pickedItem) this.pickedItems.push(pickedItem)
-            if (this.pickedItems.length === 3) this.completed()
+            if (this.getFiltered().length === 0) this.completed()
         }
     }
 

@@ -21,24 +21,24 @@ export const Content = styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #FDFDDB;
+    background-color: #fdfddb;
 
     ${breakpoints.desktop} {
         display: none;
     }
-`;
+`
 
 export const IconsPhone = styled.div`
     display: flex;
     justify-content: center;
-    
+
     & svg {
         animation-name: ${fadeIn};
         animation-duration: 2s;
         animation-fill-mode: forwards;
         animation-iteration-count: infinite;
     }
-`;
+`
 
 export const Text = styled.div`
     position: relative;
@@ -51,4 +51,4 @@ export const Text = styled.div`
     font-weight: normal;
     font-size: 15px;
     line-height: 112.63%;
-`;
+`
