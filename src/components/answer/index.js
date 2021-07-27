@@ -7,8 +7,6 @@ export const AnswerStyled = styled.div`
     justify-content: center;
     position: relative;
     align-items: center;
-    /* visibility: ${(props) => (props.hidden ? `hidden` : `visible`)}; */
-
     width: 189px;
     height: 28px;
 
@@ -65,15 +63,15 @@ export const AnswerStyled = styled.div`
             margin-left: calc(-523px - 60px);
         }
     }
-`
 
-// export default function Answer({ children, lastAnswer }) {
-//     return <AnswerStyled lastAnswer={lastAnswer}>{children}</AnswerStyled>
-// }
+    & span::first-letter {
+        text-transform: uppercase;
+    }
+`
 
 const Answer = forwardRef(({ children, lastAnswer }, ref) => (
     <AnswerStyled ref={ref} lastAnswer={lastAnswer}>
-        {children}
+        <span>{children}</span>
     </AnswerStyled>
 ))
 

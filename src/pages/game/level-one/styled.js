@@ -7,6 +7,12 @@ import paprika from 'img/lvl-1/paprika.png'
 import chicken from 'img/lvl-1/chicken.png'
 import cucumber from 'img/lvl-1/cucumber.png'
 import watermelon from 'img/lvl-1/watermelon.png'
+import grass from 'img/lvl-1/grass.png'
+import juce from 'img/lvl-1/juce.png'
+import meat from 'img/lvl-1/meat.png'
+import sausage from 'img/lvl-1/sausage.png'
+import ketchup from 'img/lvl-1/ketchup.png'
+import melon from 'img/lvl-1/melon.png'
 import wood from 'img/wood.jpg'
 import { breakpoints } from 'helpers/breakpoints'
 import timer from 'img/timer.png'
@@ -270,6 +276,37 @@ const Item = styled.div`
         ${(props) => getPosition(props.index)}
     }
 `
+
+export const Meat = styled(Item)`
+    background-image: url(${meat});
+    ${getSizes(218, 107, 1750, 2496)}
+`
+
+export const Grass = styled(Item)`
+    background-image: url(${grass});
+    ${getSizes(146, 111, 434, 2004)}
+`
+
+export const Ketchup = styled(Item)`
+    background-image: url(${ketchup});
+    ${getSizes(106, 80, 2024, 1734)}
+`
+
+export const Juce = styled(Item)`
+    background-image: url(${juce});
+    ${getSizes(34, 78, 981, 1971)}
+`
+
+export const Sausage = styled(Item)`
+    background-image: url(${sausage});
+    ${getSizes(112, 76, 1522, 3365)}
+`
+
+export const Melon = styled(Item)`
+    background-image: url(${melon});
+    ${getSizes(185, 154, 1377, 1688)}
+`
+
 export const Radish = styled(Item)`
     background-image: url(${radish});
     ${getSizes(141, 86, 1267, 2534)}

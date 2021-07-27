@@ -3,9 +3,63 @@ import { makePersistable, isHydrated } from 'mobx-persist-store'
 
 const data = {
     0: ['Уголь', 'Решетка', 'Шампуры'],
-    1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
-    2: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица'],
-    3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
+    1: [
+        'мясо',
+        'сладкий перец',
+        'помидор',
+        'пучок зелени',
+        'огурец',
+        'кетчуп',
+        'сок',
+        'редис',
+        'курица',
+        'колбаски',
+        'дыня',
+        'арбуз',
+    ],
+    2: [
+        'мясо',
+        'сладкий перец',
+        'помидор',
+        'пучок зелени',
+        'огурец',
+        'кетчуп',
+        'сок',
+        'редис',
+        'курица',
+        'колбаски',
+        'дыня',
+        'арбуз',
+        'шампуры',
+        'мангал',
+        'решётка',
+        'пластиковые стаканчики',
+        'уголь',
+    ],
+    3: [
+        'мясо',
+        'сладкий перец',
+        'помидор',
+        'пучок зелени',
+        'огурец',
+        'кетчуп',
+        'сок',
+        'редис',
+        'курица',
+        'колбаски',
+        'дыня',
+        'арбуз',
+        'шампуры',
+        'мангал',
+        'решётка',
+        'пластиковые стаканчики',
+        'уголь',
+        'лейка',
+        'детское ведёрко с лопаткой',
+        ' бутилированная вода',
+        'грабли',
+        'мяч',
+    ],
 }
 
 export default class Game {
@@ -14,27 +68,10 @@ export default class Game {
     trainingIsOver = false
     isStarted = false
     isCompleted = false
-    index = -1
-    levels = {
-        0: ['Уголь', 'Решетка', 'Шампуры'],
-        1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
-        2: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица'],
-        3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
-    }
+    levels = { ...data }
     pickedItems = []
     rootStore = null
-    copyItems = {
-        0: ['Уголь', 'Решетка', 'Шампуры'],
-        1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
-        2: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица'],
-        3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
-    }
-
-    // Мясо, сладкий перец, помидор, пучок зелени, огурец, кетчуп, сок, редис, курица, колбаски, дыня, арбуз
-
-    // Мясо, сладкий перец, помидор, пучок зелени, огурец, кетчуп, сок, редис, курица, колбаски, дыня, арбуз, шампуры, мангал, решётка, пластиковые стаканчики, уголь
-
-    // Мясо, сладкий перец, помидор, пучок зелени, огурец, кетчуп, сок, редис, курица, колбаски, дыня, арбуз, шампуры, мангал, решётка, пластиковые стаканчики, уголь, лейка, детское ведёрко с лопаткой, бутилированная вода, грабли, мяч
+    copyItems = { ...data }
 
     constructor(rootStore) {
         makeAutoObservable(this)
@@ -68,6 +105,7 @@ export default class Game {
         this.pickedItems = []
         this.rootStore.hints.momHintResult = ''
         this.levels[this.level] = data[this.level]
+        this.copyItems[this.level] = data[this.level]
     }
 
     get isOver() {
@@ -112,7 +150,6 @@ export default class Game {
         if (this.trainingIsOver) {
             const index = this.levels[this.level].indexOf(item)
             const newItem = this.levels[this.level][3]
-            this.index = index
 
             if (~index && newItem && index < 3) {
                 this.copyItems[this.level].splice(3, 1)
@@ -151,13 +188,6 @@ export default class Game {
     }
 
     getFiltered() {
-        // const copyItems = [...this.levels[this.level]]
-        // this.pickedItems.forEach((pickedItem) => {
-        //     const index = this.levels[this.level].indexOf(pickedItem)
-        //     if (~index) {
-        //         copyItems.splice(index, 1, pickedItem)
-        //     }
-        // })
         return this.copyItems[this.level]
     }
 

@@ -1,4 +1,3 @@
-import { useRef, useEffect, useState } from 'react'
 import throttle from 'lodash.throttle'
 import { observer } from 'mobx-react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
@@ -27,6 +26,12 @@ import {
     VectorHintMom,
     VectorHintDad,
     VectorHintPerek,
+    Melon,
+    Juce,
+    Sausage,
+    Grass,
+    Meat,
+    Ketchup,
 } from './styled'
 import Hint from 'components/hint'
 import Messages from 'components/messages'
@@ -188,6 +193,118 @@ const LevelOne = observer(() => {
                     classNames="item"
                 >
                     <Watermelon
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+        if (indexItem === 'кетчуп') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Ketchup
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+        if (indexItem === 'мясо') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Meat
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'сок') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Juce
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'дыня') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Melon
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'колбаски') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Sausage
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'пучок зелени') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Grass
                         key={indexItem}
                         onClick={handlerAnswer(indexItem)}
                         highlight={momHintResult === indexItem}
