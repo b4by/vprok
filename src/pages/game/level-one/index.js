@@ -4,7 +4,6 @@ import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
-import Fade from 'react-reveal/Fade'
 import EndFirstLevel from 'components/end-first-level'
 import Answer from 'components/answer'
 import {
@@ -59,6 +58,7 @@ const LevelOne = observer(() => {
                     enter: 1000,
                     exit: 500,
                 }}
+                exit={game.items.length > 3}
                 classNames="answer"
             >
                 <Answer>{answer}</Answer>

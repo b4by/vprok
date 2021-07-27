@@ -57,6 +57,10 @@ export default class Game {
         )
     }
 
+    get items() {
+        return this.levels[this.level]
+    }
+
     get currentLevel() {
         return this.level
     }
@@ -100,7 +104,7 @@ export default class Game {
                 this.levels[this.level].splice(index, 1)
             }
 
-            if(this.levels[this.level].length === 0) {
+            if (this.levels[this.level].length === 0) {
                 this.isCompleted = true
             }
         }

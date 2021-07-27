@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints } from 'helpers/breakpoints'
-import { useRef } from 'react'
 
 export const AnswerStyled = styled.div`
     display: flex;
@@ -47,19 +46,24 @@ export const AnswerStyled = styled.div`
         transition-delay: 500ms;
     }
     &.answer-exit {
-        display: none;
         transform: scale(1);
     }
     &.answer-exit-active {
-        transform: scale(0.1);
+        transform: scale(0);
         transition: transform 500ms;
+
+        margin-left: calc(-189px - 11px);
+
+        ${breakpoints.tablet} {
+            margin-left: calc(-297px - 35px);
+        }
+
+        ${breakpoints.desktop} {
+            margin-left: calc(-523px - 60px);
+        }
     }
 `
 
 export default function Answer({ children }) {
-    return (
-        <AnswerStyled>
-            {children}
-        </AnswerStyled>
-    )
+    return <AnswerStyled>{children}</AnswerStyled>
 }
