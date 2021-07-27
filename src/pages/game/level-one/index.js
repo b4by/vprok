@@ -1,9 +1,12 @@
 import { observer } from 'mobx-react'
+import { CSSTransition } from 'react-transition-group'
 import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
+import Fade from 'react-reveal/Fade'
 import EndFirstLevel from 'components/end-first-level'
+import Answer from 'components/answer'
 import {
     Wrapper,
     Scene,
@@ -16,7 +19,6 @@ import {
     Chicken,
     Watermelon,
     Answers,
-    Answer,
     Shampur,
     VectorShampur,
     VectorAnswer,
@@ -50,13 +52,17 @@ const LevelOne = observer(() => {
         game.pick(item)
     }
     const answers = game.currentItems.map((answer) => {
-        let hidden = false
-        if (game.pickedItems.find((item) => item === answer)) hidden = true
-
         return (
-            <Answer style={{ display: hidden ? 'none' : 'flex' }}>
-                {answer}
-            </Answer>
+            <CSSTransition
+                key={answer}
+                timeout={{
+                    enter: 1000,
+                    exit: 500,
+                }}
+                classNames="answer"
+            >
+                <Answer>{answer}</Answer>
+            </CSSTransition>
         )
     })
     const submit = () => {
@@ -80,6 +86,7 @@ const LevelOne = observer(() => {
         if (indexItem === 'помидор') {
             return (
                 <Tomato
+                    key={indexItem}
                     onClick={handlerAnswer('помидор')}
                     highlight={momHintResult === 'помидор'}
                 />
@@ -88,6 +95,7 @@ const LevelOne = observer(() => {
         if (indexItem === 'сладкий перец') {
             return (
                 <Paprika
+                    key={indexItem}
                     onClick={handlerAnswer('сладкий перец')}
                     highlight={momHintResult === 'сладкий перец'}
                 />
@@ -96,6 +104,7 @@ const LevelOne = observer(() => {
         if (indexItem === 'огурец') {
             return (
                 <Сucumber
+                    key={indexItem}
                     onClick={handlerAnswer('огурец')}
                     highlight={momHintResult === 'огурец'}
                 />
@@ -104,6 +113,7 @@ const LevelOne = observer(() => {
         if (indexItem === 'курица') {
             return (
                 <Chicken
+                    key={indexItem}
                     onClick={handlerAnswer('курица')}
                     highlight={momHintResult === 'курица'}
                 />
@@ -112,6 +122,7 @@ const LevelOne = observer(() => {
         if (indexItem === 'арбуз') {
             return (
                 <Watermelon
+                    key={indexItem}
                     onClick={handlerAnswer('арбуз')}
                     highlight={momHintResult === 'арбуз'}
                 />
@@ -179,7 +190,13 @@ const LevelOne = observer(() => {
                                 }
                             />
                         </Hints>
-                        <Answers>{answers}</Answers>
+                        <Answers
+                            transitionName="answer"
+                            transitionEnterTimeout={500}
+                            transitionLeaveTimeout={300}
+                        >
+                            {answers}
+                        </Answers>
                         <Messages />
                     </Scene>
                 </Wrapper>

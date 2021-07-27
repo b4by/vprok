@@ -31,6 +31,7 @@ import vectorDadMobile from 'img/vector-dad-mobile.svg'
 import vectorPerek from 'img/vector-perek.svg'
 import vectorPerekTablet from 'img/vector-perek-tablet.svg'
 import vectorPerekMobile from 'img/vector-perek-mobile.svg'
+import { TransitionGroup } from 'react-transition-group'
 
 export const Background = styled.div`
     position: relative;
@@ -49,6 +50,29 @@ export const Background = styled.div`
             : ''};
 `
 
+const getSizes = (width, height, top, left) => {
+    return css`
+        top: calc(${top}px / 2 * 0.32314 + 22px * 0.32314);
+        left: calc(${left}px / 2 * 0.3333);
+        width: calc(${width}px / 2 * 0.3333);
+        height: calc(${height}px / 2 * 0.32314);
+
+        ${breakpoints.tablet} {
+            top: calc(${top}px / 2 * 0.7111);
+            left: calc(${left}px / 2 * 0.7111 - 384px);
+            width: calc(${width}px / 2 * 0.7111);
+            height: calc(${height}px / 2 * 0.7111);
+        }
+
+        ${breakpoints.desktop} {
+            top: calc(${top}px / 2);
+            left: calc(${left}px / 2);
+            width: calc(${width}px / 2);
+            height: calc(${height}px / 2);
+        }
+    `
+}
+
 export const Wrapper = styled.div`
     position: relative;
     top: 50%;
@@ -61,6 +85,7 @@ export const Wrapper = styled.div`
 
     background-size: cover;
     background-image: url(${levelOne});
+    background-position: left top;
 
     ${breakpoints.tablet} {
         width: 1024px;
@@ -119,6 +144,7 @@ const highlight = keyframes`
 const Item = styled.div`
     position: absolute;
     background-size: cover;
+    background-position: right bottom;
     visibility: ${(props) => (props.hidden ? `hidden` : `visible`)};
     ${(props) =>
         props.highlight
@@ -130,134 +156,31 @@ const Item = styled.div`
               `
             : ``};
 `
-
 export const Radish = styled(Item)`
-    top: 211px;
-    left: 424px;
-    width: calc(85.5px * 0.2769);
-    height: calc(52px * 0.2769);
     background-image: url(${radish});
-
-    ${breakpoints.tablet} {
-        width: calc(85.5px * 0.5846);
-        height: calc(52px * 0.5846);
-        top: 453.094px;
-        left: 520px;
-    }
-
-    ${breakpoints.desktop} {
-        top: 626px;
-        left: 1267px;
-        width: 85.5px;
-        height: 52px;
-    }
+    ${getSizes(141, 86, 1267, 2534)}
 `
 
 export const Tomato = styled(Item)`
-    top: 213px;
-    left: 381px;
-    width: calc(46px * 0.2769);
-    height: calc(39.5px * 0.2769);
     background-image: url(${tomato});
-
-    ${breakpoints.tablet} {
-        width: calc(46px * 0.5846);
-        height: calc(39.5px * 0.5846);
-        top: 455.094px;
-        left: 428px;
-    }
-
-    ${breakpoints.desktop} {
-        top: 638px;
-        left: 1134px;
-        width: 46px;
-        height: 39.5px;
-    }
+    ${getSizes(76, 65, 1299, 2268)}
 `
 export const Paprika = styled(Item)`
-    top: 281px;
-    left: 503px;
-    width: calc(102.5px * 0.2769);
-    height: calc(60px * 0.2769);
     background-image: url(${paprika});
-
-    ${breakpoints.tablet} {
-        width: calc(102.5px * 0.5846);
-        height: calc(60px * 0.5846);
-        top: 602px;
-        left: 722.3px;
-    }
-
-    ${breakpoints.desktop} {
-        top: 842px;
-        left: 1534px;
-        width: 102.5px;
-        height: 60px;
-    }
+    ${getSizes(205, 120, 1683, 3056)}
 `
 export const Сucumber = styled(Item)`
-    top: 168px;
-    left: 375px;
-    width: calc(42px * 0.2769);
-    height: calc(25px * 0.2769);
     background-image: url(${cucumber});
-
-    ${breakpoints.tablet} {
-        width: calc(42px * 0.5846);
-        height: calc(25px * 0.5846);
-        top: 361.094px;
-        left: 416px;
-    }
-
-    ${breakpoints.desktop} {
-        top: 504px;
-        left: 1123px;
-        width: 42px;
-        height: 25px;
-    }
+    ${getSizes(84, 50, 1013, 2251)}
 `
 export const Chicken = styled(Item)`
-    top: 252px;
-    left: 319px;
-    width: calc(94px * 0.2769);
-    height: calc(62.5px * 0.2769);
     background-image: url(${chicken});
-
-    ${breakpoints.tablet} {
-        width: calc(94px * 0.5846);
-        height: calc(62.5px * 0.5846);
-        top: 533.094px;
-        left: 298px;
-    }
-
-    ${breakpoints.desktop} {
-        top: 743px;
-        left: 954px;
-        width: 94px;
-        height: 62.5px;
-    }
+    ${getSizes(198, 125, 1506, 1911)}
 `
 
 export const Watermelon = styled(Item)`
-    top: 265px;
-    left: 591px;
-    width: calc(124.5px * 0.2769);
-    height: calc(148px * 0.2769);
     background-image: url(${watermelon});
-
-    ${breakpoints.tablet} {
-        width: calc(124.5px * 0.5846);
-        height: calc(148px * 0.5846);
-        top: 575.094px;
-        left: 878px;
-    }
-
-    ${breakpoints.desktop} {
-        top: 798px;
-        left: 1764px;
-        width: 124.5px;
-        height: 148px;
-    }
+    ${getSizes(249, 296, 1603, 3502)}
 `
 
 export const Shampur = styled(Item)`
@@ -374,7 +297,7 @@ export const Hints = styled.div`
     }
 `
 
-export const Answers = styled.div`
+export const Answers = styled(TransitionGroup)`
     position: absolute;
     z-index: 11;
     display: flex;
@@ -393,41 +316,6 @@ export const Answers = styled.div`
         left: 115px;
         bottom: 60px;
         gap: 60px;
-    }
-`
-
-export const Answer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: ${(props) => (props.hidden ? `hidden` : `visible`)};
-
-    width: 189px;
-    height: 28px;
-
-    background: rgba(0, 0, 0, 0.7);
-    border: ${(props) =>
-        props.showAnswer ? `3px solid #ffffff` : `1px solid #AAE600`};
-    box-sizing: border-box;
-    border-radius: 100px;
-
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 112.63%;
-    color: #c5ff76;
-
-    ${breakpoints.tablet} {
-        width: 297px;
-        height: 45px;
-        font-size: 20px;
-    }
-
-    ${breakpoints.desktop} {
-        width: 523px;
-        height: 78px;
-        font-size: 40px;
-        border: ${(props) =>
-            props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
     }
 `
 

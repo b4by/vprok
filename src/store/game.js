@@ -84,12 +84,25 @@ export default class Game {
 
     pick(item) {
         if (this.trainingIsOver) {
-            const pickedItem = this.levels[this.level].find(
-                (elem) => elem === item
-            )
+            // const pickedItem = this.levels[this.level].find(
+            //     (elem) => elem === item
+            // )
 
-            if (pickedItem) this.pickedItems.push(pickedItem)
-            if (this.getFiltered().length === 0) this.completed()
+            const index = this.levels[this.level].indexOf(item)
+            const newItem = this.levels[this.level][3]
+
+            if (~index && newItem && index < 3) {
+                this.levels[this.level].splice(3, 1)
+                this.levels[this.level].splice(index, 1, newItem)
+            }
+
+            if (~index && !newItem) {
+                this.levels[this.level].splice(index, 1)
+            }
+
+            if(this.levels[this.level].length === 0) {
+                this.isCompleted = true
+            }
         }
     }
 
@@ -104,9 +117,14 @@ export default class Game {
     }
 
     getFiltered() {
-        return this.levels[this.level].filter(
-            (item) => !this.pickedItems.includes(item)
-        )
+        // const copyItems = [...this.levels[this.level]]
+        // this.pickedItems.forEach((pickedItem) => {
+        //     const index = this.levels[this.level].indexOf(pickedItem)
+        //     if (~index) {
+        //         copyItems.splice(index, 1, pickedItem)
+        //     }
+        // })
+        return this.levels[this.level]
     }
 
     getRandom() {
@@ -114,13 +132,13 @@ export default class Game {
             return Math.floor(Math.random() * max)
         }
 
-        const filtered = this.getFiltered()
-        const random = getRandomInt(filtered.length - 1)
+        const filtered = this.currentItems
+        const random = getRandomInt(Math.min(this.levels[this.level].length, 3))
 
         return filtered[random]
     }
 
     pickRandom() {
-        this.pickedItems.push(this.getRandom())
+        this.pick(this.getRandom())
     }
 }
