@@ -23,6 +23,7 @@ const Hint = observer(({ from, active, disabled }) => {
                     className={push ? `push` : null}
                     active={active}
                     disabled={perekDisabled}
+                    trainingIsOver={game.trainingIsOver}
                     onClick={() => {
                         if (!perekDisabled) {
                             animate()
@@ -44,6 +45,7 @@ const Hint = observer(({ from, active, disabled }) => {
                     className={push ? `push` : null}
                     active={active}
                     disabled={hints.dadDisabled}
+                    trainingIsOver={game.trainingIsOver}
                     onClick={() => {
                         if (!hints.dadDisabled) {
                             animate()
@@ -65,6 +67,7 @@ const Hint = observer(({ from, active, disabled }) => {
                     className={push ? `push` : null}
                     active={active}
                     disabled={hints.momDisabled}
+                    trainingIsOver={game.trainingIsOver}
                     onClick={() => {
                         if (!hints.momDisabled) {
                             animate()

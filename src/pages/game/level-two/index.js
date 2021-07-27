@@ -42,11 +42,8 @@ const LevelTwo = observer(() => {
     }
 
     const answers = game.currentItems.map((answer) => {
-        let hidden = false
-        if (game.pickedItems.find((item) => item === answer)) hidden = true
-
         return (
-            <Answer style={{ display: hidden ? 'none' : 'flex' }}>
+            <Answer>
                 {answer}
             </Answer>
         )

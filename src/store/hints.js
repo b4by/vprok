@@ -17,18 +17,18 @@ export default class Hints {
         this.rootStore = rootStore
     }
     usePerekHint() {
-        if (this.rootStore.game.isStarted && !this.perekDisabled) {
+        if (this.rootStore.game.trainingIsOver && !this.perekDisabled) {
             this.rootStore.game.pickAll()
         }
     }
     useDadHint() {
-        if (this.rootStore.game.isStarted && !this.dadDisabled) {
+        if (this.rootStore.game.trainingIsOver && !this.dadDisabled) {
             this.dadDisabled = true
             this.rootStore.game.pickRandom()
         }
     }
     useMomHint() {
-        if (this.rootStore.game.isStarted && !this.momDisabled) {
+        if (this.rootStore.game.trainingIsOver && !this.momDisabled) {
             this.momDisabled = true
             const randomItem = this.rootStore.game.getRandom()
             this.momHintResult = randomItem

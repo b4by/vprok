@@ -2,7 +2,7 @@ import { makeAutoObservable } from 'mobx'
 import { makePersistable, isHydrated } from 'mobx-persist-store'
 
 export default class Game {
-    level = 1
+    level = 0
     totalLevels = 3
     trainingIsOver = false
     isStarted = false
@@ -66,10 +66,11 @@ export default class Game {
     }
 
     get currentItems() {
-        return this.getFiltered().filter((_, index) => index <= 2)
+        return this.levels[this.level].filter((_, index) => index <= 2)
     }
 
     setTrainingIsOver() {
+        this.level = 1
         this.trainingIsOver = true
     }
 

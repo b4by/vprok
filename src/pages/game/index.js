@@ -15,13 +15,12 @@ const Game = observer(() => {
 
     const level = game.currentLevel
 
-    console.log('{game.level === 1 && <LevelOne />}', level, level === 1)
     return (
         <>
             {(orientation === 'portrait-secondary' ||
                 orientation === 'portrait-primary') && <PortraitScreen />}
                 <Blackscreen /> 
-            {level === 1 && <LevelOne />}
+            {(level === 1 || level === 0) && <LevelOne />}
             {level === 2 && <LevelTwo/>}
             {level === 3 && <LevelThree />}
             {game.isOver && <GameOver />}

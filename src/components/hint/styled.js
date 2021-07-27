@@ -106,6 +106,8 @@ const Hint = styled.div`
         animation-fill-mode: forwards;
     }
 
+    ${(props) => (props.trainingIsOver ? `` : `pointer-events: none;`)};
+
     ${breakpoints.tablet} {
         width: 165px;
         height: 165px;
