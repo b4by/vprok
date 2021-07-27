@@ -5,7 +5,7 @@ import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
-import EndSecondLevel from 'components/end-first-level'
+import EndSecondLevel from 'components/end-second-level'
 import Answer from 'components/answer'
 import {
     Wrapper,
