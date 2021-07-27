@@ -1,32 +1,21 @@
 import { HintPerek, HintFather, HintMom, Dialog } from './styled'
 import { observer } from 'mobx-react'
 import { useStore } from 'store'
-import { useState } from 'react'
 
-const Hint = observer(({ from, active, disabled }) => {
+const Hint = observer(({ from, active }) => {
     const { timer, hints, game } = useStore()
     const perekDisabled = timer.seconds > 30 && game.trainingIsOver
-
-    const [push, setPush] = useState(false)
-
-    const animate = () => {
-        // Button begins to shake
-        setPush(true)
-
-        // Buttons tops to shake after 2 seconds
-    }
 
     return (
         <>
             {from === 'perek' && (
                 <HintPerek
-                    className={push ? `push` : null}
+                    className={perekDisabled ? `push` : null}
                     active={active}
                     disabled={perekDisabled}
                     trainingIsOver={game.trainingIsOver}
                     onClick={() => {
                         if (!perekDisabled) {
-                            animate()
                             hints.usePerekHint()
                         }
                     }}
@@ -42,13 +31,12 @@ const Hint = observer(({ from, active, disabled }) => {
             )}
             {from === 'father' && (
                 <HintFather
-                    className={push ? `push` : null}
+                    className={hints.dadDisabled ? `push` : null}
                     active={active}
                     disabled={hints.dadDisabled}
                     trainingIsOver={game.trainingIsOver}
                     onClick={() => {
                         if (!hints.dadDisabled) {
-                            animate()
                             hints.useDadHint()
                         }
                     }}
@@ -64,13 +52,12 @@ const Hint = observer(({ from, active, disabled }) => {
             )}
             {from === 'mom' && (
                 <HintMom
-                    className={push ? `push` : null}
+                    className={hints.momDisabled ? `push` : null}
                     active={active}
                     disabled={hints.momDisabled}
                     trainingIsOver={game.trainingIsOver}
                     onClick={() => {
                         if (!hints.momDisabled) {
-                            animate()
                             hints.useMomHint()
                         }
                     }}

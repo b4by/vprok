@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints } from 'helpers/breakpoints'
+import { forwardRef } from 'react'
 
 export const AnswerStyled = styled.div`
     display: flex;
@@ -37,6 +38,8 @@ export const AnswerStyled = styled.div`
             props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
     }
 
+    ${(props) => (props.lastAnswer ? `margin: 0!important;` : ``)};
+
     &.answer-enter {
         transform: scale(0);
     }
@@ -64,6 +67,14 @@ export const AnswerStyled = styled.div`
     }
 `
 
-export default function Answer({ children }) {
-    return <AnswerStyled>{children}</AnswerStyled>
-}
+// export default function Answer({ children, lastAnswer }) {
+//     return <AnswerStyled lastAnswer={lastAnswer}>{children}</AnswerStyled>
+// }
+
+const Answer = forwardRef(({ children, lastAnswer }, ref) => (
+    <AnswerStyled ref={ref} lastAnswer={lastAnswer}>
+        {children}
+    </AnswerStyled>
+))
+
+export default Answer

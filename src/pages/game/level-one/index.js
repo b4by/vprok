@@ -1,5 +1,6 @@
+import { useRef, useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
-import { CSSTransition } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
@@ -31,13 +32,14 @@ import Messages from 'components/messages'
 import Timer from 'components/timer'
 
 const LevelOne = observer(() => {
-    const ratio = useRatio()
     const {
         timer,
         game,
         training,
         hints: { momHintResult },
     } = useStore()
+    const { index } = game
+    const ratio = useRatio()
     const { minutes, seconds } = intervalToDuration({
         start: 0,
         end: timer.seconds * 1000,
@@ -50,7 +52,7 @@ const LevelOne = observer(() => {
     const handlerAnswer = (item) => () => {
         game.pick(item)
     }
-    const answers = game.currentItems.map((answer) => {
+    const answers = game.currentItems.map((answer, i) => {
         return (
             <CSSTransition
                 key={answer}
@@ -58,10 +60,11 @@ const LevelOne = observer(() => {
                     enter: 1000,
                     exit: 500,
                 }}
-                exit={game.items.length > 3}
                 classNames="answer"
             >
-                <Answer>{answer}</Answer>
+                <Answer lastAnswer={game.getFiltered().length <= 3}>
+                    {answer}
+                </Answer>
             </CSSTransition>
         )
     })
@@ -73,59 +76,123 @@ const LevelOne = observer(() => {
         }
     }
 
+    const findIndexItem = (itemName) => {
+        const index = game.getFiltered().findIndex((item) => item === itemName)
+
+        if (index < 3 && index >= 0) {
+            return index
+        }
+
+        return null
+    }
+
     const items = game.getFiltered().map((indexItem) => {
         if (indexItem === 'редис') {
             return (
-                <Radish
+                <CSSTransition
                     key={indexItem}
-                    onClick={handlerAnswer('редис')}
-                    highlight={momHintResult === 'редис'}
-                />
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Radish
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'помидор') {
             return (
-                <Tomato
+                <CSSTransition
                     key={indexItem}
-                    onClick={handlerAnswer('помидор')}
-                    highlight={momHintResult === 'помидор'}
-                />
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Tomato
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'сладкий перец') {
             return (
-                <Paprika
+                <CSSTransition
                     key={indexItem}
-                    onClick={handlerAnswer('сладкий перец')}
-                    highlight={momHintResult === 'сладкий перец'}
-                />
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Paprika
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'огурец') {
             return (
-                <Сucumber
+                <CSSTransition
                     key={indexItem}
-                    onClick={handlerAnswer('огурец')}
-                    highlight={momHintResult === 'огурец'}
-                />
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Сucumber
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'курица') {
             return (
-                <Chicken
+                <CSSTransition
                     key={indexItem}
-                    onClick={handlerAnswer('курица')}
-                    highlight={momHintResult === 'курица'}
-                />
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Chicken
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'арбуз') {
             return (
-                <Watermelon
+                <CSSTransition
                     key={indexItem}
-                    onClick={handlerAnswer('арбуз')}
-                    highlight={momHintResult === 'арбуз'}
-                />
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Watermelon
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         return null
@@ -136,7 +203,7 @@ const LevelOne = observer(() => {
             <Background blured={game.isOver || game.isCompleted}>
                 <Wrapper ratio={ratio} onClick={submit}>
                     <Scene>
-                        {items}
+                        <TransitionGroup>{items}</TransitionGroup>
                         <VectorShampur
                             visible={
                                 !game.trainingIsOver &&
@@ -190,13 +257,7 @@ const LevelOne = observer(() => {
                                 }
                             />
                         </Hints>
-                        <Answers
-                            transitionName="answer"
-                            transitionEnterTimeout={500}
-                            transitionLeaveTimeout={300}
-                        >
-                            {answers}
-                        </Answers>
+                        <Answers>{answers}</Answers>
                         <Messages />
                     </Scene>
                 </Wrapper>

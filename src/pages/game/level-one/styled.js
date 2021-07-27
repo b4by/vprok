@@ -33,6 +33,94 @@ import vectorPerekTablet from 'img/vector-perek-tablet.svg'
 import vectorPerekMobile from 'img/vector-perek-mobile.svg'
 import { TransitionGroup } from 'react-transition-group'
 
+const position = {
+    desktop: {
+        0: {
+            top: 942,
+            left: 376.5,
+        },
+        1: {
+            top: 942,
+            left: 959.5,
+        },
+        2: {
+            top: 942,
+            left: 1542.5,
+        },
+    },
+    tablet: {
+        0: {
+            top: 688,
+            left: 178.5,
+        },
+        1: {
+            top: 688,
+            left: 510.5,
+        },
+        2: {
+            top: 688,
+            left: 842.5,
+        },
+    },
+    mobile: {
+        0: {
+            top: 316,
+            left: 116.5,
+        },
+        1: {
+            top: 316,
+            left: 316.5,
+        },
+        2: {
+            top: 316,
+            left: 516.5,
+        },
+    },
+}
+
+const getPosition = (index) => {
+    if (index === 0) {
+        return css`
+            ${position.mobile[0]}
+
+            ${breakpoints.tablet} {
+                ${position.tablet[0]}
+            }
+
+            ${breakpoints.desktop} {
+                ${position.desktop[0]}
+            }
+        `
+    }
+    if (index === 1) {
+        return css`
+            ${position.mobile[1]}
+
+            ${breakpoints.tablet} {
+                ${position.tablet[1]}
+            }
+
+            ${breakpoints.desktop} {
+                ${position.desktop[1]}
+            }
+        `
+    }
+    if (index === 2) {
+        return css`
+            ${position.mobile[2]}
+
+            ${breakpoints.tablet} {
+                ${position.tablet[2]}
+            }
+
+            ${breakpoints.desktop} {
+                ${position.desktop[2]}
+            }
+        `
+    }
+    return ``
+}
+
 export const Background = styled.div`
     position: relative;
     display: flex;
@@ -141,6 +229,21 @@ const highlight = keyframes`
   }
 `
 
+const exit = keyframes`
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    transform: scale(1.5);
+    animation-timing-function: ease-in;
+  }
+  100%{
+    transform: scale(0.1);
+    animation-timing-function: ease-out;
+  }
+`
 const Item = styled.div`
     position: absolute;
     background-size: cover;
@@ -155,6 +258,16 @@ const Item = styled.div`
                   animation-iteration-count: infinite;
               `
             : ``};
+
+    &.item-exit {
+        animation-name: ${exit};
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    &.item-exit-active {
+        transition: top 1000ms ease-in, left 1000ms ease-in;
+        ${(props) => getPosition(props.index)}
+    }
 `
 export const Radish = styled(Item)`
     background-image: url(${radish});

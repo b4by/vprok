@@ -1,12 +1,20 @@
 import { makeAutoObservable } from 'mobx'
 import { makePersistable, isHydrated } from 'mobx-persist-store'
 
+const data = {
+    0: ['Уголь', 'Решетка', 'Шампуры'],
+    1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
+    2: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица'],
+    3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
+}
+
 export default class Game {
-    level = 0
+    level = 1
     totalLevels = 3
-    trainingIsOver = false
+    trainingIsOver = true
     isStarted = false
     isCompleted = false
+    index = -1
     levels = {
         0: ['Уголь', 'Решетка', 'Шампуры'],
         1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
@@ -14,6 +22,13 @@ export default class Game {
         3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
     }
     pickedItems = []
+    copyItems = {
+        0: ['Уголь', 'Решетка', 'Шампуры'],
+        1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
+        2: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица'],
+        3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
+    }
+
     rootStore
 
     constructor(rootStore) {
@@ -47,6 +62,7 @@ export default class Game {
         this.rootStore.timer.restart()
         this.pickedItems = []
         this.rootStore.hints.momHintResult = ''
+        this.levels[this.level] = data[this.level]
     }
 
     get isOver() {
@@ -89,35 +105,43 @@ export default class Game {
 
     pick(item) {
         if (this.trainingIsOver) {
-            // const pickedItem = this.levels[this.level].find(
-            //     (elem) => elem === item
-            // )
-
             const index = this.levels[this.level].indexOf(item)
             const newItem = this.levels[this.level][3]
+            this.index = index
 
             if (~index && newItem && index < 3) {
-                this.levels[this.level].splice(3, 1)
-                this.levels[this.level].splice(index, 1, newItem)
+                this.copyItems[this.level].splice(3, 1)
+                this.copyItems[this.level].splice(index, 1, newItem)
             }
 
             if (~index && !newItem) {
-                this.levels[this.level].splice(index, 1)
+                this.copyItems[this.level].splice(index, 1)
             }
 
-            if (this.levels[this.level].length === 0) {
-                this.isCompleted = true
-            }
+            setTimeout(() => {
+                if (~index && newItem && index < 3) {
+                    this.levels[this.level].splice(3, 1)
+                    this.levels[this.level].splice(index, 1, newItem)
+                }
+
+                if (~index && !newItem) {
+                    this.levels[this.level].splice(index, 1)
+                }
+
+                if (this.levels[this.level].length === 0) {
+                    this.isCompleted = true
+                }
+            }, 1000)
         }
     }
 
     pickAll() {
         if (this.trainingIsOver) {
-            this.levels[this.level].map((item) => {
-                return this.pickedItems.push(item)
-            })
+            this.levels[this.level] = []
 
-            this.completed()
+            setTimeout(() => {
+                this.completed()
+            }, 2000)
         }
     }
 
@@ -129,7 +153,7 @@ export default class Game {
         //         copyItems.splice(index, 1, pickedItem)
         //     }
         // })
-        return this.levels[this.level]
+        return this.copyItems[this.level]
     }
 
     getRandom() {
