@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+import throttle from 'lodash.throttle'
 import { observer } from 'mobx-react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import useRatio from 'hooks/useRatio'
@@ -38,7 +39,6 @@ const LevelOne = observer(() => {
         training,
         hints: { momHintResult },
     } = useStore()
-    const { index } = game
     const ratio = useRatio()
     const { minutes, seconds } = intervalToDuration({
         start: 0,
@@ -49,9 +49,10 @@ const LevelOne = observer(() => {
     const showShampurOff = training.currentIndexText !== 0
     const showAnswer = !game.trainingIsOver && training.currentIndexText === 1
     const showTimer = !game.trainingIsOver && training.currentIndexText === 2
-    const handlerAnswer = (item) => () => {
-        game.pick(item)
-    }
+    const handlerAnswer = (item) =>
+        throttle(() => {
+            game.pick(item)
+        }, 1000)
     const answers = game.currentItems.map((answer, i) => {
         return (
             <CSSTransition
@@ -62,7 +63,7 @@ const LevelOne = observer(() => {
                 }}
                 classNames="answer"
             >
-                <Answer lastAnswer={game.getFiltered().length <= 3}>
+                <Answer lastAnswer={game.getFiltered().length < 3}>
                     {answer}
                 </Answer>
             </CSSTransition>

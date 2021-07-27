@@ -260,6 +260,7 @@ const Item = styled.div`
             : ``};
 
     &.item-exit {
+        z-index: 1000;
         animation-name: ${exit};
         animation-duration: 1s;
         animation-fill-mode: forwards;

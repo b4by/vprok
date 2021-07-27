@@ -9,9 +9,9 @@ const data = {
 }
 
 export default class Game {
-    level = 1
+    level = 0
     totalLevels = 3
-    trainingIsOver = true
+    trainingIsOver = false
     isStarted = false
     isCompleted = false
     index = -1
@@ -22,6 +22,7 @@ export default class Game {
         3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
     }
     pickedItems = []
+    rootStore = null
     copyItems = {
         0: ['Уголь', 'Решетка', 'Шампуры'],
         1: ['сладкий перец', 'помидор', 'огурец', 'редис', 'курица', 'арбуз'],
@@ -29,7 +30,11 @@ export default class Game {
         3: ['paprika', 'tomato', 'cucumber', 'radish', 'chiken'],
     }
 
-    rootStore
+    // Мясо, сладкий перец, помидор, пучок зелени, огурец, кетчуп, сок, редис, курица, колбаски, дыня, арбуз
+
+    // Мясо, сладкий перец, помидор, пучок зелени, огурец, кетчуп, сок, редис, курица, колбаски, дыня, арбуз, шампуры, мангал, решётка, пластиковые стаканчики, уголь
+
+    // Мясо, сладкий перец, помидор, пучок зелени, огурец, кетчуп, сок, редис, курица, колбаски, дыня, арбуз, шампуры, мангал, решётка, пластиковые стаканчики, уголь, лейка, детское ведёрко с лопаткой, бутилированная вода, грабли, мяч
 
     constructor(rootStore) {
         makeAutoObservable(this)
@@ -131,13 +136,13 @@ export default class Game {
                 if (this.levels[this.level].length === 0) {
                     this.isCompleted = true
                 }
-            }, 1000)
+            }, 500)
         }
     }
 
     pickAll() {
         if (this.trainingIsOver) {
-            this.levels[this.level] = []
+            this.copyItems[this.level] = []
 
             setTimeout(() => {
                 this.completed()
