@@ -1,104 +1,410 @@
+import throttle from 'lodash.throttle'
 import { observer } from 'mobx-react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import useRatio from 'hooks/useRatio'
 import { intervalToDuration } from 'date-fns'
 import { useStore } from 'store'
 import StartGame from 'components/start-game'
-import EndSecondLevel from 'components/end-second-level'
+import EndSecondLevel from 'components/end-first-level'
+import Answer from 'components/answer'
 import {
     Wrapper,
     Scene,
     Background,
     Radish,
     Tomato,
+    Hints,
     Paprika,
     Сucumber,
     Chicken,
-    Hints,
+    Watermelon,
     Answers,
-    Answer,
+    Melon,
+    Juce,
+    Sausage,
+    Grass,
+    Meat,
+    Ketchup,
+    Cage,
+    Coal,
+    Mangal,
+    Cups,
+    Shampur,
 } from './styled'
 import Hint from 'components/hint'
 import Messages from 'components/messages'
 import Timer from 'components/timer'
 
 const LevelTwo = observer(() => {
-    const ratio = useRatio()
     const {
         timer,
         game,
         training,
         hints: { momHintResult },
     } = useStore()
-    const { levels, level: LVL } = game
-    const level = game.trainingIsOver ? LVL : 0
+    const ratio = useRatio()
     const { minutes, seconds } = intervalToDuration({
         start: 0,
         end: timer.seconds * 1000,
     })
     const formatedSeconds = `${seconds}`.padStart(2, '0')
     const showTimer = !game.trainingIsOver && training.currentIndexText === 2
-    const handlerAnswer = (item) => () => {
-        game.pick(item)
-    }
-
-    const answers = game.currentItems.map((answer) => {
+    const handlerAnswer = (item) =>
+        throttle(() => {
+            game.pick(item)
+        }, 1000)
+    const answers = game.currentItems.map((answer, i) => {
         return (
-            <Answer>
-                {answer}
-            </Answer>
+            <CSSTransition
+                key={answer}
+                timeout={{
+                    enter: 1000,
+                    exit: 500,
+                }}
+                classNames="answer"
+            >
+                <Answer lastAnswer={game.getFiltered().length < 3}>
+                    {answer}
+                </Answer>
+            </CSSTransition>
         )
     })
+    const findIndexItem = (itemName) => {
+        const index = game.getFiltered().findIndex((item) => item === itemName)
+
+        if (index < 3 && index >= 0) {
+            return index
+        }
+
+        return null
+    }
+
     const items = game.getFiltered().map((indexItem) => {
         if (indexItem === 'редис') {
             return (
-                <Radish
+                <CSSTransition
                     key={indexItem}
-                    onClick={handlerAnswer('редис')}
-                    highlight={momHintResult === 'редис'}
-                />
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Radish
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'помидор') {
             return (
-                <Tomato
-                    onClick={handlerAnswer('помидор')}
-                    highlight={momHintResult === 'помидор'}
-                />
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Tomato
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'сладкий перец') {
             return (
-                <Paprika
-                    onClick={handlerAnswer('сладкий перец')}
-                    highlight={momHintResult === 'сладкий перец'}
-                />
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Paprika
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'огурец') {
             return (
-                <Сucumber
-                    onClick={handlerAnswer('огурец')}
-                    highlight={momHintResult === 'огурец'}
-                />
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Сucumber
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
         if (indexItem === 'курица') {
             return (
-                <Chicken
-                    onClick={handlerAnswer('курица')}
-                    highlight={momHintResult === 'курица'}
-                />
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Chicken
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+        if (indexItem === 'арбуз') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Watermelon
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+        if (indexItem === 'кетчуп') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Ketchup
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+        if (indexItem === 'мясо') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Meat
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'сок') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Juce
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'дыня') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Melon
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'колбаски') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Sausage
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'пучок зелени') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Grass
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'решётка') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Cage
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'уголь') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Coal
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'мангал') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Mangal
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'стаканчики') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Cups
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
+            )
+        }
+
+        if (indexItem === 'шампуры') {
+            return (
+                <CSSTransition
+                    key={indexItem}
+                    timeout={{
+                        exit: 1000,
+                    }}
+                    classNames="item"
+                >
+                    <Shampur
+                        key={indexItem}
+                        onClick={handlerAnswer(indexItem)}
+                        highlight={momHintResult === indexItem}
+                        index={findIndexItem(indexItem)}
+                    />
+                </CSSTransition>
             )
         }
 
         return null
     })
+
     return (
         <>
             <Background blured={game.isOver || game.isCompleted}>
                 <Wrapper ratio={ratio}>
                     <Scene>
-                        {items}
+                        <TransitionGroup>{items}</TransitionGroup>
                         <Timer showTimer={showTimer}>
                             {`${minutes}:${formatedSeconds}`}
                         </Timer>
