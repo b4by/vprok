@@ -12,10 +12,11 @@ import {
     DachaTextDesk,
     TextDesktop,
 } from './styled'
+import { useHistory } from 'react-router-dom'
 
 export default function Home() {
     const [pushed, setPushed] = useState(false)
-
+    const history = useHistory()
     return (
         <>
             <StartScreen>
@@ -62,7 +63,7 @@ export default function Home() {
                     className={pushed ? `push` : null}
                     onClick={() => {
                         setTimeout(() => {
-                            window.location.replace('/game')
+                            history.push('/game')
                         }, 1000)
                         setPushed(true)
                     }}
