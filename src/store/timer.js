@@ -18,11 +18,11 @@ export default class Timer {
     }
 
     increaseTimer() {
-        this.timePassed += 1
+        if (!this.isFinish) this.timePassed += 1
     }
 
     get seconds() {
-        return Math.max(0, 90 - this.timePassed)
+        return Math.max(0, 10 - this.timePassed)
     }
 
     start() {
