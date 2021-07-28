@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { useState } from 'react'
 import { useStore } from 'store'
 import { observer } from 'mobx-react'
 import { breakpoints } from 'helpers/breakpoints'
@@ -22,6 +23,48 @@ export const Wrapper = styled.div`
     }
 `
 
+const heartbeat = keyframes`
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    transform: scale(0.91);
+    animation-timing-function: ease-in;
+  }
+  34% {
+    transform: scale(0.98);
+    animation-timing-function: ease-out;
+  }
+  66% {
+    transform: scale(0.87);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+`
+const push = keyframes`
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(0.5);
+    animation-timing-function: ease-in;
+    filter: brightness(1);
+  }
+  100%{
+    transform: scale(1);
+    animation-timing-function: ease-out;
+    filter: brightness(0.5);
+  }
+`
+
 export const PlayButon = styled.div`
     margin: auto;
     width: 96px;
@@ -31,6 +74,11 @@ export const PlayButon = styled.div`
     background-repeat: no-repeat;
     cursor: pointer;
     background-position: center;
+    animation: ${heartbeat} 4s ease-in-out infinite both;
+
+    &.push {
+        animation: ${push} 0.4s forwards;
+    }
 
     &:active,
     &:hover {
@@ -50,13 +98,18 @@ export const PlayButon = styled.div`
 
 const StartGame = observer(() => {
     const { game } = useStore()
+    const [pushed, setPushed] = useState(false)
 
     return (
         <Wrapper>
             <PlayButon
                 onClick={() => {
-                    game.start()
+                    setTimeout(() => {
+                        game.start()
+                    }, 1000)
+                    setPushed(true)
                 }}
+                className={pushed ? `push` : null}
             />
         </Wrapper>
     )

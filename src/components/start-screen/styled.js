@@ -1,7 +1,28 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import bgMobile from 'img/bg-mobile.jpeg'
 import bgDesktop from 'img/bg-desk.jpeg'
-import { breakpoints } from 'helpers/breakpoints';
+import { breakpoints } from 'helpers/breakpoints'
+
+const vibrate = keyframes`
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+`
 
 export const HomeContainer = styled.div`
     display: flex;
@@ -25,26 +46,26 @@ export const HomeContainer = styled.div`
     }
 
     &:before {
-        content: "";
+        content: '';
         position: absolute;
-        top: 0; 
+        top: 0;
         left: 0;
-        width: 100%; 
-        height: 100%;  
-        opacity: .4; 
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
         z-index: -1;
         background-image: url(${bgMobile});
         background-repeat: no-repeat;
         background-size: cover;
-        background-color: #FDFDDB;
+        background-color: #fdfddb;
         background-position: -435px 0;
 
         ${breakpoints.tablet} {
-             background-image: url(${bgDesktop});
-             background-position: center center;
+            background-image: url(${bgDesktop});
+            background-position: center center;
         }
     }
-`;
+`
 
 export const LogoContainer = styled.div`
     display: flex;
@@ -65,7 +86,7 @@ export const LogoContainer = styled.div`
         right: 163px;
         left: 163px;
     }
-`;
+`
 
 export const LogoImg = styled.div`
     width: 82px;
@@ -80,8 +101,7 @@ export const LogoImg = styled.div`
         width: 262px;
         height: 73px;
     }
-`;
-
+`
 
 export const StoreIcon = styled.div`
     width: 21px;
@@ -96,25 +116,25 @@ export const StoreIcon = styled.div`
         width: 68px;
         height: 68px;
     }
-`;
+`
 
 export const StoreIcons = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 21px);  
+    grid-template-columns: repeat(3, 21px);
     grid-column-gap: 3px;
     margin-right: 32px;
 
     ${breakpoints.tablet} {
-        grid-template-columns: repeat(3, 36px); 
+        grid-template-columns: repeat(3, 36px);
         grid-column-gap: 4px;
         margin: 0;
     }
 
     ${breakpoints.desktop} {
-        grid-template-columns: repeat(3, 68px); 
+        grid-template-columns: repeat(3, 68px);
         grid-column-gap: 9px;
     }
-`;
+`
 
 export const Content = styled.div`
     position: relative;
@@ -125,7 +145,7 @@ export const Content = styled.div`
     border-radius: 166.5px;
     margin: auto;
     width: 100%;
-    
+
     ${breakpoints.tablet} {
         max-width: 920px;
         height: 647px;
@@ -138,4 +158,90 @@ export const Content = styled.div`
         border-radius: 472px;
         margin: 0 auto;
     }
-`;
+
+    & .vegetables-desktop,
+    & .vegetables-mobile {
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        right: -60px;
+        pointer-events: none;
+
+        & > g {
+            animation: ${vibrate} 4s linear alternate infinite;
+        }
+        & > g:nth-child(1) {
+            animation-delay: 0s;
+        }
+        & > g:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        & > g:nth-child(3) {
+            animation-delay: 1s;
+        }
+        & > g:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+        & > g:nth-child(5) {
+            animation-delay: 0.2s;
+        }
+        & > g:nth-child(6) {
+            animation-delay: 0.4s;
+        }
+        & > g:nth-child(7) {
+            animation-delay: 1s;
+        }
+        & > g:nth-child(8) {
+            animation-delay: 1.5s;
+        }
+        & > g:nth-child(9) {
+            animation-delay: 0.2s;
+        }
+        & > g:nth-child(10) {
+            animation-delay: 0.8s;
+        }
+        & > g:nth-child(11) {
+            animation-delay: 0.1s;
+        }
+        & > g:nth-child(12) {
+            animation-delay: 0.9s;
+        }
+        & > g:nth-child(13) {
+            animation-delay: 0.2;
+        }
+
+        & > path {
+            animation: ${vibrate} 4s ease alternate infinite;
+        }
+    }
+
+    & .vegetables-mobile {
+        display: block;
+
+        ${breakpoints.tablet} {
+            display: none;
+        }
+
+        ${breakpoints.desktop} {
+            display: none;
+        }
+    }
+
+    & .vegetables-desktop {
+        display: none;
+
+        ${breakpoints.tablet} {
+            display: block;
+            bottom: -90px;
+            left: -70px;
+            right: -110px;
+        }
+
+        ${breakpoints.desktop} {
+            display: block;
+            bottom: -160px;
+            left: -60px;
+            right: -150px;
+        }
+    }
+`
