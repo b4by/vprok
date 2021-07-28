@@ -8,6 +8,7 @@ export const AnswerStyled = styled.div`
     position: relative;
     align-items: center;
     width: 189px;
+    pointer-events: none;
     height: 28px;
 
     background: rgba(0, 0, 0, 0.7);

@@ -467,6 +467,7 @@ export const Answers = styled(TransitionGroup)`
     bottom: 16px;
     left: 22px;
     gap: 11px;
+    pointer-events: none;
 
     ${breakpoints.tablet} {
         left: 30px;

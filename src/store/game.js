@@ -132,6 +132,7 @@ export default class Game {
 
     completed() {
         this.rootStore.timer.isStarted = false
+        this.rootStore.timer.isFinish = true
         this.isCompleted = true
     }
 
