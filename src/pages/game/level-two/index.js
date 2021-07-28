@@ -358,7 +358,7 @@ const LevelTwo = observer(() => {
             )
         }
 
-        if (indexItem === 'стаканчики') {
+        if (indexItem === 'пластиковые стаканчики') {
             return (
                 <CSSTransition
                     key={indexItem}
