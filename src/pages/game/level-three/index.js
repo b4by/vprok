@@ -402,7 +402,7 @@ const LevelThree = observer(() => {
         }
 
 
-        if (indexItem === 'детское ведёрко с лопаткой') {
+        if (indexItem === 'детское ведёрко') {
             return (
                 <CSSTransition
                     key={indexItem}
