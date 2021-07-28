@@ -10,18 +10,17 @@ import LevelThree from './level-three'
 
 
 const Game = observer(() => {
-    const orientation = useScreenOrientation()
+    const isPortrait = useScreenOrientation()
     const { game } = useStore()
 
     const level = game.currentLevel
 
     return (
         <>
-            {(orientation === 'portrait-secondary' ||
-                orientation === 'portrait-primary') && <PortraitScreen />}
-                <Blackscreen /> 
+            {isPortrait && <PortraitScreen />}
+            <Blackscreen />
             {(level === 1 || level === 0) && <LevelOne />}
-            {level === 2 && <LevelTwo/>}
+            {level === 2 && <LevelTwo />}
             {level === 3 && <LevelThree />}
             {game.isOver && <GameOver />}
         </>

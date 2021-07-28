@@ -1,13 +1,20 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function useScreenOrientation() {
-  const [orientation, setOrientation] = useState(window.screen.orientation.type);
+    const [isPortrait, setPortrait] = useState(
+        window.matchMedia('(orientation:portrait)').matches
+    )
 
-  useLayoutEffect(() => {    
-    const handleOrientationChange= () => setOrientation(window.screen.orientation.type);
-    window.addEventListener('orientationchange', handleOrientationChange);
-    return () => window.removeEventListener('orientationchange', handleOrientationChange);
-  }, []);
+    useEffect(() => {
+        const handleOrientationChange = () => {
+            setPortrait(window.matchMedia('(orientation:portrait)').matches)
+        }
 
-  return orientation;
-};
+        window.addEventListener('resize', handleOrientationChange)
+
+        return () =>
+            window.removeEventListener('resize', handleOrientationChange)
+    }, [])
+
+    return isPortrait
+}

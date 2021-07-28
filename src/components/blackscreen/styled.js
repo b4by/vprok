@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { breakpoints } from 'helpers/breakpoints'
 
 export const Content = styled.div`
     position: fixed;
