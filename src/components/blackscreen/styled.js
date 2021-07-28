@@ -15,9 +15,10 @@ export const Content = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    display: none;
 
-    @media all and (orientation: landscape) {
-        display: none;
+    @media all and (max-width: 640px) {
+        display: flex;
     }
 `
 
