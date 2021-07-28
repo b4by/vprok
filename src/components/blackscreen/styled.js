@@ -16,7 +16,7 @@ export const Content = styled.div`
     justify-content: center;
     display: none;
 
-    @media all and (max-width: 640px) {
+    @media (pointer: fine) and (max-width: 640px) {
         display: flex;
     }
 `

@@ -26,6 +26,9 @@ export const Content = styled.div`
     ${breakpoints.desktop} {
         display: none;
     }
+    @media (pointer: fine) {
+        display: none;
+    }
 `
 
 export const IconsPhone = styled.div`
