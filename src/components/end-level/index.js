@@ -30,19 +30,19 @@ export const Card = styled.div`
     width: 361px;
     height: 262px;
     left: 50%;
-    margin-top: 17px;
+    /* margin-top: 17px; */
 
     ${breakpoints.tablet} {
         width: 575.8px;
         height: 417.9px;
-        margin-top: 170px;
+        /* margin-top: 170px; */
         padding: 28px 25px;
     }
 
     ${breakpoints.desktop} {
         width: 890.47px;
         height: 646.27px;
-        margin-top: 171.2px;
+        /* margin-top: 171.2px; */
         padding: 52px 70px;
     }
 `

@@ -49,6 +49,7 @@ export const Dialog = styled.div`
     line-height: 112.63%;
     text-align: center;
     white-space: pre-line;
+    user-select: none;
 
     ${breakpoints.tablet} {
         left: 90px;
