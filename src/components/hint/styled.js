@@ -44,13 +44,9 @@ export const Dialog = styled.div`
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url(${dialog});
-
-    font-family: Gilroy;
-    font-style: normal;
     font-size: 4px;
     font-weight: 600;
     line-height: 112.63%;
-
     text-align: center;
     white-space: pre-line;
 

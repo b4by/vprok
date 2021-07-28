@@ -4,6 +4,7 @@ import PrevBtn from 'components/prev-btn'
 import { useStore } from 'store'
 import { observer } from 'mobx-react'
 import Buttons from 'components/buttons'
+import { Form } from 'components/form/index'
 
 const EndThirdLevel = observer(() => {
     const { game } = useStore()
@@ -17,6 +18,7 @@ const EndThirdLevel = observer(() => {
                     __html: `Узнайте свой СУПЕРПРИЗ`,
                 }}
             />
+            <Form />
         </EndLevel>
     )
 })

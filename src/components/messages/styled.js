@@ -5,28 +5,22 @@ export const Wrapper = styled.div`
     position: absolute;
     top: 215px;
     left: 128px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 481px;
     min-height: 78px;
     padding: 7px 20px 0;
-
+    pointer-events: none;
     z-index: 11;
     background: rgba(0, 0, 0, 0.7);
     border: 1px solid #aae600;
     box-sizing: border-box;
     border-radius: 117px;
-
-    /* font-family: Gilroy; */
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 112.63%;
-    /* or 16px */
-
     text-align: center;
-
     color: #ffffff;
 
     ${breakpoints.tablet} {

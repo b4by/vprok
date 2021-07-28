@@ -24,7 +24,7 @@ const GameOver = observer(() => {
     return (
         <EndLevel buttons={buttons}>
             <Header>Уровень {game.level}</Header>
-            <Subtitle>Кажется недожирили...</Subtitle>
+            <Subtitle>Кажется недожарили...</Subtitle>
             <Text>Время вышло! Попробуем еще раз?</Text>
         </EndLevel>
     )

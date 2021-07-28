@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
 export const Card = styled.div`
     box-sizing: border-box;
     margin: 0 auto;
-    padding: 16px 14px;
+    padding: 17px;
     display: flex;
     flex-direction: column;
     background-image: url(${card});
@@ -43,45 +43,41 @@ export const Card = styled.div`
         width: 890.47px;
         height: 646.27px;
         margin-top: 171.2px;
+        padding: 52px 70px;
     }
 `
 
 export const Header = styled.div`
-    margin-bottom: 12px;
-    font-family: Roboto;
+    margin-bottom: 13px;
+    font-family: 'Roboto';
     text-align: center;
-    font-style: normal;
-    font-weight: normal;
     line-height: 112.63%;
     font-size: 18px;
 
     ${breakpoints.tablet} {
         font-size: 20px;
-        margin-bottom: 14px;
+        margin-bottom: 20px;
     }
 
     ${breakpoints.desktop} {
         font-size: 30px;
-        margin-bottom: 24px;
+        margin-bottom: 31px;
     }
 `
 
 export const Subtitle = styled.div`
-    margin-bottom: 6px;
-    font-family: Marck Script;
+    margin-bottom: 16px;
+    font-family: 'Marck Script', cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 25px;
     line-height: 112.63%;
-    /* or 28px */
-
     text-align: center;
-
     color: #010400;
 
     ${breakpoints.tablet} {
         font-size: 40px;
-        margin-bottom: 14px;
+        margin-bottom: 39px;
     }
 
     ${breakpoints.desktop} {
@@ -91,27 +87,22 @@ export const Subtitle = styled.div`
 `
 
 export const Text = styled.div`
-    margin-bottom: 16px;
-    font-family: Gilroy;
-    font-style: normal;
+    margin-bottom: 39px;
     font-weight: 600;
     font-size: 18px;
     line-height: 112.63%;
-    /* or 20px */
     white-space: pre-line;
-
     text-align: center;
-
     color: #000000;
 
     ${breakpoints.tablet} {
         font-size: 30px;
-        margin-bottom: 14px;
+        margin-bottom: 52px;
     }
 
     ${breakpoints.desktop} {
         font-size: 48px;
-        margin-bottom: 24px;
+        margin-bottom: 52px;
     }
 `
 
