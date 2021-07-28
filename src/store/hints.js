@@ -9,11 +9,16 @@ export default class Hints {
 
     constructor(rootStore) {
         makeAutoObservable(this)
-        // makePersistable(this, {
-        //     name: 'Hints',
-        //     properties: ['perekDisabled', 'dadDisabled', 'momDisabled'],
-        //     storage: window.localStorage,
-        // })
+        makePersistable(this, {
+            name: 'Hints',
+            properties: [
+                'perekDisabled',
+                'dadDisabled',
+                'momDisabled',
+                'momHintResult',
+            ],
+            storage: window.localStorage,
+        })
         this.rootStore = rootStore
     }
     usePerekHint() {

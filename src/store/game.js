@@ -63,30 +63,28 @@ const data = {
 }
 
 export default class Game {
-    level = 3
-    totalLevels = 3
-    trainingIsOver = true
+    level = 0
+    trainingIsOver = false
     isStarted = false
     isCompleted = false
     levels = { ...data }
-    pickedItems = []
-    rootStore = null
     copyItems = { ...data }
+    rootStore = null
 
     constructor(rootStore) {
         makeAutoObservable(this)
-        // makePersistable(this, {
-        //     name: 'Game',
-        //     properties: [
-        //         'level',
-        //         'trainingIsOver',
-        //         'isStarted',
-        //         'isCompleted',
-        //         'levels',
-        //         'pickedItems',
-        //     ],
-        //     storage: window.localStorage,
-        // })
+        makePersistable(this, {
+            name: 'Game',
+            properties: [
+                'level',
+                'trainingIsOver',
+                'isStarted',
+                'isCompleted',
+                'levels',
+                'copyItems',
+            ],
+            storage: window.localStorage,
+        })
         this.rootStore = rootStore
     }
 
@@ -102,7 +100,6 @@ export default class Game {
         this.isStarted = false
         this.isCompleted = false
         this.rootStore.timer.restart()
-        this.pickedItems = []
         this.rootStore.hints.momHintResult = ''
         this.levels[this.level] = data[this.level]
         this.copyItems[this.level] = data[this.level]
