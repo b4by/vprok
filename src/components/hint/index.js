@@ -1,10 +1,24 @@
 import { HintPerek, HintFather, HintMom, Dialog } from './styled'
 import { observer } from 'mobx-react'
 import { useStore } from 'store'
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import TagManager from 'react-gtm-module'
 
 const Hint = observer(({ from, active }) => {
     const { timer, hints, game } = useStore()
     const perekDisabled = timer.seconds > 30 && game.trainingIsOver
+
+    let location = useLocation()
+
+    const tagManagerArgs = {
+        dataLayer: {
+            event: 'promo',
+            eventCategory: 'click',
+            eventAction: 'use_tip',
+            eventLabel: location.pathname,
+        },
+    }
 
     return (
         <>
@@ -15,6 +29,7 @@ const Hint = observer(({ from, active }) => {
                     disabled={perekDisabled}
                     trainingIsOver={game.trainingIsOver}
                     onClick={() => {
+                        TagManager.dataLayer(tagManagerArgs)
                         if (!perekDisabled) {
                             hints.usePerekHint()
                         }
@@ -36,6 +51,7 @@ const Hint = observer(({ from, active }) => {
                     disabled={hints.dadDisabled}
                     trainingIsOver={game.trainingIsOver}
                     onClick={() => {
+                        TagManager.dataLayer(tagManagerArgs)
                         if (!hints.dadDisabled) {
                             hints.useDadHint()
                         }
@@ -57,6 +73,7 @@ const Hint = observer(({ from, active }) => {
                     disabled={hints.momDisabled}
                     trainingIsOver={game.trainingIsOver}
                     onClick={() => {
+                        TagManager.dataLayer(tagManagerArgs)
                         if (!hints.momDisabled) {
                             hints.useMomHint()
                         }

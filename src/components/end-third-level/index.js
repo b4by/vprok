@@ -5,9 +5,26 @@ import { useStore } from 'store'
 import { observer } from 'mobx-react'
 import Buttons from 'components/buttons'
 import { Form } from 'components/form/index'
+import { useEffect } from 'react'
+import TagManager from 'react-gtm-module'
+import { useLocation } from 'react-router-dom'
 
 const EndThirdLevel = observer(() => {
     const { game } = useStore()
+
+    const location = useLocation()
+
+    useEffect(() => {
+        const tagManagerArgs = {
+            dataLayer: {
+                event: 'promo',
+                eventCategory: 'click',
+                eventAction: 'level_3_done',
+                eventLabel: location.pathname,
+            },
+        }
+        TagManager.dataLayer(tagManagerArgs)
+    }, [])
 
     return (
         <EndLevel>

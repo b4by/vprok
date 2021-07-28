@@ -94,7 +94,7 @@ const Hint = styled.div`
 
     ${(props) =>
         props.disabled && !props.active
-            ? `cursor: not-allowed; filter: brightness(0.5);`
+            ? `cursor: not-allowed; filter: brightness(0.5); pointer-events: none`
             : ``};
 
     &.push {

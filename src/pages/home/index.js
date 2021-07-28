@@ -12,11 +12,25 @@ import {
     DachaTextDesk,
     TextDesktop,
 } from './styled'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useLocation } from 'react-router-dom'
+import TagManager from 'react-gtm-module'
 
 export default function Home() {
     const [pushed, setPushed] = useState(false)
+
     const history = useHistory()
+
+    const location = useLocation()
+
+    const tagManagerArgs = {
+        dataLayer: {
+            event: 'promo',
+            eventCategory: 'click',
+            eventAction: 'play',
+            eventLabel: location.pathname,
+        },
+    }
+
     return (
         <>
             <StartScreen>
@@ -63,7 +77,8 @@ export default function Home() {
                     className={pushed ? `push` : null}
                     onClick={() => {
                         setTimeout(() => {
-                            history.push('/game')
+                            TagManager.dataLayer(tagManagerArgs)
+                            history.push('/level/0')
                         }, 1000)
                         setPushed(true)
                     }}

@@ -67,6 +67,7 @@ const push = keyframes`
 
 export const PlayButon = styled.div`
     margin: auto;
+    user-select: none;
     width: 96px;
     height: 98px;
     background-image: url(${play});

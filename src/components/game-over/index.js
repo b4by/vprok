@@ -4,13 +4,31 @@ import { observer } from 'mobx-react'
 import NextBtn from 'components/next-btn'
 import PrevBtn from 'components/prev-btn'
 import Buttons from 'components/buttons'
+import { useLocation } from 'react-router-dom'
+import TagManager from 'react-gtm-module'
 
 const GameOver = observer(() => {
     const { game } = useStore()
 
+    const location = useLocation()
+
     const buttons = (
         <Buttons>
-            <PrevBtn>Заказать</PrevBtn>
+            <PrevBtn
+                onClick={() => {
+                    const tagManagerArgs = {
+                        dataLayer: {
+                            event: 'promo',
+                            eventCategory: 'click',
+                            eventAction: 'order',
+                            eventLabel: location.pathname,
+                        },
+                    }
+                    TagManager.dataLayer(tagManagerArgs)
+                }}
+            >
+                Заказать
+            </PrevBtn>
             <NextBtn
                 onClick={() => {
                     game.levelRestart()
