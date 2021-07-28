@@ -48,7 +48,7 @@ export const Card = styled.div`
 `
 
 export const Header = styled.div`
-    margin-bottom: 13px;
+    margin-bottom: 9px;
     font-family: 'Roboto';
     text-align: center;
     line-height: 112.63%;
@@ -102,7 +102,62 @@ export const Text = styled.div`
 
     ${breakpoints.desktop} {
         font-size: 48px;
-        margin-bottom: 52px;
+        margin-bottom: 15px;
+    }
+`
+
+export const TextLevel1 = styled.div`
+    text-align: center;
+    color: #000000;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 112.63%;
+    ${breakpoints.tablet} {
+        font-size: 30px;
+        margin-bottom: 15px;
+        line-height: 1;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 48px;
+        margin-bottom: 15px;
+    }
+`
+
+export const TextPromoCode = styled.span`
+    font-family: Marck Script, cursive;
+    font-size: 48px;
+    line-height: 100.63%;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #000000;
+
+    ${breakpoints.tablet} {
+        font-size: 80px;
+        margin-bottom: 15px;
+        line-height: 1;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 90px;
+        margin-bottom: 15px;
+    }
+`
+
+export const EndLevelFooter = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > svg {
+        ${breakpoints.tablet} {
+            width: 44px;
+            height: 56px;
+        }
+        ${breakpoints.desktop} {
+            width: 76px;
+            height: 101px;
+        }
     }
 `
 
