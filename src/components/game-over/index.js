@@ -1,4 +1,9 @@
-import EndLevel, { Header, Subtitle, Text } from 'components/end-level'
+import EndLevel, {
+    Header,
+    Subtitle,
+    Text,
+    StyledLink,
+} from 'components/end-level'
 import { useStore } from 'store'
 import { observer } from 'mobx-react'
 import NextBtn from 'components/next-btn'
@@ -14,21 +19,23 @@ const GameOver = observer(() => {
 
     const buttons = (
         <Buttons>
-            <PrevBtn
-                onClick={() => {
-                    const tagManagerArgs = {
-                        dataLayer: {
-                            event: 'promo',
-                            eventCategory: 'click',
-                            eventAction: 'order',
-                            eventLabel: location.pathname,
-                        },
-                    }
-                    TagManager.dataLayer(tagManagerArgs)
-                }}
-            >
-                Заказать
-            </PrevBtn>
+            <StyledLink href="" target="_blank" rel="noreferrer">
+                <PrevBtn
+                    onClick={() => {
+                        const tagManagerArgs = {
+                            dataLayer: {
+                                event: 'promo',
+                                eventCategory: 'click',
+                                eventAction: 'order',
+                                eventLabel: location.pathname,
+                            },
+                        }
+                        TagManager.dataLayer(tagManagerArgs)
+                    }}
+                >
+                    Заказать
+                </PrevBtn>
+            </StyledLink>
             <NextBtn
                 onClick={() => {
                     game.levelRestart()

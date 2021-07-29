@@ -161,6 +161,10 @@ export const EndLevelFooter = styled.div`
     }
 `
 
+export const StyledLink = styled.a`
+    text-decoration: none;
+`
+
 export default function EndLevel({ children, buttons }) {
     const ratio = useRatio()
 

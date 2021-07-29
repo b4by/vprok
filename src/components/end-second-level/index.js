@@ -1,4 +1,9 @@
-import EndLevel, { Header, Subtitle, Text } from 'components/end-level'
+import EndLevel, {
+    Header,
+    Subtitle,
+    Text,
+    StyledLink,
+} from 'components/end-level'
 import NextBtn from 'components/next-btn'
 import PrevBtn from 'components/prev-btn'
 import { useStore } from 'store'
@@ -27,21 +32,27 @@ const EndSecondLevel = observer(() => {
 
     const buttons = (
         <Buttons>
-            <PrevBtn
-                onClick={() => {
-                    const tagManagerArgs = {
-                        dataLayer: {
-                            event: 'promo',
-                            eventCategory: 'click',
-                            eventAction: 'order',
-                            eventLabel: location.pathname,
-                        },
-                    }
-                    TagManager.dataLayer(tagManagerArgs)
-                }}
+            <StyledLink
+                href="https://www.vprok.ru/?utm_source=qm&utm_medium=zadachaonline&utm_campaign=button_buy"
+                target="_blank"
+                rel="noreferrer"
             >
-                Заказать
-            </PrevBtn>
+                <PrevBtn
+                    onClick={() => {
+                        const tagManagerArgs = {
+                            dataLayer: {
+                                event: 'promo',
+                                eventCategory: 'click',
+                                eventAction: 'order',
+                                eventLabel: location.pathname,
+                            },
+                        }
+                        TagManager.dataLayer(tagManagerArgs)
+                    }}
+                >
+                    Заказать
+                </PrevBtn>
+            </StyledLink>
             <NextBtn
                 onClick={() => {
                     setTimeout(() => {

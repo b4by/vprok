@@ -8,6 +8,7 @@ import {
     Content,
     StoreIcons,
     StoreIcon,
+    StyledLink,
     LogoImg,
 } from './styled'
 import VegetablesMobile from './vegetables-mobile'
@@ -17,9 +18,15 @@ export default function StartScreen({ children }) {
     return (
         <HomeContainer>
             <LogoContainer>
-                <LogoImg>
-                    <Logo />
-                </LogoImg>
+                <StyledLink
+                    href="https://www.vprok.ru/?utm_source=qm&utm_medium=zadachaonline&utm_campaign=logo"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <LogoImg>
+                        <Logo />
+                    </LogoImg>
+                </StyledLink>
                 <StoreIcons>
                     <StoreIcon>
                         <Huawei />

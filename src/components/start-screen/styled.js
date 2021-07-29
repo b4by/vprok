@@ -2,6 +2,7 @@ import styled, { keyframes } from 'styled-components'
 import bgMobile from 'img/bg-mobile.jpeg'
 import bgDesktop from 'img/bg-desk.jpeg'
 import { breakpoints } from 'helpers/breakpoints'
+import { Link } from 'react-router-dom'
 
 const vibrate = keyframes`
   0% {
@@ -22,6 +23,10 @@ const vibrate = keyframes`
   100% {
     transform: translate(0);
   }
+`
+
+export const StyledLink = styled.a`
+    text-decoration: none;
 `
 
 export const HomeContainer = styled.div`
@@ -92,7 +97,6 @@ export const LogoImg = styled.div`
     width: 82px;
     height: 23px;
     display: flex;
-    display: -webkit-box;
     justify-content: center;
 
     ${breakpoints.tablet} {
