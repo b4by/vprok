@@ -124,6 +124,7 @@ export const PlayContainer = styled.div`
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    user-select: none;
 `
 
 export const PlayButon = styled.div`

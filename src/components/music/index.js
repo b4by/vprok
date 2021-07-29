@@ -23,7 +23,6 @@ const Music = observer(() => {
     const musicRef = useRef(null)
     const win1Ref = useRef(null)
     const win2Ref = useRef(null)
-    const win3Ref = useRef(null)
     const introRef = useRef(null)
 
     const { game } = useStore()
@@ -51,7 +50,13 @@ const Music = observer(() => {
 
     return (
         <Wrapper>
-            <audio src={music} ref={musicRef} controls allow="autoplay"></audio>
+            <audio
+                src={music}
+                ref={musicRef}
+                controls
+                loop
+                allow="autoplay"
+            ></audio>
 
             {!game.trainingIsOver && !game.isStarted && (
                 <audio
@@ -78,17 +83,7 @@ const Music = observer(() => {
             {game.level === 3 && game.isCompleted && (
                 <audio
                     src={win3}
-                    ref={win1Ref}
-                    controls
-                    autoPlay
-                    allow="autoplay"
-                ></audio>
-            )}
-
-            {game.level === 3 && game.isCompleted && (
-                <audio
-                    src={win3}
-                    ref={win1Ref}
+                    ref={win2Ref}
                     controls
                     autoPlay
                     allow="autoplay"

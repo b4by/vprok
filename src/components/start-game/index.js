@@ -69,6 +69,7 @@ const push = keyframes`
 export const PlayContainer = styled.div`
     display: flex;
     justify-content: center;
+    user-select: none;
 `
 
 export const PlayButon = styled.div`
