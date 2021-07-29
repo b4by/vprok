@@ -19,7 +19,7 @@ export const AnswerStyled = styled.div`
     border-radius: 100px;
 
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 112.63%;
     overflow: hidden;
     color: #c5ff76;
@@ -27,13 +27,13 @@ export const AnswerStyled = styled.div`
     ${breakpoints.tablet} {
         width: 297px;
         height: 45px;
-        font-size: 20px;
+        font-size: 18px;
     }
 
     ${breakpoints.desktop} {
         width: 523px;
         height: 78px;
-        font-size: 40px;
+        font-size: 36px;
         border: ${(props) =>
             props.showAnswer ? `5px solid #ffffff` : `1px solid #AAE600`};
     }

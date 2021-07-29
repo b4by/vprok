@@ -3,7 +3,13 @@ import btn from 'img/prev-btn.svg'
 import btnHover from 'img/prev-btn-hover.svg'
 import { breakpoints } from 'helpers/breakpoints'
 
-export const StyledForm = styled.form``
+export const StyledForm = styled.form`
+    margin-bottom: 20px;
+
+    ${breakpoints.desktop} {
+        margin-bottom: 110px;
+    }
+`
 
 export const StyledFormGroup = styled.div`
     position: relative;
@@ -77,12 +83,12 @@ export const StyledSubmitInput = styled.input.attrs({
     line-height: 112.63%;
 
     ${breakpoints.tablet} {
-        width: 179px;
+        width: 177px;
         font-size: 20px;
     }
 
     ${breakpoints.desktop} {
-        width: 268px;
+        width: 278px;
         font-size: 38px;
     }
 

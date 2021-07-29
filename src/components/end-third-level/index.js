@@ -1,16 +1,15 @@
 import EndLevel, { Header, Subtitle, Text } from 'components/end-level'
-import NextBtn from 'components/next-btn'
-import PrevBtn from 'components/prev-btn'
 import { useStore } from 'store'
 import { observer } from 'mobx-react'
-import Buttons from 'components/buttons'
 import { Form } from 'components/form/index'
 import { useEffect } from 'react'
 import TagManager from 'react-gtm-module'
 import { useLocation } from 'react-router-dom'
+import { StyledNextBtn } from './styled'
+import ShareScreen from 'components/share-screen/index'
 
 const EndThirdLevel = observer(() => {
-    const { game } = useStore()
+    const { game, modal } = useStore()
 
     const location = useLocation()
 
@@ -36,6 +35,13 @@ const EndThirdLevel = observer(() => {
                 }}
             />
             <Form />
+            <StyledNextBtn
+                onClick={() => {
+                    modal.showModal(<ShareScreen />)
+                }}
+            >
+                Поделиться
+            </StyledNextBtn>
         </EndLevel>
     )
 })

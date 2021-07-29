@@ -28,15 +28,33 @@ export default function StartScreen({ children }) {
                     </LogoImg>
                 </StyledLink>
                 <StoreIcons>
-                    <StoreIcon>
-                        <Huawei />
-                    </StoreIcon>
-                    <StoreIcon>
-                        <Apple />
-                    </StoreIcon>
-                    <StoreIcon>
-                        <Google />
-                    </StoreIcon>
+                    <StyledLink
+                        href="https://darkstore.onelink.me/aH8K?pid=qm&c=dachnyezadachi&af_dp=ru.perekrestok.app.darkstore%3A%2F%2Fmain&af_web_dp=https%3A%2F%2Fwww.vprok.ru%2F%3Futm_source%3Dqm%26utm_medium%3Dperformance%26utm_campaign%3Ddachnyezadachi"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <StoreIcon>
+                            <Huawei />
+                        </StoreIcon>
+                    </StyledLink>
+                    <StyledLink
+                        href="https://darkstore.onelink.me/aH8K?pid=qm&c=dachnyezadachi&af_dp=ru.perekrestok.app.darkstore%3A%2F%2Fmain&af_web_dp=https%3A%2F%2Fwww.vprok.ru%2F%3Futm_source%3Dqm%26utm_medium%3Dperformance%26utm_campaign%3Ddachnyezadachi"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <StoreIcon>
+                            <Apple />
+                        </StoreIcon>
+                    </StyledLink>
+                    <StyledLink
+                        href="https://darkstore.onelink.me/aH8K?pid=qm&c=dachnyezadachi&af_dp=ru.perekrestok.app.darkstore%3A%2F%2Fmain&af_web_dp=https%3A%2F%2Fwww.vprok.ru%2F%3Futm_source%3Dqm%26utm_medium%3Dperformance%26utm_campaign%3Ddachnyezadachi"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <StoreIcon>
+                            <Google />
+                        </StoreIcon>
+                    </StyledLink>
                 </StoreIcons>
             </LogoContainer>
             <Content>
