@@ -1,4 +1,5 @@
 import throttle from 'lodash.throttle'
+import { useState } from 'react'
 import { observer } from 'mobx-react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import useRatio from 'hooks/useRatio'
@@ -39,8 +40,11 @@ import {
 import Hint from 'components/hint'
 import Messages from 'components/messages'
 import Timer from 'components/timer'
+import Sound from 'components/sound'
 
 const LevelThree = observer(() => {
+    const [picked, setPicked] = useState(false)
+
     const {
         timer,
         game,
@@ -57,6 +61,10 @@ const LevelThree = observer(() => {
     const handlerAnswer = (item) =>
         throttle(() => {
             game.pick(item)
+            setPicked(true)
+            setTimeout(() => {
+                setPicked(false)
+            }, 1000)
         }, 1000)
     const answers = game.currentItems.map((answer, i) => {
         return (
@@ -401,7 +409,6 @@ const LevelThree = observer(() => {
             )
         }
 
-
         if (indexItem === 'детское ведёрко') {
             return (
                 <CSSTransition
@@ -500,6 +507,7 @@ const LevelThree = observer(() => {
         <>
             <Background blured={game.isOver || game.isCompleted}>
                 <Wrapper ratio={ratio}>
+                    {picked && <Sound type="pickup" />}
                     <Scene>
                         <TransitionGroup>{items}</TransitionGroup>
                         <Timer showTimer={showTimer}>

@@ -11,8 +11,10 @@ import {
     DachaTextTablet,
     DachaTextDesk,
     TextDesktop,
+    PlayContainer,
 } from './styled'
 import { useHistory } from 'react-router-dom'
+import SoundClick from 'components/sound-click'
 
 export default function Home() {
     const [pushed, setPushed] = useState(false)
@@ -59,15 +61,19 @@ export default function Home() {
         `,
                     }}
                 />
-                <PlayButon
-                    className={pushed ? `push` : null}
-                    onClick={() => {
-                        setTimeout(() => {
-                            history.push('/game')
-                        }, 1000)
-                        setPushed(true)
-                    }}
-                />
+                <PlayContainer>
+                    <SoundClick type="click">
+                        <PlayButon
+                            className={pushed ? `push` : null}
+                            onClick={() => {
+                                setTimeout(() => {
+                                    history.push('/game')
+                                }, 1000)
+                                setPushed(true)
+                            }}
+                        />
+                    </SoundClick>
+                </PlayContainer>
             </StartScreen>
         </>
     )

@@ -260,6 +260,8 @@ const Item = styled.div`
         transition: top 1000ms ease-in, left 1000ms ease-in;
         ${(props) => getPosition(props.index)}
     }
+
+    ${(props) => (props.index === null ? 'pointer-events: none;' : '')}
 `
 
 export const Meat = styled(Item)`

@@ -20,7 +20,9 @@ const EndFirstLevel = observer(() => {
             <PrevBtn>Заказать</PrevBtn>
             <NextBtn
                 onClick={() => {
-                    game.levelPassed()
+                    setTimeout(() => {
+                        game.levelPassed()
+                    }, 500)
                 }}
             >
                 Уровень 2

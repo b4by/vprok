@@ -12,6 +12,7 @@ export default class Hints {
     }
     usePerekHint() {
         if (this.rootStore.game.trainingIsOver && !this.perekDisabled) {
+             this.perekDisabled = true
             this.rootStore.game.pickAll()
         }
     }

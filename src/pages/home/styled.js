@@ -114,8 +114,11 @@ const push = keyframes`
   }
 `
 
-export const PlayButon = styled.div`
+export const PlayContainer = styled.div`
     margin: 0 auto;
+`
+
+export const PlayButon = styled.div`
     width: 138px;
     height: 140px;
     background-image: url(${play});

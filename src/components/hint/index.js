@@ -1,16 +1,25 @@
 import { HintPerek, HintFather, HintMom, Dialog } from './styled'
 import { observer } from 'mobx-react'
 import { useStore } from 'store'
+import { useState } from 'react'
+import Sound from 'components/sound'
 
 const Hint = observer(({ from, active }) => {
     const { timer, hints, game } = useStore()
-    const perekDisabled = timer.seconds > 30 && game.trainingIsOver
+    const [hover, setHover] = useState(false)
+    const perekDisabled =
+        timer.seconds > 30 && game.trainingIsOver
 
     return (
         <>
+            {hover && <Sound type="bubble" />}
+            {hints.perekDisabled && <Sound type="bigpick" />}
+            {hints.momDisabled && <Sound type="pong" />}
+            {hints.dadDisabled && <Sound type="pickup" />}
+
             {from === 'perek' && (
                 <HintPerek
-                    className={perekDisabled ? `push` : null}
+                    className={hints.perekDisabled ? `push` : null}
                     active={active}
                     disabled={perekDisabled}
                     trainingIsOver={game.trainingIsOver}
@@ -18,6 +27,12 @@ const Hint = observer(({ from, active }) => {
                         if (!perekDisabled) {
                             hints.usePerekHint()
                         }
+                    }}
+                    onMouseOver={() => {
+                        setHover(true)
+                        setTimeout(() => {
+                            setHover(false)
+                        }, 1000)
                     }}
                 >
                     <Dialog
@@ -40,6 +55,12 @@ const Hint = observer(({ from, active }) => {
                             hints.useDadHint()
                         }
                     }}
+                    onMouseOver={() => {
+                        setHover(true)
+                        setTimeout(() => {
+                            setHover(false)
+                        }, 1000)
+                    }}
                 >
                     <Dialog
                         dangerouslySetInnerHTML={{
@@ -60,6 +81,12 @@ const Hint = observer(({ from, active }) => {
                         if (!hints.momDisabled) {
                             hints.useMomHint()
                         }
+                    }}
+                    onMouseOver={() => {
+                        setHover(true)
+                        setTimeout(() => {
+                            setHover(false)
+                        }, 1000)
                     }}
                 >
                     <Dialog

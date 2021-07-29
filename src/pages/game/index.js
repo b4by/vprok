@@ -7,7 +7,7 @@ import { useStore } from 'store'
 import LevelOne from './level-one'
 import LevelTwo from './level-two'
 import LevelThree from './level-three'
-
+import Music from 'components/music'
 
 const Game = observer(() => {
     const isPortrait = useScreenOrientation()
@@ -17,6 +17,7 @@ const Game = observer(() => {
 
     return (
         <>
+            <Music />
             {isPortrait && <PortraitScreen />}
             <Blackscreen />
             {(level === 1 || level === 0) && <LevelOne />}

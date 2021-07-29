@@ -5,6 +5,7 @@ import { observer } from 'mobx-react'
 import { breakpoints } from 'helpers/breakpoints'
 import play from 'img/play.svg'
 import playActive from 'img/play-active.svg'
+import SoundClick from 'components/sound-click'
 
 export const Wrapper = styled.div`
     position: absolute;
@@ -65,8 +66,11 @@ const push = keyframes`
   }
 `
 
-export const PlayButon = styled.div`
+export const PlayContainer = styled.div`
     margin: auto;
+`
+
+export const PlayButon = styled.div`
     width: 96px;
     height: 98px;
     background-image: url(${play});
@@ -102,15 +106,19 @@ const StartGame = observer(() => {
 
     return (
         <Wrapper>
-            <PlayButon
-                onClick={() => {
-                    setTimeout(() => {
-                        game.start()
-                    }, 1000)
-                    setPushed(true)
-                }}
-                className={pushed ? `push` : null}
-            />
+            <PlayContainer>
+                <SoundClick type="click">
+                    <PlayButon
+                        onClick={() => {
+                            setTimeout(() => {
+                                game.start()
+                            }, 500)
+                            setPushed(true)
+                        }}
+                        className={pushed ? `push` : null}
+                    />
+                </SoundClick>
+            </PlayContainer>
         </Wrapper>
     )
 })

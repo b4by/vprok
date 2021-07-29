@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import btn from 'img/prev-btn.svg'
 import btnHover from 'img/prev-btn-hover.svg'
 import { breakpoints } from 'helpers/breakpoints'
+import SoundClick from 'components/sound-click'
 
 const Wrapper = styled.div`
     display: flex;
@@ -40,5 +41,9 @@ const Wrapper = styled.div`
 `
 
 export default function PrevBtn({ children, onClick }) {
-    return <Wrapper onClick={onClick}>{children}</Wrapper>
+    return (
+        <SoundClick type="click">
+            <Wrapper onClick={onClick}>{children}</Wrapper>
+        </SoundClick>
+    )
 }
