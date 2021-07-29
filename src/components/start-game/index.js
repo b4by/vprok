@@ -12,10 +12,14 @@ export const Wrapper = styled.div`
     z-index: 1000;
     top: 0;
     right: 0;
-    bottom: 0;
-    left: 0;
     display: flex;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     ${breakpoints.tablet} {
     }
@@ -67,7 +71,6 @@ const push = keyframes`
 `
 
 export const PlayContainer = styled.div`
-    margin: auto;
     display: flex;
     justify-content: center;
 `
@@ -103,12 +106,65 @@ export const PlayButon = styled.div`
     }
 `
 
+export const Text = styled.div`
+    display: flex;
+    justify-content: center;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 112.63%;
+    text-align: center;
+    color: #ffffff;
+    max-width: 519px;
+    font-size: 15px;
+    margin-bottom: 24px;
+    white-space: pre-line;
+
+    ${breakpoints.tablet} {
+        margin-bottom: 82px;
+        max-width: 917px;
+        font-size: 25px;
+    }
+
+    ${breakpoints.desktop} {
+        margin-bottom: 52px;
+        font-size: 40px;
+        max-width: 1497px;
+    }
+`
+
 const StartGame = observer(() => {
     const { game } = useStore()
     const [pushed, setPushed] = useState(false)
 
     return (
         <Wrapper>
+            {game.level === 2 && (
+                <Text
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                Уровень 2
+
+                Продукты нашли! А шампуры? 
+                Найдите предметы, которые помогут приготовить шашлыки. 
+                Кстати, любые из них можно заказать в Перекрёстке Впрок с доставкой.
+            `,
+                    }}
+                />
+            )}
+            {game.level === 3 && (
+                <Text
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                Уровень 3
+
+                А что ещё доставляет Перекрёсток Впрок? 
+                Найдите все предметы и получите суперприз!
+            `,
+                    }}
+                />
+            )}
+
             <PlayContainer>
                 <SoundClick type="click">
                     <PlayButon
