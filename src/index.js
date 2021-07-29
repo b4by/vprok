@@ -5,6 +5,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import TagManager from 'react-gtm-module'
+import { StoreProvider } from 'store/index'
 
 const tagManagerArgs = {
     gtmId: 'GTM-PQL5HBV',
@@ -13,9 +14,9 @@ const tagManagerArgs = {
 TagManager.initialize(tagManagerArgs)
 
 ReactDOM.render(
-    <React.StrictMode>
+    <StoreProvider>
         <App />
-    </React.StrictMode>,
+    </StoreProvider>,
     document.getElementById('root')
 )
 

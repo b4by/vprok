@@ -4,16 +4,19 @@ import { StoreProvider } from './store'
 import Home from './pages/home'
 import Game from './pages/game'
 import { Location } from 'components/location'
+import { observer } from 'mobx-react-lite'
+import { useStore } from 'store/index'
+import ModalContainer from 'components/modal/index'
 
-function App() {
+const App = observer(() => {
+    const { modal } = useStore()
     //  const audioRef = useRef(null);
 
     //   useEffect(() => {
     //       audioRef.current.play();
     //   }, []);
     return (
-        <StoreProvider>
-            {/* <audio src="audio/intro.mp3" ref={audioRef} controls autoPlay allow="autoplay" loop style={{ display: 'none'}}></audio> */}
+        <>
             <Router>
                 <Location>
                     <Switch>
@@ -25,9 +28,10 @@ function App() {
                         </Route>
                     </Switch>
                 </Location>
+                {modal.body && modal.body}
             </Router>
-        </StoreProvider>
+        </>
     )
-}
+})
 
 export default App

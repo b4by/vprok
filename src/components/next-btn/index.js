@@ -41,7 +41,6 @@ const Wrapper = styled.div`
 `
 
 export default function NextBtn({ children, onClick }) {
-    
     return (
         <SoundClick type="click">
             <Wrapper onClick={onClick}>{children}</Wrapper>
