@@ -5,6 +5,10 @@ import { breakpoints } from 'helpers/breakpoints'
 
 export const StyledForm = styled.form`
     margin-bottom: 20px;
+
+    ${breakpoints.desktop} {
+        margin-bottom: 110px;
+    }
 `
 
 export const StyledFormGroup = styled.div`
