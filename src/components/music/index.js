@@ -6,6 +6,7 @@ import { useStore } from 'store'
 import lvl1 from 'audio/128-lvl1.mp3'
 import lvl2 from 'audio/128-lvl2.mp3'
 import lvl3 from 'audio/128-lvl3.mp3'
+import intro from 'audio/128-intro.mp3'
 
 import win1 from 'audio/win_1.mp3'
 import win3 from 'audio/win_3.mp3'
@@ -41,6 +42,15 @@ const Music = observer(() => {
     return (
         <Wrapper>
             <audio src={music} ref={musicRef} controls allow="autoplay"></audio>
+
+            {!game.trainingIsOver && !game.isStarted && (
+                <audio
+                    src={intro}
+                    controls
+                    autoPlay
+                    allow="autoplay"
+                ></audio>
+            )}
 
             {(game.level === 1 || game.level === 2) && game.isCompleted && (
                 <audio src={win1} controls autoPlay allow="autoplay"></audio>
