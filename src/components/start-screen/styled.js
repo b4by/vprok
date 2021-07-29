@@ -68,6 +68,11 @@ export const HomeContainer = styled.div`
             background-image: url(${bgDesktop});
             background-position: center center;
         }
+
+        ${breakpoints.desktop} {
+            background-image: url(${bgDesktop});
+            background-position: center center;
+        }
     }
 `
 
