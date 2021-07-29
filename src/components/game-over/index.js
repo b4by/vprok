@@ -19,7 +19,11 @@ const GameOver = observer(() => {
 
     const buttons = (
         <Buttons>
-            <StyledLink href="" target="_blank" rel="noreferrer">
+            <StyledLink
+                href="https://www.vprok.ru/?utm_source=qm&utm_medium=zadachaonline&utm_campaign=button_buy"
+                target="_blank"
+                rel="noreferrer"
+            >
                 <PrevBtn
                     onClick={() => {
                         const tagManagerArgs = {
@@ -49,8 +53,11 @@ const GameOver = observer(() => {
     return (
         <EndLevel buttons={buttons}>
             <Header>Уровень {game.level}</Header>
-            <Subtitle>Кажется недожарили...</Subtitle>
-            <Text>Время вышло! Попробуем еще раз?</Text>
+            <Subtitle>Кажется, недожарили...</Subtitle>
+            <Text>
+                Время вышло!
+                <br /> Попробуем еще раз?
+            </Text>
         </EndLevel>
     )
 })
