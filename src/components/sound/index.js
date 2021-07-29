@@ -37,6 +37,7 @@ const Sound = ({ type }) => {
                 src={typeAudio[type]}
                 controls
                 autoPlay
+                volume="0.1"
                 allow="autoplay"
                 ref={musicRef}
             ></audio>
