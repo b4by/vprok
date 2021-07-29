@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <!-- META -->
     <meta charset="utf-8" />
+    <meta
+      name="robots"
+      content="index, perekrestok, Perekrestok, Perek, perek"
+    />
+    <meta
+      name="keywords"
+      content="Perekrestok, Перекрёсток, перекресток, перек"
+    />
     <bgsound src="./music/intro.mp3" loop="-1"> 
       <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#000000" />
       <meta
-      name="description"
-      content="Web site created using create-react-app"
+      name="title"
+      content="Помогите найти шампуры и получите призы от Перекрёстка Впрок"
       />
       <!-- GOOGLE FONTS --> 
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +39,59 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <!-- META OPEN GRAPH -->
+    <meta property="og:url" content="https://zadacha.online/" />
+    <meta
+      property="og:title"
+      content="Пожарим шашлык?"
+    />
+    <meta
+      property="og:image"
+      content="https://zadacha.online/meta/meta-1.jpg"
+    />
+    <meta property="og:image:width" content="1000" />
+    <meta property="og:image:height" content="522" />
+    <meta
+      property="og:description"
+      content="Помогите найти шампуры и получите призы от Перекрёстка Впрок"
+    />
+    <meta property="og:type" content="website" />
+    <!-- META TWIITER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Пожарим шашлык?"
+    />
+    <meta name="twitter:url" content="https://zadacha.online" />
+    <meta
+      name="twitter:description"
+      content="Помогите найти шампуры и получите призы от Перекрёстка Впрок"
+    />
+      <!-- META VK -->
+      <meta
+      property="vk:image"
+      content="https://zadacha.online/meta/meta-1.jpg"
+    />
+    <!-- VK SHARE SCRIPT -->
+    <script
+      type="text/javascript"
+      src="https://vk.com/js/api/share.js?93"
+      charset="windows-1251"
+    ></script>
+    <!-- MINDBOX TRACKER -->
+    <script>
+      mindbox =
+        window.mindbox ||
+        function () {
+          mindbox.queue.push(arguments)
+        }
+      mindbox.queue = mindbox.queue || []
+      mindbox('create', {
+        endpointId: 'Perekrestok.ru',
+      })
+    </script>
+    <script src="https://api.mindbox.ru/scripts/v1/tracker.js" async></script>
+    <title>Помогите найти шампуры и получите призы от Перекрёстка Впрок</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
