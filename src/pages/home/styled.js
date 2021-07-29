@@ -158,6 +158,10 @@ export const DachaText = styled.div`
     margin-bottom: 24px;
     margin-top: 51px;
 
+    & svg {
+        display: block;
+    }
+
     ${breakpoints.tablet} {
         display: none;
     }
@@ -173,9 +177,14 @@ export const DachaTextTablet = styled.div`
     ${breakpoints.tablet} {
         display: block;
         margin: 0 auto;
+        justify-content: center;
         width: 630px;
         height: 114px;
         margin-top: 112px;
+
+        & svg {
+            display: block;
+        }
     }
     ${breakpoints.desktop} {
         display: none;
@@ -195,5 +204,9 @@ export const DachaTextDesk = styled.div`
         width: 1204px;
         height: 219px;
         margin-top: 112px;
+
+        & svg {
+            display: block;
+        }
     }
 `
