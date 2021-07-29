@@ -220,7 +220,8 @@ export const Content = styled.div`
 
     & .vegetables-mobile {
         display: block;
-
+        width: 405.04px;
+        height: 384.39px;
         ${breakpoints.tablet} {
             display: none;
         }
