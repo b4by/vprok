@@ -2,7 +2,6 @@ import styled, { keyframes } from 'styled-components'
 import bgMobile from 'img/bg-mobile.jpeg'
 import bgDesktop from 'img/bg-desk.jpeg'
 import { breakpoints } from 'helpers/breakpoints'
-import { Link } from 'react-router-dom'
 
 const vibrate = keyframes`
   0% {

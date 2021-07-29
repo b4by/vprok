@@ -1,5 +1,8 @@
 import styled, { css, keyframes } from 'styled-components'
-import levelOne from 'img/lvl-1/bg.jpg'
+import levelOne from 'img/lvl-1/bg.jpeg'
+import levelOneNonRetina from 'img/lvl-1/1@0.5x.jpg'
+import levelOneMobile from 'img/lvl-1/bg-mobile.jpeg'
+import levelOneTablet from 'img/lvl-1/bg-tablet.jpeg'
 import upperLayer from 'img/lvl-2/upper-layer.png'
 import tomato from 'img/lvl-1/tomato.png'
 import radish from 'img/lvl-1/radish.png'
@@ -18,7 +21,7 @@ import caol from 'img/lvl-2/coal.png'
 import mangal from 'img/lvl-2/mangal.png'
 import cups from 'img/lvl-2/cups.png'
 import shampur from 'img/lvl-2/shampur.png'
-import wood from 'img/wood.jpg'
+import wood from 'img/wood.jpeg'
 import { breakpoints } from 'helpers/breakpoints'
 import timer from 'img/timer.png'
 import timerBordered from 'img/timer-bordered.png'
@@ -161,21 +164,31 @@ export const Wrapper = styled.div`
     width: 640px;
     height: 360px;
     overflow: hidden;
-
+    
     background-size: cover;
-    background-image: url(${levelOne});
+    background-image: url(${levelOneMobile});
+
     background-position: left top;
 
     ${breakpoints.tablet} {
         width: 1024px;
         height: 768px;
         background-position: center right;
+        background-image: url(${levelOneTablet});
     }
 
     ${breakpoints.desktop} {
         width: 1920px;
         height: 1080px;
         background-position: unset;
+    }
+
+    ${breakpoints.nonRetinaDesktop} {
+        background-image: url(${levelOneNonRetina});
+    }
+
+    ${breakpoints.retinaDesktop} {
+        background-image: url(${levelOne});
     }
 
     &:after {
