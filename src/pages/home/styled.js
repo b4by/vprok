@@ -18,11 +18,13 @@ export const TextMobile = styled.div`
     font-weight: normal;
     font-size: 15px;
     line-height: 112.63%;
-    /* or 17px */
-
     text-align: center;
 
     color: #000000;
+
+    a {
+        color: #000;
+    }
 
     ${breakpoints.onlyMobile} {
         display: block;
@@ -37,6 +39,10 @@ export const TextTablet = styled(TextMobile)`
     font-weight: normal;
     font-size: 25px;
     line-height: 112.63%;
+
+    a {
+        color: #000;
+    }
 
     ${breakpoints.onlyMobile} {
         display: none;
@@ -58,6 +64,10 @@ export const TextDesktop = styled(TextMobile)`
     line-height: 112.63%;
     max-width: 1419px;
     margin-bottom: 50px;
+
+    a {
+        color: #000;
+    }
 
     ${breakpoints.onlyMobile} {
         display: none;
