@@ -9,6 +9,7 @@ export const AnswerStyled = styled.div`
     align-items: center;
     width: 189px;
     pointer-events: none;
+    user-select: none;
     height: 28px;
 
     background: rgba(0, 0, 0, 0.7);

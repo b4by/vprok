@@ -11,13 +11,31 @@ import { useStore } from 'store'
 import { observer } from 'mobx-react'
 import Buttons from 'components/buttons'
 import { ReactComponent as PaperIconSvg } from 'assets/svg/papers.svg'
+import TagManager from 'react-gtm-module'
+import { useLocation } from 'react-router-dom'
 
 const EndFirstLevel = observer(() => {
     const { game } = useStore()
 
+    const location = useLocation()
+
     const buttons = (
         <Buttons>
-            <PrevBtn>Заказать</PrevBtn>
+            <PrevBtn
+                onClick={() => {
+                    const tagManagerArgs = {
+                        dataLayer: {
+                            event: 'promo',
+                            eventCategory: 'click',
+                            eventAction: 'order',
+                            eventLabel: location.pathname,
+                        },
+                    }
+                    TagManager.dataLayer(tagManagerArgs)
+                }}
+            >
+                Заказать
+            </PrevBtn>
             <NextBtn
                 onClick={() => {
                     setTimeout(() => {

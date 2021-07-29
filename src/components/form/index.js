@@ -13,7 +13,9 @@ import {
 } from './styled'
 import { useForm } from 'react-hook-form'
 import { ReactComponent as CheckBoxIcon } from 'assets/svg/checkbox.svg'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import TagManager from 'react-gtm-module'
+import { useLocation } from 'react-router-dom'
 
 export const Form = () => {
     const [checked, setChecked] = useState(true)
@@ -25,8 +27,18 @@ export const Form = () => {
         control,
     } = useForm()
 
+    const location = useLocation()
+
     const onSubmit = ({ email }) => {
-        console.log('fired', email)
+        const tagManagerArgs = {
+            dataLayer: {
+                event: 'promo',
+                eventCategory: 'click',
+                eventAction: 'send_email_and_get_prize',
+                eventLabel: location.pathname,
+            },
+        }
+        TagManager.dataLayer(tagManagerArgs)
     }
 
     return (
