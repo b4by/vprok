@@ -7,6 +7,7 @@ export const TimerStyled = styled.div`
     position: absolute;
     right: 30px;
     top: 24px;
+    user-select: none;
 
     display: flex;
     justify-content: center;
