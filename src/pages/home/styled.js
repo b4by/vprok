@@ -143,34 +143,50 @@ export const PlayButon = styled.div`
 `
 
 export const DachaText = styled.div`
-    display: none;
+    display: block;
+    margin: 0 auto;
+    width: 203px;
+    height: 127px;
     justify-content: center;
     margin-bottom: 24px;
     margin-top: 51px;
 
-    ${breakpoints.onlyMobile} {
-        display: flex;
+    ${breakpoints.tablet} {
+        display: none;
+    }
+    ${breakpoints.desktop} {
+        display: none;
     }
 `
 
 export const DachaTextTablet = styled.div`
     display: none;
     margin-bottom: 16px;
-    margin-top: 112px;
 
-    ${breakpoints.onlyTablet} {
-        display: flex;
-        justify-content: center;
+    ${breakpoints.tablet} {
+        display: block;
+        margin: 0 auto;
+        width: 630px;
+        height: 114px;
+        margin-top: 112px;
+    }
+    ${breakpoints.desktop} {
+        display: none;
     }
 `
 
 export const DachaTextDesk = styled.div`
     display: none;
     margin-bottom: 4px;
-    margin-top: 112px;
 
-    ${breakpoints.onlyDesktop} {
-        display: flex;
-        justify-content: center;
+    ${breakpoints.tablet} {
+        display: none;
+    }
+    ${breakpoints.desktop} {
+        display: block;
+        margin: 0 auto;
+        width: 1204px;
+        height: 219px;
+        margin-top: 112px;
     }
 `

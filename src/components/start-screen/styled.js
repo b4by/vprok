@@ -91,6 +91,9 @@ export const LogoContainer = styled.div`
 export const LogoImg = styled.div`
     width: 82px;
     height: 23px;
+    display: flex;
+    display: -webkit-box;
+    justify-content: center;
 
     ${breakpoints.tablet} {
         width: 137px;
@@ -233,15 +236,17 @@ export const Content = styled.div`
         ${breakpoints.tablet} {
             display: block;
             bottom: -90px;
-            left: -70px;
-            right: -110px;
+            width: 1115.1px;
+            height: 449.66px;
+            left: -67px;
         }
 
         ${breakpoints.desktop} {
             display: block;
             bottom: -160px;
-            left: -60px;
-            right: -150px;
+            width: 2151.13px;
+            height: 820.08px;
+            left: -139px;
         }
     }
 `
