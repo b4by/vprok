@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import click from 'audio/click.mp3'
 import bigpick from 'audio/bigpick.mp3'
 import bubble from 'audio/bigpick.mp3'
@@ -26,6 +26,11 @@ const typeAudio = {
 
 const SoundClick = ({ type, children }) => {
     const [clicked, setClicked] = useState(false)
+    const musicRef = useRef(null)
+
+    useEffect(() => {
+        if (musicRef.current) musicRef.current.volume = 0.2
+    })
 
     return (
         <div onClick={() => setClicked(true)}>
@@ -36,6 +41,7 @@ const SoundClick = ({ type, children }) => {
                         controls
                         autoPlay
                         allow="autoplay"
+                        ref={musicRef}
                     ></audio>
                 )}
             </Wrapper>

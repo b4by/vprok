@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import { useStore } from 'store'
 
-import lvl1 from 'audio/128-lvl1.mp3'
-import lvl2 from 'audio/128-lvl2.mp3'
-import lvl3 from 'audio/128-lvl3.mp3'
-import intro from 'audio/128-intro.mp3'
+import lvl1 from 'audio/64-lvl1.mp3'
+import lvl2 from 'audio/64-lvl2.mp3'
+import lvl3 from 'audio/64-lvl3.mp3'
+import intro from 'audio/64-intro.mp3'
 
 import win1 from 'audio/win_1.mp3'
 import win3 from 'audio/win_3.mp3'
@@ -30,6 +30,8 @@ const Music = observer(() => {
     const music = musicData[game.level]
 
     useEffect(() => {
+        if (musicRef.current) musicRef.current.volume = 0.1
+
         if (game.isStarted) {
             musicRef.current.play()
         }
@@ -48,6 +50,7 @@ const Music = observer(() => {
                     src={intro}
                     controls
                     autoPlay
+                    volume="0.2"
                     allow="autoplay"
                 ></audio>
             )}
