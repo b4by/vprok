@@ -24,11 +24,11 @@ const rotate = keyframes`
     opacity: 1;
     transform-origin: top left;
   }
-  80% {    
+  /* 80% {    
     transform: translate(0, 0) rotate(15deg);
     opacity: 1;
     transform-origin: top left;
-  }
+  } */
   100% {
     transform: translate(0, 0) rotate(0);
     transform-origin: top left;
@@ -272,12 +272,18 @@ export const VegetablesEndContainer = styled.div`
     position: absolute;
     bottom: 0;
     left: -50%;
+    pointer-events: none;
     /* transform: translateX(50%); */
 
     ${breakpoints.tablet} {
-        width: 1032.5px;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -10%);
+        width: 100%;
+        /* width: 1032.5px;
         bottom: -160px;
-        transform: translateX(10%);
+        transform: translateX(10%); */
     }
 
     ${breakpoints.desktop} {
@@ -337,12 +343,10 @@ export default function EndLevel({ children, buttons }) {
 
     return (
         <Wrapper>
-            <Card ratio={ratio}>
-                {children}
-                <VegetablesEndContainer>
-                    <VegetablesEnd />
-                </VegetablesEndContainer>
-            </Card>
+            <Card ratio={ratio}>{children}</Card>
+            <VegetablesEndContainer>
+                <VegetablesEnd />
+            </VegetablesEndContainer>
 
             {buttons}
         </Wrapper>
