@@ -113,6 +113,8 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    height: 100vh;
+    width: 100%;
 
     animation: ${blur} 0.5s ease-in-out both;
 `
