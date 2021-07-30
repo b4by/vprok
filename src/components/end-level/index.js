@@ -1,7 +1,105 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import useRatio from 'hooks/useRatio'
 import { breakpoints } from 'helpers/breakpoints'
 import card from 'img/card.svg'
+import { ReactComponent as VegetablesEnd } from 'img/lvl-1-end-veg.svg'
+
+const blur = keyframes`
+    0% {
+        backdrop-filter: blur(0);
+    }
+    100% {
+        backdrop-filter: blur(10px);
+    }
+`
+
+const rotate = keyframes`
+   0% {
+    transform: translate(0, -100%) rotate(-45deg);
+    transform-origin: center left;
+    opacity: 0;
+  }
+  40% {    
+    transform: translate(0, 0) rotate(0) ;
+    opacity: 1;
+    transform-origin: top left;
+  }
+  80% {    
+    transform: translate(0, 0) rotate(15deg);
+    opacity: 1;
+    transform-origin: top left;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+    transform-origin: top left;
+    opacity: 1;
+  }
+`
+const fromLeft = keyframes`
+    0% {
+        transform: translate(-100px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+`
+
+const fromBottomLeft = keyframes`
+    0% {
+        transform: translate(-100px, -100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+`
+
+const fromBottom = keyframes`
+    0% {
+        transform: translate(0, -100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+`
+
+const fromBottomRight = keyframes`
+    0% {
+        transform: translate(100px, -100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+`
+
+const fromRight = keyframes`
+    0% {
+        transform: translate(-00px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+`
+
+const vibrate = keyframes`
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+`
 
 export const Wrapper = styled.div`
     position: absolute;
@@ -14,6 +112,9 @@ export const Wrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+
+    animation: ${blur} 0.5s ease-in-out both;
 `
 
 export const Card = styled.div`
@@ -31,6 +132,7 @@ export const Card = styled.div`
     height: 262px;
     left: 50%;
     /* margin-top: 17px; */
+    animation: ${rotate} 0.8s ease both;
 
     ${breakpoints.tablet} {
         width: 575.8px;
@@ -165,12 +267,82 @@ export const StyledLink = styled.a`
     text-decoration: none;
 `
 
+export const VegetablesEndContainer = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    /* transform: translateX(50%); */
+
+    ${breakpoints.tablet} {
+        width: 1032.5px;
+        bottom: -160px;
+        transform: translateX(10%);
+    }
+
+    ${breakpoints.desktop} {
+        width: 1920px;
+        height: 798px;
+    }
+
+    & svg > g {
+        animation: ${vibrate} 4s linear alternate infinite;
+    }
+    & svg > path {
+        animation: ${vibrate} 4s ease alternate infinite;
+    }
+    & svg > g:nth-child(1) {
+        animation-delay: 0s;
+    }
+    & svg > g:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+    & svg > g:nth-child(3) {
+        animation-delay: 1s;
+    }
+    & svg > g:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+    & svg > g:nth-child(5) {
+        animation-delay: 0.2s;
+    }
+    & svg > g:nth-child(6) {
+        animation-delay: 0.4s;
+    }
+    & svg > g:nth-child(7) {
+        animation-delay: 1s;
+    }
+    & svg > g:nth-child(8) {
+        animation-delay: 1.5s;
+    }
+    & svg > g:nth-child(9) {
+        animation-delay: 0.2s;
+    }
+    & svg > g:nth-child(10) {
+        animation-delay: 0.8s;
+    }
+    & svg > g:nth-child(11) {
+        animation-delay: 0.1s;
+    }
+    & svg > g:nth-child(12) {
+        animation-delay: 0.9s;
+    }
+    & svg > g:nth-child(13) {
+        animation-delay: 0.2;
+    }
+`
+
 export default function EndLevel({ children, buttons }) {
     const ratio = useRatio()
 
     return (
         <Wrapper>
-            <Card ratio={ratio}>{children}</Card>
+            <Card ratio={ratio}>
+                {children}
+                <VegetablesEndContainer>
+                    <VegetablesEnd />
+                </VegetablesEndContainer>
+            </Card>
+
             {buttons}
         </Wrapper>
     )

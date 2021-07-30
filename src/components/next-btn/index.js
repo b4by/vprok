@@ -1,7 +1,19 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import btn from 'img/next-btn.svg'
 import { breakpoints } from 'helpers/breakpoints'
 import SoundClick from 'components/sound-click'
+
+const scale = keyframes`
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+`
 
 const Wrapper = styled.div`
     display: flex;
@@ -21,6 +33,8 @@ const Wrapper = styled.div`
     font-weight: normal;
     font-size: 22px;
     line-height: 112.63%;
+
+    animation: ${scale} 0.5s ease both;
 
     ${breakpoints.tablet} {
         min-width: 188.35px;

@@ -139,12 +139,6 @@ export const Background = styled.div`
     background-size: contain;
     background-color: #fdfddb;
     overflow: hidden;
-    ${(props) =>
-        props.blured
-            ? css`
-                  filter: blur(5px);
-              `
-            : ''};
 `
 
 const getSizes = (width, height, top, left) => {
