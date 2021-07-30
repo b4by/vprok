@@ -298,7 +298,7 @@ export const Grass = styled(Item)`
 
 export const Ketchup = styled(Item)`
     background-image: url(${ketchup});
-    ${getSizes(106, 80, 2024, 1734)}
+    ${getSizes(106, 80, 1685, 1806)}
 `
 
 export const Juce = styled(Item)`
