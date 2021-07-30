@@ -64,6 +64,10 @@ export const HomeContainer = styled.div`
         background-color: #fdfddb;
         background-position: -435px 0;
 
+        @media (orientation: landscape) {
+            background-position: center center;
+        }
+
         ${breakpoints.tablet} {
             background-image: url(${bgDesktop});
             background-position: center center;
