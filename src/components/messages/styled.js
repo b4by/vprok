@@ -45,6 +45,7 @@ export const Wrapper = styled.div`
 export const Text = styled.div`
     margin: auto;
     white-space: pre-line;
+    user-select: none;
 
     & span {
         font-weight: 400;

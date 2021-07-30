@@ -49,6 +49,7 @@ export const Text = styled.div`
     margin-top: 187px;
     z-index: 2;
     white-space: pre-line;
+    user-select: none;
     margin-bottom: 31px;
     font-style: normal;
     font-weight: normal;

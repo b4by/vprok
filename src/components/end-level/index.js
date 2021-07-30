@@ -194,6 +194,7 @@ export const Text = styled.div`
     font-size: 18px;
     line-height: 112.63%;
     white-space: pre-line;
+    user-select: none;
     text-align: center;
     color: #000000;
 
