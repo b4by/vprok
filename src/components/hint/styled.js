@@ -35,7 +35,7 @@ export const Dialog = styled.div`
     align-items: center;
     width: 62.41px;
     height: 21px;
-    left: 52px;
+    left: 100px;
     top: -8px;
     padding: 0 0 4px 8px;
     background-size: contain;
@@ -49,7 +49,7 @@ export const Dialog = styled.div`
     user-select: none;
 
     ${breakpoints.tablet} {
-        left: 90px;
+        left: 160px;
         top: -10px;
         width: 110.94px;
         height: 37.33px;
@@ -61,7 +61,7 @@ export const Dialog = styled.div`
         font-size: 12px;
         width: 204px;
         height: 63.85px;
-        left: 150px;
+        left: 285px;
         top: -21px;
         padding: 0 0 5px 10px;
     }
@@ -72,7 +72,7 @@ export const Dialog = styled.div`
         props.active
             ? css`
                   visibility: visible;
-                  transform: scale(1);
+                  transform: scale(2);
               `
             : css`
                   visibility: hidden;
@@ -113,7 +113,7 @@ const Hint = styled.div`
 
     &:hover ${Dialog} {
         ${(props) =>
-            !props.disabled ? `transform: scale(1); visibility: visible;` : ``};
+            !props.disabled ? `transform: scale(2); visibility: visible;` : ``};
     }
 `
 

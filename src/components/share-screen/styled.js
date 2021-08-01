@@ -80,6 +80,20 @@ export const ShareScreenGroup = styled.div`
         margin-bottom: 63px;
     }
 
+    img {
+        width: 34px;
+        height: 34px;
+        ${breakpoints.tablet} {
+            width: 57px;
+            height: 57px;
+        }
+
+        ${breakpoints.desktop} {
+            width: 90px;
+            height: 90px;
+        }
+    }
+
     svg {
         width: 34px;
         height: 34px;

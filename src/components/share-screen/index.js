@@ -13,6 +13,7 @@ import { ReactComponent as FbIconSvg } from 'assets/svg/fb-icon.svg'
 import { ReactComponent as TwIconSvg } from 'assets/svg/tw-icon.svg'
 import { ReactComponent as OkIconSvg } from 'assets/svg/ok-icon.svg'
 import { ReactComponent as WaIconSvg } from 'assets/svg/wa-icon.svg'
+import WaIconImg from 'assets/img/wa-icon.png'
 import { ReactComponent as TgIconSvg } from 'assets/svg/tg-icon.svg'
 import { useRef } from 'react'
 import { observer } from 'mobx-react-lite'
@@ -37,22 +38,46 @@ const ShareScreen = observer(() => {
                 <StyledCloseIconSvg onClick={() => modal.closeModal()} />
                 <ShareScreenTitle>Поделиться</ShareScreenTitle>
                 <ShareScreenGroup>
-                    <a href="https://vk.com/share.php?url=https://zadacha.online ">
+                    <a
+                        href="https://vk.com/share.php?url=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <VkIconSvg />
                     </a>
-                    <a href="https://www.facebook.com/sharer.php?u=http://zadacha.online">
+                    <a
+                        href="https://www.facebook.com/sharer.php?u=http://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <FbIconSvg />
                     </a>
-                    <a href="https://twitter.com/intent/tweet?text=Помогите найти шампуры и получите призы от Перекрёстка Впрок&url=https://zadacha.online/">
+                    <a
+                        href="https://twitter.com/intent/tweet?text=Помогите найти шампуры и получите призы от Перекрёстка Впрок&url=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <TwIconSvg />
                     </a>
-                    <a href="https://connect.ok.ru/offer?url=https://zadacha.online/share">
+                    <a
+                        href="https://connect.ok.ru/offer?url=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <OkIconSvg />
                     </a>
-                    <a href="">
+                    <a
+                        href="https://api.whatsapp.com/send?text=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <WaIconSvg />
                     </a>
-                    <a href="https://t.me/share/url?url=https://zadacha.online/share">
+                    <a
+                        href="https://t.me/share/url?url=https://zadacha.online/share&text=Помогите найти шампуры и получите призы от Перекрёстка Впрок"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <TgIconSvg />
                     </a>
                 </ShareScreenGroup>

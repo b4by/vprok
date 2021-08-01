@@ -17,7 +17,7 @@ import { useState, useEffect } from 'react'
 import TagManager from 'react-gtm-module'
 import { useLocation } from 'react-router-dom'
 
-export const Form = () => {
+export const Form = ({ setIsShareBtn }) => {
     const [checked, setChecked] = useState(true)
     const {
         register,
@@ -46,6 +46,7 @@ export const Form = () => {
             },
             onSuccess: function (res) {
                 console.log(res)
+                setIsShareBtn(true)
             },
             onError: function (error) {},
         })

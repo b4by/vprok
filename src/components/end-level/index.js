@@ -2,16 +2,6 @@ import styled, { keyframes } from 'styled-components'
 import useRatio from 'hooks/useRatio'
 import { breakpoints } from 'helpers/breakpoints'
 import card from 'img/card.svg'
-import { ReactComponent as VegetablesEnd } from 'img/lvl-1-end-veg.svg'
-
-const blur = keyframes`
-    0% {
-        backdrop-filter: blur(0);
-    }
-    100% {
-        backdrop-filter: blur(10px);
-    }
-`
 
 const rotate = keyframes`
    0% {
@@ -35,70 +25,14 @@ const rotate = keyframes`
     opacity: 1;
   }
 `
-const fromLeft = keyframes`
+
+const blur = keyframes`
     0% {
-        transform: translate(-100px, 0);
+        backdrop-filter: blur(0);
     }
     100% {
-        transform: translate(0, 0);
+        backdrop-filter: blur(10px);
     }
-`
-
-const fromBottomLeft = keyframes`
-    0% {
-        transform: translate(-100px, -100px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-`
-
-const fromBottom = keyframes`
-    0% {
-        transform: translate(0, -100px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-`
-
-const fromBottomRight = keyframes`
-    0% {
-        transform: translate(100px, -100px);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-`
-
-const fromRight = keyframes`
-    0% {
-        transform: translate(-00px, 0);
-    }
-    100% {
-        transform: translate(0, 0);
-    }
-`
-
-const vibrate = keyframes`
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
 `
 
 export const Wrapper = styled.div`
@@ -307,6 +241,7 @@ export const StyledButton = styled.button.attrs({
     }
 `
 
+<<<<<<< HEAD
 export const VegetablesEndContainer = styled.div`
     position: absolute;
     top: 50%;
@@ -380,15 +315,19 @@ export const VegetablesEndContainer = styled.div`
 `
 
 export default function EndLevel({ children, buttons }) {
-    const ratio = useRatio()
+=======
+export const StyledLink = styled.a`
+    text-decoration: none;
+`
 
+export default function EndLevel({ children, buttons, vegetables }) {
+>>>>>>> b4ea77ed54128c9e19bbcad4e5a3bc155567be72
+    const ratio = useRatio()
+    
     return (
         <Wrapper>
             <Card ratio={ratio}>{children}</Card>
-            <VegetablesEndContainer>
-                <VegetablesEnd />
-            </VegetablesEndContainer>
-
+            {vegetables}
             {buttons}
         </Wrapper>
     )

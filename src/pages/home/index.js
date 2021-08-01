@@ -49,8 +49,8 @@ export default function Home() {
                     dangerouslySetInnerHTML={{
                         __html: `Вся семья отдыхает на даче. Помогите 
                         домочадцам найти потерянные 
-                        предметы и получите <a href="https://zadacha.online/rules.doc">скидку на заказ
-                         в <strong>Перекрёсток Впрок</strong>.</a>
+                        предметы и получите <a href="https://zadacha.online/rules.doc">скидку на заказ</a>
+                         в <strong>Перекрёсток Впрок</strong>.
           
           Самым быстрым и ловким — товары 
           за один рубль и дополнительные 
@@ -60,8 +60,8 @@ export default function Home() {
                 <TextTablet
                     dangerouslySetInnerHTML={{
                         __html: `Вся семья отдыхает на даче. Помогите домочадцам найти 
-          потерянные предметы и <a href="https://zadacha.online/rules.doc">скидку на заказ 
-          в <strong>Перекрёсток Впрок</strong>.</a>
+          потерянные предметы и <a href="https://zadacha.online/rules.doc">скидку на заказ</a>
+          в <strong>Перекрёсток Впрок</strong>.
 
           Самым быстрым и ловким — товары 
           за один рубль и дополнительные промокоды!
@@ -71,7 +71,7 @@ export default function Home() {
                 <TextDesktop
                     dangerouslySetInnerHTML={{
                         __html: `Вся семья отдыхает на даче. Помогите домочадцам найти потерянные
-                         предметы и получите <a href="https://zadacha.online/rules.doc">скидку на заказ в <strong>Перекрёсток Впрок</strong>.</a> 
+                         предметы и получите <a href="https://zadacha.online/rules.doc">скидку на заказ</a> в <strong>Перекрёсток Впрок</strong>. 
 
         Самым быстрым и ловким — товары 
         за один рубль и дополнительные промокоды!

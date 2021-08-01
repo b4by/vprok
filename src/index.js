@@ -8,7 +8,7 @@ import TagManager from 'react-gtm-module'
 import { StoreProvider } from 'store/index'
 
 const tagManagerArgs = {
-    gtmId: 'GTM-PQL5HBV',
+    gtmId: 'GTM-P9V3936',
 }
 
 TagManager.initialize(tagManagerArgs)
