@@ -53,7 +53,7 @@ export const Dialog = styled.div`
         top: -10px;
         width: 110.94px;
         height: 37.33px;
-        font-size: 8px;
+        font-size: 7px;
         padding: 0 0 5px 12px;
     }
 
