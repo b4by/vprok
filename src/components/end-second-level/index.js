@@ -19,10 +19,12 @@ const EndSecondLevel = observer(() => {
     const location = useLocation()
 
     useEffect(() => {
-        window.mindbox('async', {
+        window.mindbox('sync', {
             operation: 'GetPromocodeForLevel2.ZadachaOnline',
             data: {},
-            onSuccess: function () {},
+            onSuccess: function (response) {
+                console.log(response)
+            },
             onError: function (error) {},
         })
 

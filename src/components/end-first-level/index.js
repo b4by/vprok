@@ -1,9 +1,12 @@
 import EndLevel, {
     Header,
     Subtitle,
+    StyledSubtitle,
     TextLevel1,
     TextPromoCode,
+    StyledPromoInput,
     EndLevelFooter,
+    StyledButton,
     StyledLink,
 } from 'components/end-level'
 import NextBtn from 'components/next-btn'
@@ -16,9 +19,15 @@ import TagManager from 'react-gtm-module'
 import { useLocation } from 'react-router-dom'
 
 const EndFirstLevel = observer(() => {
+    let myInput = null
     const { game } = useStore()
 
     const location = useLocation()
+
+    const copyToClipboard = () => {
+        myInput.select()
+        document.execCommand('copy')
+    }
 
     const buttons = (
         <Buttons>
@@ -58,14 +67,21 @@ const EndFirstLevel = observer(() => {
     return (
         <EndLevel buttons={buttons}>
             <Header>Уровень 1</Header>
-            <Subtitle>Сочный шашлык почти готов!</Subtitle>
+            <StyledSubtitle>Сочный шашлык почти готов!</StyledSubtitle>
             <TextLevel1>
                 Скидка — 5%
-                <br /> на заказ в Перекрёсток Впрок
+                <br /> на заказ в приложении <br /> Перекрёсток Впрок
             </TextLevel1>
-            <TextPromoCode>dacha5</TextPromoCode>
+            <StyledPromoInput
+                readOnly
+                value="dacha5"
+                ref={(ref) => (myInput = ref)}
+            />
+            {/* <TextPromoCode>dacha5</TextPromoCode> */}
             <EndLevelFooter>
-                <PaperIconSvg />
+                <StyledButton onClick={copyToClipboard}>
+                    <PaperIconSvg />
+                </StyledButton>
             </EndLevelFooter>
         </EndLevel>
     )

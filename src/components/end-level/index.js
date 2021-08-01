@@ -185,10 +185,12 @@ export const Subtitle = styled.div`
     }
 
     ${breakpoints.desktop} {
-        font-size: 65px;
+        font-size: 60px;
         margin-bottom: 30px;
     }
 `
+
+export const StyledSubtitle = styled(Subtitle)``
 
 export const Text = styled.div`
     margin-bottom: 39px;
@@ -250,15 +252,54 @@ export const TextPromoCode = styled.span`
     }
 `
 
+export const StyledPromoInput = styled.input.attrs({
+    type: 'text',
+})`
+    border: none;
+    background: none;
+    outline: none;
+    font-family: Marck Script, cursive;
+    font-size: 48px;
+    line-height: 100.63%;
+    /* margin-bottom: 12px; */
+    text-align: center;
+    color: #000000;
+
+    ${breakpoints.tablet} {
+        font-size: 80px;
+        /* margin-bottom: 15px; */
+        line-height: 1;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 90px;
+        /* margin-bottom: 15px; */
+    }
+`
+
 export const EndLevelFooter = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+`
+
+export const StyledLink = styled.a`
+    text-decoration: none;
+`
+
+export const StyledButton = styled.button.attrs({
+    type: 'button',
+})`
+    outline: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
     > svg {
         ${breakpoints.tablet} {
             width: 44px;
             height: 56px;
         }
+
         ${breakpoints.desktop} {
             width: 76px;
             height: 101px;
@@ -266,23 +307,20 @@ export const EndLevelFooter = styled.div`
     }
 `
 
-export const StyledLink = styled.a`
-    text-decoration: none;
-`
-
 export const VegetablesEndContainer = styled.div`
     position: absolute;
-    bottom: 0;
-    left: -50%;
+    top: 50%;
+    left: 0;
     pointer-events: none;
-    /* transform: translateX(50%); */
+    transform: translate(0, -25%);
+    width: 100%;
 
     ${breakpoints.tablet} {
-        position: absolute;
+        /* position: absolute;
         top: 50%;
-        left: 0;
+        left: 0; */
         transform: translate(0, -10%);
-        width: 100%;
+        /* width: 100%; */
         /* width: 1032.5px;
         bottom: -160px;
         transform: translateX(10%); */
@@ -291,6 +329,7 @@ export const VegetablesEndContainer = styled.div`
     ${breakpoints.desktop} {
         width: 1920px;
         height: 798px;
+        transform: translate(0, -25%);
     }
 
     & svg > g {

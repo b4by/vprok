@@ -30,6 +30,25 @@ export const Form = () => {
     const location = useLocation()
 
     const onSubmit = ({ email }) => {
+        window.mindbox('sync', {
+            operation: 'GetPromocodeForLevel3.ZadachaOnline',
+            data: {
+                customer: {
+                    email: email,
+                    subscriptions: [
+                        {
+                            brand: 'Perekrestok',
+                            pointOfContact: 'Email',
+                            isSubscribed: checked,
+                        },
+                    ],
+                },
+            },
+            onSuccess: function (res) {
+                console.log(res)
+            },
+            onError: function (error) {},
+        })
         const tagManagerArgs = {
             dataLayer: {
                 event: 'promo',

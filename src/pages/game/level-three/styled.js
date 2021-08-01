@@ -354,7 +354,7 @@ export const Mangal = styled(Item)`
 
 export const Cups = styled(Item)`
     background-image: url(${cups});
-    ${getSizes(164, 87, 1853, 3352)}
+    ${getSizes(164, 87, 1738, 2244)}
 `
 
 export const Shampur = styled(Item)`
@@ -364,7 +364,7 @@ export const Shampur = styled(Item)`
 
 export const Bottle = styled(Item)`
     background-image: url(${bottle});
-    ${getSizes(136, 42, 1805, 2302)}
+    ${getSizes(136, 42, 1617, 3170)}
 `
 export const Bucket = styled(Item)`
     background-image: url(${bucket});
