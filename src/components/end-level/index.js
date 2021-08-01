@@ -14,11 +14,11 @@ const rotate = keyframes`
     opacity: 1;
     transform-origin: top left;
   }
-  80% {    
+  /* 80% {    
     transform: translate(0, 0) rotate(15deg);
     opacity: 1;
     transform-origin: top left;
-  }
+  } */
   100% {
     transform: translate(0, 0) rotate(0);
     transform-origin: top left;
@@ -47,6 +47,8 @@ export const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    height: 100vh;
+    width: 100%;
 
     animation: ${blur} 0.5s ease-in-out both;
 `
@@ -128,6 +130,7 @@ export const Text = styled.div`
     font-size: 18px;
     line-height: 112.63%;
     white-space: pre-line;
+    user-select: none;
     text-align: center;
     color: #000000;
 

@@ -27,6 +27,7 @@ const Wrapper = styled.div`
     background-position: center;
     cursor: pointer;
     color: white;
+    user-select: none;
 
     font-family: Marck Script;
     font-style: normal;

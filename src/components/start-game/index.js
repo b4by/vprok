@@ -116,6 +116,7 @@ export const Text = styled.div`
     font-size: 15px;
     margin-bottom: 24px;
     white-space: pre-line;
+    user-select: none;
 
     ${breakpoints.tablet} {
         margin-bottom: 82px;

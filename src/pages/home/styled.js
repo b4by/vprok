@@ -11,6 +11,7 @@ export const TextMobile = styled.div`
     z-index: 2;
     white-space: pre-line;
     margin-bottom: 17px;
+    user-select: none;
 
     font-family: Roboto;
     font-style: normal;
