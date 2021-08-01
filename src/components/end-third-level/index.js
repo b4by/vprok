@@ -83,26 +83,30 @@ const vibrate = keyframes`
 
 export const VegetablesEndContainer = styled.div`
     position: absolute;
-    bottom: -30px;
     left: 54%;
     user-select: none;
     pointer-events: none;
     transform: translateX(-50%);
     width: 840px;
+    top: 10px;
 
     ${breakpoints.tablet} {
         width: 1262.5px;
         left: 52%;
-        bottom: -30px;
+        top: 100px;
+
+        & svg {
+            width: 1300px;
+        }
     }
 
     ${breakpoints.desktop} {
         width: 1920px;
         height: 1000px;
-        top: -40px;
+        top: 100px;
 
         & svg {
-            width: 2100px;
+            width: 2020px;
         }
     }
 
