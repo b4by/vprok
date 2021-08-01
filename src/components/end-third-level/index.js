@@ -252,6 +252,7 @@ const Vegetables = () => {
 }
 
 const EndThirdLevel = observer(() => {
+    const [isShareBtn, setIsShareBtn] = useState(false)
     const { game, modal } = useStore()
 
     const location = useLocation()
@@ -277,14 +278,16 @@ const EndThirdLevel = observer(() => {
                     __html: `Узнайте свой СУПЕРПРИЗ`,
                 }}
             />
-            <Form />
-            <StyledNextBtn
-                onClick={() => {
-                    modal.showModal(<ShareScreen />)
-                }}
-            >
-                Поделиться
-            </StyledNextBtn>
+            <Form setIsShareBtn={setIsShareBtn} />
+            {isShareBtn && (
+                <StyledNextBtn
+                    onClick={() => {
+                        modal.showModal(<ShareScreen />)
+                    }}
+                >
+                    Поделиться
+                </StyledNextBtn>
+            )}
         </EndLevel>
     )
 })

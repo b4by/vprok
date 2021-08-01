@@ -13,7 +13,6 @@ import { ReactComponent as FbIconSvg } from 'assets/svg/fb-icon.svg'
 import { ReactComponent as TwIconSvg } from 'assets/svg/tw-icon.svg'
 import { ReactComponent as OkIconSvg } from 'assets/svg/ok-icon.svg'
 import { ReactComponent as WaIconSvg } from 'assets/svg/wa-icon.svg'
-import WaIconImg from 'assets/img/wa-icon.png'
 import { ReactComponent as TgIconSvg } from 'assets/svg/tg-icon.svg'
 import { useRef } from 'react'
 import { observer } from 'mobx-react-lite'
@@ -53,7 +52,7 @@ const ShareScreen = observer(() => {
                         <FbIconSvg />
                     </a>
                     <a
-                        href="https://twitter.com/intent/tweet?text=Помогите найти шампуры и получите призы от Перекрёстка Впрок&url=https://zadacha.online/share"
+                        href="https://twitter.com/intent/tweet?url=https://zadacha.online/share"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -74,7 +73,7 @@ const ShareScreen = observer(() => {
                         <WaIconSvg />
                     </a>
                     <a
-                        href="https://t.me/share/url?url=https://zadacha.online/share&text=Помогите найти шампуры и получите призы от Перекрёстка Впрок"
+                        href="https://t.me/share/url?url=https://zadacha.online/share"
                         target="_blank"
                         rel="noreferrer"
                     >

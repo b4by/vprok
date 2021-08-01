@@ -241,89 +241,9 @@ export const StyledButton = styled.button.attrs({
     }
 `
 
-<<<<<<< HEAD
-export const VegetablesEndContainer = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 0;
-    pointer-events: none;
-    transform: translate(0, -25%);
-    width: 100%;
-
-    ${breakpoints.tablet} {
-        /* position: absolute;
-        top: 50%;
-        left: 0; */
-        transform: translate(0, -10%);
-        /* width: 100%; */
-        /* width: 1032.5px;
-        bottom: -160px;
-        transform: translateX(10%); */
-    }
-
-    ${breakpoints.desktop} {
-        width: 1920px;
-        height: 798px;
-        transform: translate(0, -25%);
-    }
-
-    & svg > g {
-        animation: ${vibrate} 4s linear alternate infinite;
-    }
-    & svg > path {
-        animation: ${vibrate} 4s ease alternate infinite;
-    }
-    & svg > g:nth-child(1) {
-        animation-delay: 0s;
-    }
-    & svg > g:nth-child(2) {
-        animation-delay: 0.5s;
-    }
-    & svg > g:nth-child(3) {
-        animation-delay: 1s;
-    }
-    & svg > g:nth-child(4) {
-        animation-delay: 0.4s;
-    }
-    & svg > g:nth-child(5) {
-        animation-delay: 0.2s;
-    }
-    & svg > g:nth-child(6) {
-        animation-delay: 0.4s;
-    }
-    & svg > g:nth-child(7) {
-        animation-delay: 1s;
-    }
-    & svg > g:nth-child(8) {
-        animation-delay: 1.5s;
-    }
-    & svg > g:nth-child(9) {
-        animation-delay: 0.2s;
-    }
-    & svg > g:nth-child(10) {
-        animation-delay: 0.8s;
-    }
-    & svg > g:nth-child(11) {
-        animation-delay: 0.1s;
-    }
-    & svg > g:nth-child(12) {
-        animation-delay: 0.9s;
-    }
-    & svg > g:nth-child(13) {
-        animation-delay: 0.2;
-    }
-`
-
-export default function EndLevel({ children, buttons }) {
-=======
-export const StyledLink = styled.a`
-    text-decoration: none;
-`
-
 export default function EndLevel({ children, buttons, vegetables }) {
->>>>>>> b4ea77ed54128c9e19bbcad4e5a3bc155567be72
     const ratio = useRatio()
-    
+
     return (
         <Wrapper>
             <Card ratio={ratio}>{children}</Card>

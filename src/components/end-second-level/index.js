@@ -88,7 +88,7 @@ const vibrate = keyframes`
 
 export const VegetablesEndContainer = styled.div`
     position: absolute;
-    top: 20px;
+    top: 135px;
     left: 50%;
     user-select: none;
     pointer-events: none;
@@ -97,7 +97,7 @@ export const VegetablesEndContainer = styled.div`
 
     ${breakpoints.tablet} {
         width: 1032.5px;
-        top: 110px;
+        top: 380px;
     }
 
     ${breakpoints.desktop} {

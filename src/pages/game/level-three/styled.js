@@ -347,6 +347,7 @@ export const Mangal = styled(Item)`
 `
 
 export const Cups = styled(Item)`
+    z-index: 100;
     background-image: url(${cups});
     ${getSizes(164, 87, 1738, 2244)}
 `
