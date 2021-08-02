@@ -129,6 +129,13 @@ export const Background = styled.div`
     background-size: contain;
     background-color: #fdfddb;
     overflow: hidden;
+
+    transition: filter 500ms ease-in;
+    ${(props) => (props.blured ? `filter: blur(10px);` : 'none')};
+
+    @supports (backdrop-filter: blur(10px)) {
+        filter: none;
+    }
 `
 
 const getSizes = (width, height, top, left) => {
