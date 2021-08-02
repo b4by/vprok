@@ -105,6 +105,7 @@ export const VegetablesEndContainer = styled.div`
     ${breakpoints.tablet} {
         width: 1032.5px;
         /* top: 250px; */
+        transform: translate(-50%, -30%);
     }
 
     ${breakpoints.desktop} {

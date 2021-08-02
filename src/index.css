@@ -35,11 +35,10 @@ body,
 }
 
 @font-face {
-    font-family: 'HelveticaNeueCyr';
-    src: url('./assets/fonts/HelveticaNeueCyr/HelveticaNeueCyr-Medium.woff2')
-        format('woff2');
-    font-weight: 500;
-    font-style: normal;
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy/Gilroy-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
 }
 
 body {

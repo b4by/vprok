@@ -64,7 +64,7 @@ export const Text = styled.div`
     user-select: none;
 
     & span {
-        font-weight: 400;
+        font-weight: 300;
         color: #c5ff76;
         font-style: italic;
     }
