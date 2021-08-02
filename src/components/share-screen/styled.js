@@ -79,7 +79,6 @@ export const ShareScreenGroup = styled.div`
         gap: 30px;
         margin-bottom: 63px;
     }
-    }
 
     svg {
         width: 34px;
