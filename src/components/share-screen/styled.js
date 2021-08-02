@@ -76,8 +76,9 @@ export const ShareScreenGroup = styled.div`
 
     ${breakpoints.desktop} {
         grid-template-columns: repeat(6, 90px);
-        gap: 34px;
+        gap: 30px;
         margin-bottom: 63px;
+    }
     }
 
     svg {

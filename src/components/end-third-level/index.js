@@ -4,7 +4,7 @@ import { observer } from 'mobx-react'
 import { Form } from 'components/form/index'
 import TagManager from 'react-gtm-module'
 import { useLocation } from 'react-router-dom'
-import { StyledNextBtn } from './styled'
+import { StyledNextBtn, StyledFinalTitle, StyledFinalText } from './styled'
 import ShareScreen from 'components/share-screen/index'
 import styled, { keyframes, css } from 'styled-components'
 import { useEffect, useState } from 'react'
@@ -252,6 +252,8 @@ const Vegetables = () => {
 }
 
 const EndThirdLevel = observer(() => {
+    const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isShareBtn, setIsShareBtn] = useState(false)
     const { game, modal } = useStore()
 
     const location = useLocation()
@@ -266,7 +268,7 @@ const EndThirdLevel = observer(() => {
             },
         }
         TagManager.dataLayer(tagManagerArgs)
-    }, [location.pathname])
+    }, [])
 
     return (
         <EndLevel vegetables={<Vegetables />}>
@@ -277,14 +279,33 @@ const EndThirdLevel = observer(() => {
                     __html: `Узнайте свой СУПЕРПРИЗ`,
                 }}
             />
-            <Form />
-            <StyledNextBtn
-                onClick={() => {
-                    modal.showModal(<ShareScreen />)
-                }}
-            >
-                Поделиться
-            </StyledNextBtn>
+            <Form setIsShareBtn={setIsShareBtn} />
+            {!isSubmitted && <Form setIsShareBtn={setIsShareBtn} />}
+            {isSubmitted && (
+                <StyledFinalTitle
+                    dangerouslySetInnerHTML={{
+                        __html: `Суперприз — <span>скидка до 20%</span>
+                     на заказ в приложении Перекрёсток Впрок.`,
+                    }}
+                />
+            )}
+            {isSubmitted && (
+                <StyledFinalText
+                    dangerouslySetInnerHTML={{
+                        __html: `Промокод уже в почте! Перейдите по ссылке
+                         в письме, чтобы получить скидку`,
+                    }}
+                />
+            )}
+            {isShareBtn && (
+                <StyledNextBtn
+                    onClick={() => {
+                        modal.showModal(<ShareScreen />)
+                    }}
+                >
+                    Поделиться
+                </StyledNextBtn>
+            )}
         </EndLevel>
     )
 })

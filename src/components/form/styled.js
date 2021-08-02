@@ -123,7 +123,7 @@ export const StyledCheckboxLabel = styled.label`
 `
 
 export const StyledCheckboxText = styled.span`
-    font-family: 'HelveticaNeueCyr';
+    font-family: 'Gilroy';
     font-style: normal;
     font-weight: 300;
     font-size: 8px;
@@ -156,7 +156,6 @@ export const StyledCheckboxInput = styled.input.attrs({
 `
 
 export const StyledFooterText = styled.p`
-    font-family: 'HelveticaNeueCyr';
     font-style: normal;
     font-weight: 300;
     font-size: 6px;

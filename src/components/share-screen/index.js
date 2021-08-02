@@ -37,22 +37,46 @@ const ShareScreen = observer(() => {
                 <StyledCloseIconSvg onClick={() => modal.closeModal()} />
                 <ShareScreenTitle>Поделиться</ShareScreenTitle>
                 <ShareScreenGroup>
-                    <a href="https://vk.com/share.php?url=https://zadacha.online ">
+                    <a
+                        href="https://vk.com/share.php?url=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <VkIconSvg />
                     </a>
-                    <a href="https://www.facebook.com/sharer.php?u=http://zadacha.online">
+                    <a
+                        href="https://www.facebook.com/sharer.php?u=http://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <FbIconSvg />
                     </a>
-                    <a href="https://twitter.com/intent/tweet?text=Помогите найти шампуры и получите призы от Перекрёстка Впрок&url=https://zadacha.online/">
+                    <a
+                        href="https://twitter.com/intent/tweet?url=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <TwIconSvg />
                     </a>
-                    <a href="https://connect.ok.ru/offer?url=https://zadacha.online/share">
+                    <a
+                        href="https://connect.ok.ru/offer?url=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <OkIconSvg />
                     </a>
-                    <a href="">
+                    <a
+                        href="https://api.whatsapp.com/send?text=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <WaIconSvg />
                     </a>
-                    <a href="https://t.me/share/url?url=https://zadacha.online/share">
+                    <a
+                        href="https://t.me/share/url?url=https://zadacha.online/share"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         <TgIconSvg />
                     </a>
                 </ShareScreenGroup>

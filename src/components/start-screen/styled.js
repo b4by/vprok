@@ -119,17 +119,19 @@ export const LogoImg = styled.div`
 `
 
 export const StoreIcon = styled.div`
-    width: 21px;
-    height: 21px;
+    svg {
+        width: 21px;
+        height: 21px;
 
-    ${breakpoints.tablet} {
-        width: 36px;
-        height: 36px;
-    }
+        ${breakpoints.tablet} {
+            width: 36px;
+            height: 36px;
+        }
 
-    ${breakpoints.desktop} {
-        width: 68px;
-        height: 68px;
+        ${breakpoints.desktop} {
+            width: 68px;
+            height: 68px;
+        }
     }
 `
 
