@@ -279,7 +279,6 @@ const EndThirdLevel = observer(() => {
                     __html: `Узнайте свой СУПЕРПРИЗ`,
                 }}
             />
-            <Form setIsShareBtn={setIsShareBtn} />
             {!isSubmitted && <Form setIsShareBtn={setIsShareBtn} />}
             {isSubmitted && (
                 <StyledFinalTitle
