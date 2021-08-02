@@ -86,14 +86,14 @@ export const VegetablesEndContainer = styled.div`
     left: 54%;
     user-select: none;
     pointer-events: none;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -49%);
     width: 840px;
-    top: 10px;
 
     ${breakpoints.tablet} {
         width: 1262.5px;
         left: 52%;
-        top: 100px;
+        /* top: 100px; */
 
         & svg {
             width: 1300px;
@@ -103,7 +103,7 @@ export const VegetablesEndContainer = styled.div`
     ${breakpoints.desktop} {
         width: 1920px;
         height: 1000px;
-        top: 100px;
+        /* top: 100px; */
 
         & svg {
             width: 2020px;

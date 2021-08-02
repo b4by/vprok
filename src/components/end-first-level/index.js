@@ -91,22 +91,23 @@ const vibrate = keyframes`
 
 export const VegetablesEndContainer = styled.div`
     position: absolute;
-    top: 20px;
     left: 50%;
     user-select: none;
     pointer-events: none;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -60%);
     width: 720px;
+    bottom: 0;
 
     ${breakpoints.tablet} {
         width: 1032.5px;
-        top: 250px;
+        /* top: 250px; */
     }
 
     ${breakpoints.desktop} {
         width: 1920px;
-        height: 1000px;
-        top: 210px;
+        /* top: 210px; */
+        transform: translate(-50%, -60%);
 
         & svg {
             width: 2100px;
