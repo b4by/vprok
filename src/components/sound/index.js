@@ -6,6 +6,8 @@ import highlight from 'audio/highlight.mp3'
 import pickup from 'audio/pickup.mp3'
 import pong from 'audio/pong.mp3'
 import { useRef, useEffect } from 'react'
+import { observer } from 'mobx-react'
+import { useStore } from 'store'
 
 const Wrapper = styled.div`
     position: absolute;
@@ -24,11 +26,13 @@ const typeAudio = {
     pickup,
 }
 
-const Sound = ({ type }) => {
+const Sound = observer(({ type }) => {
     const musicRef = useRef(null)
+    const { game } = useStore()
 
     useEffect(() => {
-        if (musicRef.current) musicRef.current.volume = 0.2
+        const volume = game.musicIsMuted ? 0 : 0.1
+        if (musicRef.current) musicRef.current.volume = volume
     })
 
     return (
@@ -43,6 +47,6 @@ const Sound = ({ type }) => {
             ></audio>
         </Wrapper>
     )
-}
+})
 
 export default Sound

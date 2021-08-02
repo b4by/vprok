@@ -33,6 +33,7 @@ import {
     Grass,
     Meat,
     Ketchup,
+    MusicToggle,
 } from './styled'
 import Hint from 'components/hint'
 import Messages from 'components/messages'
@@ -63,7 +64,7 @@ const LevelOne = observer(() => {
             setPicked(true)
             setTimeout(() => {
                 setPicked(false)
-            }, 1000);
+            }, 1000)
         }, 1000)
     const answers = game.currentItems.map((answer, i) => {
         return (
@@ -359,7 +360,10 @@ const LevelOne = observer(() => {
                         {showShampur && <Shampur off={showShampurOff} />}
                         <Timer showTimer={showTimer}>
                             {`${minutes}:${formatedSeconds}`}
+                            <MusicToggle />
                         </Timer>
+                        <MusicToggle mutted={game.musicIsMuted} onClick={() => { game.toggleMusic() }} />
+
                         <Hints>
                             <Hint
                                 from="perek"

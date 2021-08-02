@@ -6,6 +6,8 @@ import bubble from 'audio/bigpick.mp3'
 import highlight from 'audio/bigpick.mp3'
 import pickup from 'audio/bigpick.mp3'
 import pong from 'audio/bigpick.mp3'
+import { observer } from 'mobx-react'
+import { useStore } from 'store'
 
 const Wrapper = styled.div`
     position: absolute;
@@ -24,12 +26,14 @@ const typeAudio = {
     pickup,
 }
 
-const SoundClick = ({ type, children }) => {
+const SoundClick = observer(({ type, children }) => {
     const [clicked, setClicked] = useState(false)
     const musicRef = useRef(null)
+    const { game } = useStore()
 
     useEffect(() => {
-        if (musicRef.current) musicRef.current.volume = 0.2
+        const volume = game.musicIsMuted ? 0 : 0.1
+        if (musicRef.current) musicRef.current.volume = volume
     })
 
     return (
@@ -49,6 +53,6 @@ const SoundClick = ({ type, children }) => {
             {children}
         </div>
     )
-}
+})
 
 export default SoundClick

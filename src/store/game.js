@@ -69,6 +69,7 @@ export default class Game {
     levels = { ...data }
     copyItems = { ...data }
     rootStore = null
+    musicIsMuted = false
 
     constructor(rootStore) {
         makeAutoObservable(this)
@@ -78,6 +79,10 @@ export default class Game {
     levelPassed() {
         this.level += 1
         this.levelRestart()
+    }
+
+    toggleMusic() {
+        this.musicIsMuted = !this.musicIsMuted
     }
 
     levelRestart() {

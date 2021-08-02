@@ -41,6 +41,8 @@ import vectorPerek from 'img/vector-perek.svg'
 import vectorPerekTablet from 'img/vector-perek-tablet.svg'
 import vectorPerekMobile from 'img/vector-perek-mobile.svg'
 import { TransitionGroup } from 'react-transition-group'
+import sound from 'img/sound.png'
+import soundOff from 'img/sound-off.png'
 
 const position = {
     desktop: {
@@ -170,6 +172,41 @@ const getSizes = (width, height, top, left) => {
         }
     `
 }
+
+export const MusicToggle = styled.div`
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-image: url(${({ mutted }) => (mutted ? soundOff : sound)});
+
+    ${getSizes(138, 138, 364, 3470)}
+    left: auto;
+    right: 30px;
+    top: 64px;
+
+    ${breakpoints.tablet} {
+        width: 32px;
+        height: 32px;
+        right: 35px;
+        top: 136px;
+        left: auto;
+    }
+
+    ${breakpoints.desktop} {
+        width: 69px;
+        height: 69px;
+        right: 116px;
+        top: 198px;
+        left: auto;
+    }
+`
 
 export const Wrapper = styled.div`
     position: relative;
@@ -373,7 +410,6 @@ export const Shampur = styled(Item)`
         height: 152.5px;
     }
 `
-
 export const Timer = styled.div`
     position: absolute;
     right: 30px;

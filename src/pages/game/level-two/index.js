@@ -31,6 +31,7 @@ import {
     Mangal,
     Cups,
     Shampur,
+    MusicToggle
 } from './styled'
 import Hint from 'components/hint'
 import Messages from 'components/messages'
@@ -417,6 +418,13 @@ const LevelTwo = observer(() => {
                         <Timer showTimer={showTimer}>
                             {`${minutes}:${formatedSeconds}`}
                         </Timer>
+                        <MusicToggle
+                            mutted={game.musicIsMuted}
+                            onClick={() => {
+                                game.toggleMusic()
+                            }}
+                        />
+
                         <Hints>
                             <Hint
                                 from="perek"
