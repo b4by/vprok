@@ -1,5 +1,21 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { breakpoints } from 'helpers/breakpoints'
+
+const heartbeat = keyframes`
+  0% {
+    transform: scale(1);
+    transform-origin: center center;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    transform: scale(0.80);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+`
 
 export const Wrapper = styled.div`
     position: absolute;
@@ -60,6 +76,7 @@ export const Next = styled.div`
     width: 12px;
     height: 12px;
     margin: 5px auto 10px;
+    animation: ${heartbeat} 2s ease-in-out infinite both;
 
     & svg {
         width: 12px;
