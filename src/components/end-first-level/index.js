@@ -98,14 +98,22 @@ export const VegetablesEndContainer = styled.div`
     user-select: none;
     pointer-events: none;
     top: 50%;
-    transform: translate(-50%, -60%);
+    transform: translate(-54%, -61%);
     width: 720px;
     bottom: 0;
+
+    & svg {
+        width: 870px;
+    }
 
     ${breakpoints.tablet} {
         width: 1032.5px;
         /* top: 250px; */
         transform: translate(-50%, -30%);
+
+        & svg {
+            width: 1032px;
+        }
     }
 
     ${breakpoints.desktop} {
