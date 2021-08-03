@@ -37,6 +37,7 @@ const Hint = observer(({ from, active }) => {
                     trainingIsOver={game.trainingIsOver}
                     onClick={() => {
                         TagManager.dataLayer(tagManagerArgs)
+                        window.ttq.track('ClickButton')
                         if (!perekDisabled) {
                             hints.usePerekHint()
                         }

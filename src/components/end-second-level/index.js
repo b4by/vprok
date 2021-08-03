@@ -287,6 +287,7 @@ const EndSecondLevel = observer(() => {
                 eventLabel: location.pathname,
             },
         }
+        window.ttq.track('Browse')
         TagManager.dataLayer(tagManagerArgs)
     }, [location.pathname])
 
@@ -307,6 +308,7 @@ const EndSecondLevel = observer(() => {
                                 eventLabel: location.pathname,
                             },
                         }
+                        window.ttq.track('Purchase')
                         TagManager.dataLayer(tagManagerArgs)
                     }}
                 >
