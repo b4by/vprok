@@ -4,9 +4,31 @@ import { breakpoints } from 'helpers/breakpoints'
 
 export const StyledNextBtn = styled(NextBtn)``
 
-export const StyledFinalTitle = styled.p`
-    margin: 0;
-    padding: 0;
+export const StyledFinalTitle = styled.div`
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 112.13%;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+    span {
+        color: #fd2a53;
+    }
+
+    ${breakpoints.tablet} {
+        font-size: 24px;
+        line-height: 112.13%;
+        margin-bottom: 35px;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 34px;
+        line-height: 133.13%;
+        margin-bottom: 48px;
+    }
+`
+
+export const StyledFinalText = styled.div`
     font-weight: 600;
     font-size: 15px;
     line-height: 112.13%;
@@ -17,30 +39,10 @@ export const StyledFinalTitle = styled.p`
     ${breakpoints.tablet} {
         font-size: 24px;
         line-height: 112.13%;
-        margin-bottom: 35px;
     }
 
     ${breakpoints.desktop} {
-        font-size: 36px;
-        line-height: 133.13%;
-        margin-bottom: 48px;
-    }
-`
-
-export const StyledFinalText = styled.p`
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 112.13%;
-    text-align: center;
-    color: #000000;
-
-    ${breakpoints.tablet} {
-        font-size: 24px;
-        line-height: 112.13%;
-    }
-
-    ${breakpoints.desktop} {
-        font-size: 36px;
+        font-size: 34px;
         line-height: 133.13%;
     }
 `

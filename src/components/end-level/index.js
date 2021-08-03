@@ -119,7 +119,7 @@ export const Subtitle = styled.div`
     }
 
     ${breakpoints.desktop} {
-        font-size: 60px;
+        font-size: 57px;
         margin-bottom: 30px;
     }
 `
@@ -143,7 +143,7 @@ export const Text = styled.div`
 
     ${breakpoints.desktop} {
         font-size: 48px;
-        margin-bottom: 15px;
+        margin-bottom: 52px;
     }
 `
 
@@ -189,6 +189,7 @@ export const TextPromoCode = styled.span`
 export const StyledPromoInput = styled.input.attrs({
     type: 'text',
 })`
+    margin-top: 39px;
     border: none;
     background: none;
     outline: none;
@@ -208,6 +209,32 @@ export const StyledPromoInput = styled.input.attrs({
     ${breakpoints.desktop} {
         font-size: 90px;
         /* margin-bottom: 15px; */
+    }
+`
+
+export const StyledPromoInput2 = styled.input.attrs({
+    type: 'text',
+})`
+    border: none;
+    background: none;
+    outline: none;
+    font-family: Marck Script, cursive;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 100.63%;
+    margin-bottom: 7px;
+    text-align: center;
+    color: #000000;
+
+    ${breakpoints.tablet} {
+        font-size: 50px;
+        margin-bottom: 15px;
+        line-height: 1;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 60px;
+        margin-bottom: 15px;
     }
 `
 
@@ -238,6 +265,92 @@ export const StyledButton = styled.button.attrs({
             width: 76px;
             height: 101px;
         }
+    }
+`
+
+export const StyledButton2 = styled(StyledButton)`
+    margin-bottom: 7px;
+    ${breakpoints.tablet} {
+        margin-bottom: 18px;
+    }
+
+    ${breakpoints.desktop} {
+    }
+    svg {
+        width: 18px;
+        height: 24px;
+        ${breakpoints.tablet} {
+            width: 23px;
+            height: 29px;
+        }
+        ${breakpoints.desktop} {
+            width: 34px;
+            height: 44px;
+        }
+    }
+`
+
+export const Level2EndText = styled.div`
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 112.63%;
+    user-select: none;
+    text-align: center;
+    color: #000000;
+    white-space: nowrap;
+
+    a {
+        color: #ff0000;
+    }
+
+    ${breakpoints.tablet} {
+        font-size: 20px;
+        line-height: 106.13%;
+        margin-bottom: 18px;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 37px;
+        line-height: 112.63%;
+        margin-bottom: 33px;
+    }
+`
+
+export const PromoCodeText = styled.h3`
+    margin: 0 auto;
+    font-family: Marck Script;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.1;
+    text-align: center;
+    color: #000000;
+
+    ${breakpoints.tablet} {
+        font-size: 50px;
+        line-height: 100.63%;
+    }
+
+    ${breakpoints.desktop} {
+        font-size: 37px;
+        line-height: 112.63%;
+    }
+`
+
+export const Level2FooterText = styled.div`
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 112.63%;
+    text-align: center;
+    color: #000000;
+    ${breakpoints.tablet} {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 106.13%;
+    }
+    ${breakpoints.desktop} {
+        font-size: 37px;
+        line-height: 112.63%;
     }
 `
 

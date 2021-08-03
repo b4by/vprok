@@ -2,6 +2,12 @@ import EndLevel, {
     Header,
     Subtitle,
     Text,
+    EndLevelFooter,
+    StyledButton,
+    StyledButton2,
+    Level2EndText,
+    StyledPromoInput2,
+    Level2FooterText,
     StyledLink,
 } from 'components/end-level'
 import NextBtn from 'components/next-btn'
@@ -15,6 +21,7 @@ import styled, { keyframes, css } from 'styled-components'
 import { useEffect, useState } from 'react'
 import { breakpoints } from 'helpers/breakpoints'
 import { ReactComponent as VegetablesEnd } from 'img/lvl-2-end-veg.svg'
+import { ReactComponent as PaperIconSvg } from 'assets/svg/papers.svg'
 
 function getRandomInt(max) {
     return Math.random() * max + 2
@@ -239,6 +246,18 @@ const Vegetables = () => {
 }
 
 const EndSecondLevel = observer(() => {
+    let myInput = null
+    const copyToClipboard = () => {
+        myInput.select()
+        document.execCommand('copy')
+    }
+    const [products, setProducts] = useState({
+        p: 'Чипсы Pringles за 1 рубль<br /> <a href="https://www.vprok.ru/product/pringles-prin-chipsy-kart-vk-zel-luk-165g--458407" target="_blank" rel="noreferrer" >Добавь их в корзину</a> и активируй промокод',
+        r: 'Шоколад Ritter Sport за 1 рубль<br /> <a href="https://www.vprok.ru/product/ritter-sport-r-sp-shok-klub-s-yog-mol-100g--673617" target="_blank" rel="noreferrer">Добавь их в корзину</a> и активируй промокод',
+        n: 'Паста Nutella за 1 рубль<br /> <a href="https://www.vprok.ru/product/nutella-pasta-nutella-oreh-s-dob-kakao-630g--304329" target="_blank" rel="noreferrer">Добавь их в корзину</a> и активируй промокод',
+    })
+    const [activeProd, setActiveProd] = useState('r')
+    const [promoCode, setPromoCode] = useState('rittersportrubl')
     const { game } = useStore()
     const location = useLocation()
 
@@ -247,7 +266,15 @@ const EndSecondLevel = observer(() => {
             operation: 'GetPromocodeForLevel2.ZadachaOnline',
             data: {},
             onSuccess: function (response) {
-                console.log(response)
+                if (!Object.keys(response).length) {
+                    setActiveProd('r')
+                    return
+                }
+                let promo = response?.promoCode?.ids?.value
+                let product = promo[0]
+                console.log(product)
+                setPromoCode(promo)
+                setActiveProd(product)
             },
             onError: function (error) {},
         })
@@ -302,11 +329,25 @@ const EndSecondLevel = observer(() => {
         <EndLevel buttons={buttons} vegetables={<Vegetables />}>
             <Header>Уровень 2</Header>
             <Subtitle>Осталось накрыть на стол!</Subtitle>
-            <Text
+            <Level2EndText
                 dangerouslySetInnerHTML={{
-                    __html: `Название товара за 1 рубль`,
+                    __html: `${products[activeProd]}`,
                 }}
             />
+            <StyledPromoInput2
+                readOnly
+                value={promoCode}
+                ref={(ref) => (myInput = ref)}
+            />
+            <EndLevelFooter>
+                <StyledButton2 onClick={copyToClipboard}>
+                    <PaperIconSvg />
+                </StyledButton2>
+            </EndLevelFooter>
+            <Level2FooterText>
+                Пройди 3 уровень и получи СУПЕРПРИЗ.
+                <br /> Все промокоды пришлём на почту.
+            </Level2FooterText>
         </EndLevel>
     )
 })

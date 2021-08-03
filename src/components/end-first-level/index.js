@@ -306,7 +306,6 @@ const EndFirstLevel = observer(() => {
                 value="dacha5"
                 ref={(ref) => (myInput = ref)}
             />
-            {/* <TextPromoCode>dacha5</TextPromoCode> */}
             <EndLevelFooter>
                 <StyledButton onClick={copyToClipboard}>
                     <PaperIconSvg />

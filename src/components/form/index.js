@@ -17,7 +17,7 @@ import { useState, useEffect } from 'react'
 import TagManager from 'react-gtm-module'
 import { useLocation } from 'react-router-dom'
 
-export const Form = ({ setIsShareBtn }) => {
+export const Form = ({ setIsShareBtn, setIsSubmitted }) => {
     const [checked, setChecked] = useState(true)
     const {
         register,
@@ -45,10 +45,12 @@ export const Form = ({ setIsShareBtn }) => {
                 },
             },
             onSuccess: function (res) {
-                console.log(res)
+                setIsSubmitted(true)
                 setIsShareBtn(true)
             },
-            onError: function (error) {},
+            onError: function (error) {
+                setIsSubmitted(false)
+            },
         })
         const tagManagerArgs = {
             dataLayer: {

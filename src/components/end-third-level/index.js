@@ -274,16 +274,23 @@ const EndThirdLevel = observer(() => {
         <EndLevel vegetables={<Vegetables />}>
             <Header>Уровень 3</Header>
             <Subtitle>Вы решили все дачные задачи!</Subtitle>
-            <Text
-                dangerouslySetInnerHTML={{
-                    __html: `Узнайте свой СУПЕРПРИЗ`,
-                }}
-            />
-            {!isSubmitted && <Form setIsShareBtn={setIsShareBtn} />}
+            {!isSubmitted && (
+                <Text
+                    dangerouslySetInnerHTML={{
+                        __html: `Узнайте свой СУПЕРПРИЗ`,
+                    }}
+                />
+            )}
+            {!isSubmitted && (
+                <Form
+                    setIsShareBtn={setIsShareBtn}
+                    setIsSubmitted={setIsSubmitted}
+                />
+            )}
             {isSubmitted && (
                 <StyledFinalTitle
                     dangerouslySetInnerHTML={{
-                        __html: `Суперприз — <span>скидка до 20%</span>
+                        __html: `Суперприз — <span>скидка до 20%</span><br />
                      на заказ в приложении Перекрёсток Впрок.`,
                     }}
                 />
@@ -291,7 +298,7 @@ const EndThirdLevel = observer(() => {
             {isSubmitted && (
                 <StyledFinalText
                     dangerouslySetInnerHTML={{
-                        __html: `Промокод уже в почте! Перейдите по ссылке
+                        __html: `Промокод уже в почте! Перейдите по ссылке<br />
                          в письме, чтобы получить скидку`,
                     }}
                 />

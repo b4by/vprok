@@ -62,10 +62,10 @@ const data = {
 }
 
 export default class Game {
-    level = 0
-    trainingIsOver = false
+    level = 2
+    trainingIsOver = true
     isStarted = false
-    isCompleted = false
+    isCompleted = true
     levels = { ...data }
     copyItems = { ...data }
     rootStore = null
