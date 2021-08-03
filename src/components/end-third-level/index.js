@@ -267,6 +267,7 @@ const EndThirdLevel = observer(() => {
                 eventLabel: location.pathname,
             },
         }
+        window.ttq.track('Browse')
         TagManager.dataLayer(tagManagerArgs)
     }, [])
 
@@ -306,6 +307,16 @@ const EndThirdLevel = observer(() => {
             {isShareBtn && (
                 <StyledNextBtn
                     onClick={() => {
+                        const tagManagerArgs = {
+                            dataLayer: {
+                                event: 'promo',
+                                eventCategory: 'click',
+                                eventAction: 'share',
+                                eventLabel: location.pathname,
+                            },
+                        }
+                        window.ttq.track('SubmitForm')
+                        TagManager.dataLayer(tagManagerArgs)
                         modal.showModal(<ShareScreen />)
                     }}
                 >

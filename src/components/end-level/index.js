@@ -189,7 +189,6 @@ export const TextPromoCode = styled.span`
 export const StyledPromoInput = styled.input.attrs({
     type: 'text',
 })`
-    margin-top: 39px;
     border: none;
     background: none;
     outline: none;

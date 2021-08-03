@@ -34,6 +34,7 @@ const GameOver = observer(() => {
                                 eventLabel: location.pathname,
                             },
                         }
+                        window.ttq.track('Purchase')
                         TagManager.dataLayer(tagManagerArgs)
                     }}
                 >

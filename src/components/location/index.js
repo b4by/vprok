@@ -15,6 +15,7 @@ export const Location = ({ children }) => {
             },
         }
         TagManager.dataLayer(tagManagerArgs)
+        window.ttq.track('Browse')
     }, [location.pathname])
 
     return <>{children}</>

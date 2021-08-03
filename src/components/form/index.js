@@ -47,20 +47,21 @@ export const Form = ({ setIsShareBtn, setIsSubmitted }) => {
             onSuccess: function (res) {
                 setIsSubmitted(true)
                 setIsShareBtn(true)
+                const tagManagerArgs = {
+                    dataLayer: {
+                        event: 'promo',
+                        eventCategory: 'click',
+                        eventAction: 'send_email_and_get_prize',
+                        eventLabel: location.pathname,
+                    },
+                }
+                window.ttq.track('Registration')
+                TagManager.dataLayer(tagManagerArgs)
             },
             onError: function (error) {
                 setIsSubmitted(false)
             },
         })
-        const tagManagerArgs = {
-            dataLayer: {
-                event: 'promo',
-                eventCategory: 'click',
-                eventAction: 'send_email_and_get_prize',
-                eventLabel: location.pathname,
-            },
-        }
-        TagManager.dataLayer(tagManagerArgs)
     }
 
     return (
