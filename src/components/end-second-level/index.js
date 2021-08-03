@@ -96,16 +96,23 @@ const vibrate = keyframes`
 export const VegetablesEndContainer = styled.div`
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -49%);
+    transform: translate(-59%, -49%);
     left: 50%;
     user-select: none;
     pointer-events: none;
     width: 640px;
 
+    & svg {
+        width: 870px;
+    }
+
     ${breakpoints.tablet} {
         width: 1032.5px;
         /* top: 110px; */
         transform: translate(-50%, -40%);
+        & svg {
+            width: 1140px;
+        }
     }
 
     ${breakpoints.desktop} {
@@ -113,6 +120,10 @@ export const VegetablesEndContainer = styled.div`
         height: 1000px;
         /* top: -40px; */
         transform: translate(-50%, -59%);
+
+        & svg {
+            width: 2130px;
+        }
     }
 
     & svg > g:nth-child(1) {
