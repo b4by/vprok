@@ -85,7 +85,6 @@ export default function Home() {
                             onClick={() => {
                                 setTimeout(() => {
                                     TagManager.dataLayer(tagManagerArgs)
-                                    window.ttq.track('AddToCart')
                                     history.push('/level/0')
                                 }, 1000)
                                 setPushed(true)

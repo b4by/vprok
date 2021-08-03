@@ -264,8 +264,8 @@ const EndSecondLevel = observer(() => {
     }
     const [products, setProducts] = useState({
         p: 'Чипсы Pringles за 1 рубль<br /> <a href="https://www.vprok.ru/product/pringles-prin-chipsy-kart-vk-zel-luk-165g--458407" target="_blank" rel="noreferrer" >Добавь их в корзину</a> и активируй промокод',
-        r: 'Шоколад Ritter Sport за 1 рубль<br /> <a href="https://www.vprok.ru/product/ritter-sport-r-sp-shok-klub-s-yog-mol-100g--673617" target="_blank" rel="noreferrer">Добавь их в корзину</a> и активируй промокод',
-        n: 'Паста Nutella за 1 рубль<br /> <a href="https://www.vprok.ru/product/nutella-pasta-nutella-oreh-s-dob-kakao-630g--304329" target="_blank" rel="noreferrer">Добавь их в корзину</a> и активируй промокод',
+        r: 'Шоколад Ritter Sport за 1 рубль<br /> <a href="https://www.vprok.ru/product/ritter-sport-r-sp-shok-klub-s-yog-mol-100g--673617" target="_blank" rel="noreferrer">Добавь его в корзину</a> и активируй промокод',
+        n: 'Паста Nutella за 1 рубль<br /> <a href="https://www.vprok.ru/product/nutella-pasta-nutella-oreh-s-dob-kakao-630g--304329" target="_blank" rel="noreferrer">Добавь её в корзину</a> и активируй промокод',
     })
     const [activeProd, setActiveProd] = useState('r')
     const [promoCode, setPromoCode] = useState('rittersportrubl')
@@ -298,7 +298,6 @@ const EndSecondLevel = observer(() => {
                 eventLabel: location.pathname,
             },
         }
-        window.ttq.track('Browse')
         TagManager.dataLayer(tagManagerArgs)
     }, [location.pathname])
 
@@ -319,7 +318,6 @@ const EndSecondLevel = observer(() => {
                                 eventLabel: location.pathname,
                             },
                         }
-                        window.ttq.track('Purchase')
                         TagManager.dataLayer(tagManagerArgs)
                     }}
                 >

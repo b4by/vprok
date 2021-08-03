@@ -267,7 +267,6 @@ const EndThirdLevel = observer(() => {
                 eventLabel: location.pathname,
             },
         }
-        window.ttq.track('Browse')
         TagManager.dataLayer(tagManagerArgs)
     }, [])
 
@@ -315,7 +314,6 @@ const EndThirdLevel = observer(() => {
                                 eventLabel: location.pathname,
                             },
                         }
-                        window.ttq.track('SubmitForm')
                         TagManager.dataLayer(tagManagerArgs)
                         modal.showModal(<ShareScreen />)
                     }}

@@ -55,7 +55,6 @@ export const Form = ({ setIsShareBtn, setIsSubmitted }) => {
                         eventLabel: location.pathname,
                     },
                 }
-                window.ttq.track('Registration')
                 TagManager.dataLayer(tagManagerArgs)
             },
             onError: function (error) {
