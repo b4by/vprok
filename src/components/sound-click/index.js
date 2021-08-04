@@ -33,7 +33,10 @@ const SoundClick = observer(({ type, children }) => {
 
     useEffect(() => {
         const volume = game.musicIsMuted ? 0 : 0.1
-        if (musicRef.current) musicRef.current.volume = volume
+        if (musicRef.current) {
+            musicRef.current.volume = volume
+            musicRef.current.muted = game.musicIsMuted
+        }
     })
 
     return (

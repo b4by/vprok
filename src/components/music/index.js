@@ -35,11 +35,22 @@ const Music = observer(() => {
 
     useLayoutEffect(() => {
         const volume = game.musicIsMuted ? 0 : 0.1;
-        if (musicRef.current) musicRef.current.volume = volume
-        if (win1Ref.current) win1Ref.current.volume = volume
-        if (win2Ref.current) win2Ref.current.volume = volume
-        if (introRef.current) introRef.current.volume = volume
-
+        if (musicRef.current) {
+            musicRef.current.volume = volume
+            musicRef.current.muted = game.musicIsMuted
+        }
+        if (win1Ref.current) {
+            win1Ref.current.volume = volume
+            win1Ref.current.muted = game.musicIsMuted
+        }
+        if (win2Ref.current) {
+            win2Ref.current.volume = volume
+            win2Ref.current.muted = game.musicIsMuted
+        }
+        if (introRef.current) {
+            introRef.current.volume = volume
+            introRef.current.muted = game.musicIsMuted
+        }
         if (game.isStarted) {
             musicRef.current.play()
         }
