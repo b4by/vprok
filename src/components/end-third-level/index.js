@@ -4,12 +4,59 @@ import { observer } from 'mobx-react'
 import { Form } from 'components/form/index'
 import TagManager from 'react-gtm-module'
 import { useLocation } from 'react-router-dom'
-import { StyledNextBtn, StyledFinalTitle, StyledFinalText } from './styled'
+import {
+    StyledReturnBtn,
+    StyledErrorTitle,
+    StyledErrorText,
+    StyledNextBtn,
+    StyledFinalTitle,
+    StyledFinalText,
+} from './styled'
 import ShareScreen from 'components/share-screen/index'
 import styled, { keyframes, css } from 'styled-components'
 import { useEffect, useState } from 'react'
 import { breakpoints } from 'helpers/breakpoints'
 import { ReactComponent as VegetablesEnd } from 'img/lvl-3-end-veg.svg'
+import ProgressBar from '../progress-bar'
+
+const SuccessForm = () => {
+    return (
+        <>
+            <StyledFinalTitle
+                dangerouslySetInnerHTML={{
+                    __html: `Суперприз — <span>скидка до 20%</span><br />
+                     на заказ в приложении Перекрёсток Впрок.`,
+                }}
+            />
+            <StyledFinalText
+                dangerouslySetInnerHTML={{
+                    __html: `Промокод уже в почте! Перейдите по ссылке<br />
+                         в письме, чтобы получить скидку`,
+                }}
+            />
+        </>
+    )
+}
+
+const ErrorForm = ({ setIsSubmitted, setError }) => {
+    return (
+        <>
+            <StyledErrorText>
+                Ещё не готово <br />
+                Мы почему-то не получили вашу почту.
+                <br /> Проверьте введённый адрес — там могут быть опечатки.
+            </StyledErrorText>
+            <StyledReturnBtn
+                onClick={() => {
+                    setIsSubmitted(false)
+                    setError(false)
+                }}
+            >
+                Сейчас проверю
+            </StyledReturnBtn>
+        </>
+    )
+}
 
 function getRandomInt(max) {
     return Math.random() * max + 2
@@ -253,7 +300,7 @@ const Vegetables = () => {
 
 const EndThirdLevel = observer(() => {
     const [isSubmitted, setIsSubmitted] = useState(false)
-    const [isShareBtn, setIsShareBtn] = useState(false)
+    const [error, setError] = useState(false)
     const { game, modal } = useStore()
 
     const location = useLocation()
@@ -273,54 +320,50 @@ const EndThirdLevel = observer(() => {
     return (
         <EndLevel vegetables={<Vegetables />}>
             <Header>Уровень 3</Header>
-            <Subtitle>Вы решили все дачные задачи!</Subtitle>
-            {!isSubmitted && (
-                <Text
-                    dangerouslySetInnerHTML={{
-                        __html: `Узнайте свой СУПЕРПРИЗ`,
-                    }}
-                />
+            {!isSubmitted && !error && (
+                <>
+                    <Subtitle>Вы решили все дачные задачи!</Subtitle>
+                    <Text
+                        dangerouslySetInnerHTML={{
+                            __html: `Узнайте свой СУПЕРПРИЗ`,
+                        }}
+                    />
+                    <Form setIsSubmitted={setIsSubmitted} setError={setError} />
+                    {/* <ProgressBar /> */}
+                </>
             )}
-            {!isSubmitted && (
-                <Form
-                    setIsShareBtn={setIsShareBtn}
-                    setIsSubmitted={setIsSubmitted}
-                />
+            {isSubmitted && !error && (
+                <>
+                    <Subtitle>Вы решили все дачные задачи!</Subtitle>
+                    <SuccessForm />
+                    <StyledNextBtn
+                        onClick={() => {
+                            const tagManagerArgs = {
+                                dataLayer: {
+                                    event: 'promo',
+                                    eventCategory: 'click',
+                                    eventAction: 'share',
+                                    eventLabel: location.pathname,
+                                },
+                            }
+                            TagManager.dataLayer(tagManagerArgs)
+                            modal.showModal(<ShareScreen />)
+                        }}
+                    >
+                        Поделиться
+                    </StyledNextBtn>
+                </>
             )}
-            {isSubmitted && (
-                <StyledFinalTitle
-                    dangerouslySetInnerHTML={{
-                        __html: `Суперприз — <span>скидка до 20%</span><br />
-                     на заказ в приложении Перекрёсток Впрок.`,
-                    }}
-                />
-            )}
-            {isSubmitted && (
-                <StyledFinalText
-                    dangerouslySetInnerHTML={{
-                        __html: `Промокод уже в почте! Перейдите по ссылке<br />
-                         в письме, чтобы получить скидку`,
-                    }}
-                />
-            )}
-            {isShareBtn && (
-                <StyledNextBtn
-                    onClick={() => {
-                        const tagManagerArgs = {
-                            dataLayer: {
-                                event: 'promo',
-                                eventCategory: 'click',
-                                eventAction: 'share',
-                                eventLabel: location.pathname,
-                            },
-                        }
-                        TagManager.dataLayer(tagManagerArgs)
-                        modal.showModal(<ShareScreen />)
-                    }}
-                >
-                    Поделиться
-                </StyledNextBtn>
-            )}
+            {isSubmitted ||
+                (!isSubmitted && error && (
+                    <>
+                        <Subtitle>Ошибка при отправке почты</Subtitle>
+                        <ErrorForm
+                            setIsSubmitted={setIsSubmitted}
+                            setError={setError}
+                        />
+                    </>
+                ))}
         </EndLevel>
     )
 })
