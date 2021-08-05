@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useLayoutEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { StoreProvider } from './store'
 import Home from './pages/home'
@@ -10,11 +10,7 @@ import ModalContainer from 'components/modal/index'
 
 const App = observer(() => {
     const { modal } = useStore()
-    //  const audioRef = useRef(null);
 
-    //   useEffect(() => {
-    //       audioRef.current.play();
-    //   }, []);
     return (
         <>
             <Router>

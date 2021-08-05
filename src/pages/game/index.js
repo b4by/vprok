@@ -14,6 +14,7 @@ import TagManager from 'react-gtm-module'
 
 const Game = observer(() => {
     const isPortrait = useScreenOrientation()
+    const isFb = window.navigator.userAgent.indexOf('FBAN') !== -1
     const { game } = useStore()
 
     const level = game.currentLevel
@@ -27,7 +28,7 @@ const Game = observer(() => {
     return (
         <>
             <Music />
-            {isPortrait && <PortraitScreen />}
+            {isPortrait && !isFb && <PortraitScreen />}
             <Blackscreen />
             {(level === 1 || level === 0) && <LevelOne />}
             {level === 2 && <LevelTwo />}
